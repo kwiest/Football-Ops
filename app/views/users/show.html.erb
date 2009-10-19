@@ -1,0 +1,51 @@
+<div class="float-left">
+	<%= image_tag @user.photo.url %>
+</div>
+
+<p>
+  <b>School:</b>
+  <%=h @user.school.name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @user.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @user.phone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @user.fax %>
+</p>
+
+<p>
+  <b>Conference rep:</b>
+  <%=h @user.conference_rep %>
+</p>
+
+<p>
+  <b>National committee:</b>
+  <%=h @user.national_committee %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%=h @user.admin %>
+</p>
+
+
+<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>

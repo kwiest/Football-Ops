@@ -1,0 +1,8 @@
+<p>
+	<strong><%= school.name %></strong>
+</p>
+
+<h3>DFOs</h3>
+<% school.users.each do |user| -%>
+	<p><%= link_to user.full_name, user %></p>
+<% end -%>

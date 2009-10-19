@@ -1,0 +1,310 @@
+/******************************************************************
+ * Reset
+ ******************************************************************/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+	background: #fff;
+}
+
+a, a:visited {
+	outline: none;
+	font-weight: normal;
+	text-decoration: underline;
+	color: #33f;
+}
+
+a img {
+	border: none;
+}
+
+img.profile_pic {
+	padding: 3px;
+	background: #fff;
+	border: 1px solid #999;
+	margin-right: 12px;
+	float: left;
+}
+
+
+/******************************************************************
+ * Table
+ ******************************************************************/
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 14px;
+}
+
+td, th {
+	padding: 6px;
+	font-size: 12px;
+}
+
+th { 
+	background: #aaa;
+	text-align: left;
+}
+
+
+/******************************************************************
+ * Utility
+ ******************************************************************/
+ 
+.float-left {
+	float: left;
+	margin: 0 24px 24px 0;
+}
+
+.float-right {
+	float: right;
+	margin: 0 0 24px 24px;
+}
+
+.clear {
+	clear: both;
+}
+
+.center {
+	text-align: center;
+}
+
+.inner {
+    padding: 10px;
+}
+
+#player {
+	display: block;
+	width: 480px;
+	height: 272px;
+	margin: 10px 0;
+}
+
+
+/******************************************************************
+ * Type
+ ******************************************************************/
+
+p {
+	font-size: 12px;
+	line-height: 1.5;
+	margin-bottom: 12px;
+}
+
+ul, ol {
+	margin-bottom: 12px;
+}
+
+li {
+	font-size: 12px;
+	line-height: 1.5;
+	margin-left: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #3e3e3e;
+	line-height: 1.5;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+h4, h5, h6 {
+	font-size: 14px;
+}
+
+.required {
+	color: #d00;
+}
+
+.error, .notice, .success {
+	padding: 12px;
+	margin-bottom: 10px;
+	border: 2px solid #ddd;
+	
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.error {
+	background: #fbe3e4;
+	color: #8a1f11;
+	border-color: #fbc2c4;
+}
+.error a {
+	color: #8a1f11;
+}
+
+.notice {
+	background: #fff6bf;
+	color: #514721;
+	border-color: #ffd324;
+}
+.notice a {
+	color: #514721;
+}
+
+.success {
+	background: #e6efc2;
+	color: #264409;
+	border-color: #c6d880;
+}
+
+.success a {
+	color: #264409;
+}
+
+
+/******************************************************************
+ * Forms
+ ******************************************************************/
+
+.form-row {
+	margin: 6px 0;
+}
+
+label {
+	display: block;
+	font-family: Verdana, Arial, sans-serif;
+	padding: 4px 0;
+	font-size: 12px;
+	font-weight: bold;
+	color: #222;
+}
+
+input, textarea {
+	background: #fff url("/images/input-bg.gif") top left repeat-x;
+	padding: 4px;
+	color: #666;
+	font-size: 12px;
+	font-family: Verdana, Arial, sans-serif;
+	border: 1px solid #b1b1b1;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+	background: #F9F8E4;
+}
+
+input[type="submit"] {
+	background: transparent url("/images/button_states.png");
+	display: block;
+	width: 200px;
+	height: 45px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	border: none;
+	margin: 0;
+	padding: 0;
+	
+	text-shadow: 1px 1px 1px #333;
+}
+
+input[type="submit"]:hover {
+	background-position: 0 90px;
+}
+
+input[type="submit"]:active {
+	background-position: 0 45px;
+}
+
+input[type="submit"].add-button {
+	background: transparent url("/images/add_button_states.png");
+	text-align: left;
+	padding-left: 50px;
+}
+
+input[type="submit"].add-button:hover {
+	background-position: 0 90px;
+}
+
+input[type="submit"].add-button:active {
+	background-position: 0 45px;
+}
+
+input.post-title-input {
+	font-size: 22px;
+}
+
+.fieldWithErrors input {
+  border: 1px solid red;
+}
+
+.fieldWithErrors label {
+	color: red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+/******************************************************************
+ * Page
+ ******************************************************************/
+
+#page-wrap {
+	width: 960px;
+	margin: 0 auto;
+}
+
+
+/******************************************************************
+ * Listings
+ ******************************************************************/
+
+.show, .edit, .delete { padding: 0 18px; }
+.show { background: transparent url("/images/icons/search_16.png") left no-repeat; }
+.edit { background: transparent url("/images/icons/paper&pencil_16.png") left no-repeat; }
+.delete { background: transparent url("/images/icons/cancel_16.png") left no-repeat; }

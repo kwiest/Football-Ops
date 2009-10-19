@@ -1,0 +1,53 @@
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :conference_id %><br />
+  <%= f.collection_select :conference_id, Conference.all, :id, :name %>
+</p>
+<p>
+  <%= f.label :district_id %><br />
+  <%= f.collection_select :district_id, District.all, :id, :name %>
+</p>
+<p>
+  <%= f.label :division_id %><br />
+  <%= f.collection_select :division_id, Division.all, :id, :name %>
+</p>
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :address1 %><br />
+  <%= f.text_field :address1 %>
+</p>
+<p>
+  <%= f.label :address2 %><br />
+  <%= f.text_field :address2 %>
+</p>
+<p>
+  <%= f.label :city %><br />
+  <%= f.text_field :city %>
+</p>
+<p>
+  <%= f.label :state %><br />
+  <%= f.text_field :state %>
+</p>
+<p>
+  <%= f.label :zip %><br />
+  <%= f.text_field :zip %>
+</p>
+<p>
+  <%= f.label :secretary_phone %><br />
+  <%= f.text_field :secretary_phone %>
+</p>
+<p>
+  <%= f.label :secretary_fax %><br />
+  <%= f.text_field :secretary_fax %>
+</p>
+<p>
+  <%= f.label :coach_name %><br />
+  <%= f.text_field :coach_name %>
+</p>
+<p>
+  <%= f.submit 'Save' %>
+</p>

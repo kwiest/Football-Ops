@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Users: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'common_styles' %>
+</head>
+<body>
+	<div id="page-wrap">
+		<% if logged_in? -%>
+			<p>
+				<strong>Logged In As: </strong><%= current_user.full_name %> |
+				<%= link_to "Log Out", logout_path %>
+			</p>
+		<% else -%>
+			<p><%= link_to "Log In", login_path %> | <%= link_to "Sign Up", new_user_path %></p>
+		<% end -%>
+
+		<% flash.each do |key, value| -%>
+			<div class="<%= key %>"><%= value %></div>
+		<% end -%>
+	
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Divisions", divisions_path %></li>
+			<li><%= link_to "Conferences", conferences_path %></li>
+			<li><%= link_to "Districts", districts_path %></li>
+			<li><%= link_to "All Schools", schools_path %></li>
+			<li><%= link_to "All Users", users_path %></li>
+		</ul>
+
+		<%= yield %>
+	
+	</div>
+
+</body>
+</html>

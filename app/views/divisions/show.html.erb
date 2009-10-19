@@ -1,0 +1,28 @@
+<h1><%= @division.name %></h1>
+
+<h2>Users</h2>
+<table>
+	<tr>
+		<th>School</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>Fax</th>
+	</tr>
+
+	<% @emails = '' -%>
+	
+	<% @division.schools.each do |school| -%>
+		<% school.users.each do |user| -%>
+			<tr>
+				<td><%= link_to user.school.name, user.school %></td>
+				<td><%= link_to user.full_name, user %></td>
+				<td><%= mail_to user.email %></td>
+				<td><%=h user.phone %></td>
+				<td><%=h user.fax %></td>
+			</tr>
+		<% end -%>
+	<% end -%>
+</table>
+
+<p><%= mail_to @emails, "Email All Users in #{@division.name}" %></p>

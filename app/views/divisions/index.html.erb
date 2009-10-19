@@ -1,0 +1,19 @@
+<h1>All Divisions</h1>
+
+<table border="1">
+  <tr>
+    <th>Name</th>
+		<%= "<th>Edit</th>" if admin? %>
+		<%= "<th>Destroy</th>" if admin? %>
+  </tr>
+
+<% @divisions.each do |division| %>
+  <tr>
+    <td><%= link_to division.name, division %></td>
+		<% if admin? -%>
+	    <td><%= link_to 'Edit', edit_division_path(division) %></td>
+	    <td><%= link_to 'Destroy', division, :confirm => 'Are you sure?', :method => :delete %></td>
+		<% end -%>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,9 @@
+<h1><%= @school.name %></h1>
+
+<h2>DFOs</h2>
+<% @school.users.each do |user| -%>
+	<p><%= link_to user.full_name, user %></p>
+<% end -%>
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

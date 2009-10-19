@@ -1,0 +1,19 @@
+<h1>Login</h1>
+
+<% form_for @user_session do |f| -%>
+	<%= f.error_messages %>
+	
+	<div class="form-row">
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	
+	<div class="form-row">
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</div>
+	
+	<div class="form-row">
+		<%= f.submit "Login" %>
+	</div>
+<% end -%>

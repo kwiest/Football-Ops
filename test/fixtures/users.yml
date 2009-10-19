@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  school_id: 1
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  crypted_password: MyString
+  password_salt: MyString
+  persisteance_token: MyString
+  phone: MyString
+  fax: MyString
+  conference_rep: false
+  national_committee: false
+  admin: false
+
+two:
+  school_id: 1
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  crypted_password: MyString
+  password_salt: MyString
+  persisteance_token: MyString
+  phone: MyString
+  fax: MyString
+  conference_rep: false
+  national_committee: false
+  admin: false

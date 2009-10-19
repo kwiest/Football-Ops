@@ -1,0 +1,31 @@
+<h1>Listing All Users</h1>
+
+<table border="1">
+  <tr>
+    <th>Last name</th>
+    <th>First name</th>
+    <th>Email</th>
+		<th>School</th>
+    <th>Phone</th>
+    <th>Fax</th>
+    <th>Conference rep</th>
+    <th>National committee</th>
+    <th>Admin</th>
+		<th>Show</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.last_name %></td>
+    <td><%=h user.first_name %></td>
+    <td><%= mail_to user.email %></td>
+		<td><%= link_to user.school.name, user.school %></td>
+    <td><%=h user.phone %></td>
+    <td><%=h user.fax %></td>
+    <td><%=h user.conference_rep %></td>
+    <td><%=h user.national_committee %></td>
+    <td><%=h user.admin %></td>
+    <td><%= link_to 'Show', user %></td>
+  </tr>
+<% end %>
+</table>
