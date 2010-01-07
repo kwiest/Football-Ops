@@ -1,9 +1,26 @@
 <h1><%= @school.name %></h1>
 
-<h2>DFOs</h2>
-<% @school.users.each do |user| -%>
-	<p><%= link_to user.full_name, user %></p>
-<% end -%>
+<div class="float-left">
+	<p>
+		<strong>Division: </strong><%= @school.division.name %><br />
+		<strong>Conference: </strong><%= @school.conference.name %><br />
+		<strong>District: </strong><%= @school.district.name %>
+	</p>
+</div>
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+<div class="float-left">
+	<p>
+		<strong>Address:</strong><br />
+		<%= @school.address1 %><br />
+		<%= "#{@school.city}, #{@school.state} #{@school.zip}" %>
+	</p>
+</div>
+
+<div class="clear"></div>
+
+<h3>Travel Guide</h3>
+<%= image_tag "pdf-icon.png" %>
+
+
+<h2>DFOs</h2>
+<%= render @school.users %>

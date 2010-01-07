@@ -1,51 +1,36 @@
-<div class="float-left">
-	<%= image_tag @user.photo.url %>
+<div id="profile_picture">
+		<%= image_tag @user.photo.url(:medium) %>
 </div>
 
-<p>
-  <b>School:</b>
-  <%=h @user.school.name %>
-</p>
+<div id="profile_detail">
+	<h1><%=h @user.full_name %></h1>
+	<h2><%= @user.school.name %></h1>
 
-<p>
-  <b>First name:</b>
-  <%=h @user.first_name %>
-</p>
+		<p>
+		  <strong>Email:</strong>
+		  <%= mail_to @user.email %>
+		</p>
 
-<p>
-  <b>Last name:</b>
-  <%=h @user.last_name %>
-</p>
+		<p>
+		  <strong>Phone:</strong>
+		  <%=h @user.phone %>
+		</p>
 
-<p>
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
+		<p>
+		  <strong>Fax:</strong>
+		  <%=h @user.fax %>
+		</p>
+		<p>
+		  <strong>Conference rep:</strong>
+		  <%= '<span class="accepted">' + @user.school.conference.name + '</span>' if @user.conference_rep %>
+		</p>
 
-<p>
-  <b>Phone:</b>
-  <%=h @user.phone %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%=h @user.fax %>
-</p>
-
-<p>
-  <b>Conference rep:</b>
-  <%=h @user.conference_rep %>
-</p>
-
-<p>
-  <b>National committee:</b>
-  <%=h @user.national_committee %>
-</p>
-
-<p>
-  <b>Admin:</b>
-  <%=h @user.admin %>
-</p>
+		<p>
+		  <strong>National committee:</strong>
+		  <%= '<span class="accepted">Yes</span>' if @user.national_committee %>
+		</p>
+		<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>
+</div>
+<div class="clear"></div>
 
 
-<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>

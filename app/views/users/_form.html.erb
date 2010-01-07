@@ -1,58 +1,35 @@
-<%= f.error_messages %>
+<div id="profile_picture">
+	<%= image_tag @user.photo.url(:medium) %>
+</div>
 
-<p>
-  <%= f.label :school_id, 'School' %>
-  <%= f.collection_select :school_id, School.all, :id, :name  %>
-</p>
-<p>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-</p>
-<p>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-</p>
-<p>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-</p>
-<p>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
-</p>
-<p>
-  <%= f.label :fax %>
-  <%= f.text_field :fax %>
-</p>
+<div id="profile_detail">
+	<% f.inputs do %>
+		<%= f.input :first_name, :required => true %>
+		<%= f.input :last_name, :required => true %>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.input :school, :prompt => "(select your school)", :required => true %>
+		<%= f.input :email, :required => true %>
+		<%= f.input :phone %>
+		<%= f.input :fax %>
+		<%= f.input :photo, :as => :file %>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.input :password, :as => :password, :required => true %>
+		<%= f.input :password_confirmation, :as => :password, :required => true %>
+	<% end -%>
 
-<% if admin? -%>
-	<p>
-	  <%= f.label :conference_rep %>
-	  <%= f.check_box :conference_rep %>
-	</p>
-	<p>
-	  <%= f.label :national_committee %>
-	  <%= f.check_box :national_committee %>
-	</p>
-	<p>
-	  <%= f.label :admin %>
-	  <%= f.check_box :admin %>
-	</p>
-<% end -%>
-
-<p>
-	<%= f.label :photo %>
-	<%= f.file_field :photo %>
-</p>
-<p>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-</p>
-<p>
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
-</p>
-
-<p>
-  <%= f.submit 'Save' %>
-</p>
+	<% if admin? -%>
+		<% f.inputs do %>
+			<%= f.input :conference_rep %>
+			<%= f.input :national_committee %>
+		<% end -%>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.submit 'Save Profile' %> or <%= link_to 'Cancel', users_path, :class => :cancel %>
+	<% end -%>
+</div>
+<div class="clear"></div>

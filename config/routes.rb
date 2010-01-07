@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :divisions
 
   map.resources :users
+  map.setphoto '/setphoto', :controller => :users, :action => :setphoto
   map.resources :user_sessions
   map.login '/login', :controller => :user_sessions, :action => :new
   map.logout '/logout', :controller => :user_sessions, :action => :destroy

@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-	font-family: Helvetica, "Lucida Grande", Arial, sans-serif;
+	font-family: helvetica, arial, sans-serif;
 	background: #fff;
 }
 
@@ -27,16 +27,12 @@ a, a:visited {
 	color: #33f;
 }
 
-a img {
-	border: none;
+a.cancel {
+	color: red;
 }
 
-img.profile_pic {
-	padding: 3px;
-	background: #fff;
-	border: 1px solid #999;
-	margin-right: 12px;
-	float: left;
+a img {
+	border: none;
 }
 
 
@@ -66,12 +62,12 @@ th {
  
 .float-left {
 	float: left;
-	margin: 0 24px 24px 0;
+	margin-right: 12px;
 }
 
 .float-right {
 	float: right;
-	margin: 0 0 24px 24px;
+	margin-left: 12px;
 }
 
 .clear {
@@ -86,62 +82,57 @@ th {
     padding: 10px;
 }
 
-#player {
-	display: block;
-	width: 480px;
-	height: 272px;
-	margin: 10px 0;
-}
-
 
 /******************************************************************
  * Type
  ******************************************************************/
 
 p {
-	font-size: 12px;
+	font-size: 1em;
 	line-height: 1.5;
-	margin-bottom: 12px;
+	margin: 0 0 1em;
 }
 
 ul, ol {
-	margin-bottom: 12px;
+	margin: 0 0 1em;
 }
 
 li {
-	font-size: 12px;
+	font-size: 1em;
 	line-height: 1.5;
-	margin-left: 18px;
+	margin-left: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	color: #3e3e3e;
 	line-height: 1.5;
+	letter-spacing: -1px;
+	margin-bottom: 0.5em;
 }
 
 h1 {
-	font-size: 36px;
+	font-size: 3em;
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 2em;
 }
 
 h3 {
-	font-size: 18px;
+	font-size: 1.5em;
 }
 
-h4, h5, h6 {
-	font-size: 14px;
+h4 {
+	font-size: 1.2em;
 }
 
-.required {
-	color: #d00;
+h5, h6 {
+	font-size: 1.1em;
 }
 
 .error, .notice, .success {
-	padding: 12px;
-	margin-bottom: 10px;
+	padding: 1em;
+	margin-bottom: 1.5em;
 	border: 2px solid #ddd;
 	
 	border-radius: 2px;
@@ -179,118 +170,6 @@ h4, h5, h6 {
 
 
 /******************************************************************
- * Forms
- ******************************************************************/
-
-.form-row {
-	margin: 6px 0;
-}
-
-label {
-	display: block;
-	font-family: Verdana, Arial, sans-serif;
-	padding: 4px 0;
-	font-size: 12px;
-	font-weight: bold;
-	color: #222;
-}
-
-input, textarea {
-	background: #fff url("/images/input-bg.gif") top left repeat-x;
-	padding: 4px;
-	color: #666;
-	font-size: 12px;
-	font-family: Verdana, Arial, sans-serif;
-	border: 1px solid #b1b1b1;
-}
-
-input[type=text]:focus, input[type=password]:focus, textarea:focus {
-	background: #F9F8E4;
-}
-
-input[type="submit"] {
-	background: transparent url("/images/button_states.png");
-	display: block;
-	width: 200px;
-	height: 45px;
-	color: #fff;
-	font-weight: bold;
-	font-size: 16px;
-	text-align: center;
-	cursor: pointer;
-	border: none;
-	margin: 0;
-	padding: 0;
-	
-	text-shadow: 1px 1px 1px #333;
-}
-
-input[type="submit"]:hover {
-	background-position: 0 90px;
-}
-
-input[type="submit"]:active {
-	background-position: 0 45px;
-}
-
-input[type="submit"].add-button {
-	background: transparent url("/images/add_button_states.png");
-	text-align: left;
-	padding-left: 50px;
-}
-
-input[type="submit"].add-button:hover {
-	background-position: 0 90px;
-}
-
-input[type="submit"].add-button:active {
-	background-position: 0 45px;
-}
-
-input.post-title-input {
-	font-size: 22px;
-}
-
-.fieldWithErrors input {
-  border: 1px solid red;
-}
-
-.fieldWithErrors label {
-	color: red;
-}
-
-#errorExplanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-}
-
-#errorExplanation h2 {
-  text-align: left;
-  font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  background-color: #c00;
-  color: #fff;
-}
-
-#errorExplanation p {
-  color: #333;
-  margin-bottom: 0;
-  padding: 5px;
-}
-
-#errorExplanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
-
-
-/******************************************************************
  * Page
  ******************************************************************/
 
@@ -301,10 +180,89 @@ input.post-title-input {
 
 
 /******************************************************************
+ * Page
+ ******************************************************************/
+
+#nav {
+	float: left;
+	margin-bottom: 24px;
+}
+
+#login-info {
+	float: right;
+	margin-top: 4px;
+}
+
+#nav ul, #nav li {
+	display: inline;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav li {
+	float: left;
+	margin-right: 12px;
+	padding: 8px;
+	background: #eee;
+}
+
+
+/******************************************************************
+ * Users
+ ******************************************************************/
+
+#profile_picture {
+	float: left;
+	margin-right: 12px;
+	background: #ccc;
+	padding: 6px;
+}
+
+#profile_picture img {
+	background: #fff;
+}
+
+#profile_detail {
+	float: left;
+	width: 800px;
+}
+
+#profile_detail input[type=text], #profile_detail input[type=password], #profile_detail select {
+	font-size: 1em;
+	padding-right: 0.5em;
+	vertical-align: middle;
+}
+
+#profile_detail fieldset {
+	border: none;
+	padding: 0.5em;
+	border-bottom: 2px solid #eee;
+	margin: 0.5em 0;
+}
+
+.user {
+	border-bottom: 1px solid #eee;
+	margin-bottom: 2px;
+}
+
+.user p {
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: .2em;
+}
+
+.user img {
+	margin: 1px 0;
+}
+
+
+/******************************************************************
  * Listings
  ******************************************************************/
 
-.show, .edit, .delete { padding: 0 18px; }
+.show, .edit, .delete, .accepted { padding: 0 18px; }
 .show { background: transparent url("/images/icons/search_16.png") left no-repeat; }
 .edit { background: transparent url("/images/icons/paper&pencil_16.png") left no-repeat; }
 .delete { background: transparent url("/images/icons/cancel_16.png") left no-repeat; }
+.accepted { background: transparent url("/images/icons/accepted_16.png") left no-repeat; }

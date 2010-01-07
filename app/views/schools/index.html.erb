@@ -7,7 +7,6 @@
     <th>District</th>
     <th>Division</th>
     <th>Address1</th>
-    <th>Address2</th>
     <th>City</th>
     <th>State</th>
     <th>Zip</th>
@@ -25,13 +24,9 @@
     <td><%= link_to school.district.name, school.district %></td>
     <td><%= link_to school.division.name, school.division %></td>
     <td><%=h school.address1 %></td>
-    <td><%=h school.address2 %></td>
     <td><%=h school.city %></td>
     <td><%=h school.state %></td>
     <td><%=h school.zip %></td>
-    <td><%=h school.secretary_phone %></td>
-    <td><%=h school.secretary_fax %></td>
-    <td><%=h school.coach_name %></td>
 		<% if admin? -%>
 	    <td><%= link_to 'Edit', edit_school_path(school) %></td>
 	    <td><%= link_to 'Destroy', school, :confirm => 'Are you sure?', :method => :delete %></td>
