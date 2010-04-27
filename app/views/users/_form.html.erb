@@ -5,21 +5,21 @@
 <div id="profile_detail">
 	<%= f.error_messages %>
 	<% f.inputs do %>
-		<%= f.input :first_name, :required => true %>
-		<%= f.input :last_name, :required => true %>
+		<%= f.input :first_name %>
+		<%= f.input :last_name %>
 	<% end -%>
 	
 	<% f.inputs do %>
 		<%= f.input :school, :prompt => "(select your school)", :required => true %>
-		<%= f.input :email, :required => true %>
+		<%= f.input :email %>
 		<%= f.input :phone %>
 		<%= f.input :fax %>
 		<%= f.input :photo, :as => :file %>
 	<% end -%>
 	
 	<% f.inputs do %>
-		<%= f.input :password, :as => :password, :required => true %>
-		<%= f.input :password_confirmation, :as => :password, :required => true %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation %>
 	<% end -%>
 	
 	<% f.buttons do %>
