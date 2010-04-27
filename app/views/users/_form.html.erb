@@ -3,6 +3,7 @@
 </div>
 
 <div id="profile_detail">
+	<%= f.error_messages %>
 	<% f.inputs do %>
 		<%= f.input :first_name, :required => true %>
 		<%= f.input :last_name, :required => true %>
@@ -20,16 +21,9 @@
 		<%= f.input :password, :as => :password, :required => true %>
 		<%= f.input :password_confirmation, :as => :password, :required => true %>
 	<% end -%>
-
-	<% if admin? -%>
-		<% f.inputs do %>
-			<%= f.input :conference_rep %>
-			<%= f.input :national_committee %>
-		<% end -%>
-	<% end -%>
 	
-	<% f.inputs do %>
-		<%= f.submit 'Save Profile' %> or <%= link_to 'Cancel', users_path, :class => :cancel %>
+	<% f.buttons do %>
+		<%= f.commit_button 'Save Profile' %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
 	<% end -%>
 </div>
 <div class="clear"></div>

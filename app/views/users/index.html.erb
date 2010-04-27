@@ -1,9 +1,17 @@
-<h1>Listing All Users</h1>
+<h1>All DFOs</h1>
 
-<%= button_to("Add a new user", new_user_path, :method => :get) if admin? %>
+<% form_tag "/users/search", :method => :post do %>
+	<%= text_field_tag :last_name %> <%= submit_tag "Search by last name" %>
+<% end %><br />
 
-<br />
-
-<div id="users">
+<table>
+	<tr>
+		<th>Name</th>
+		<th>School</th>
+		<th>Contact Info</th>
+		<th>Conference Rep</th>
+		<th>National Committee</th>
+		<th>Affiliation</th>
+	</tr>
 	<%= render @users %>
-</div>
+</table>

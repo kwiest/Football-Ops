@@ -1,0 +1,13 @@
+<h1>Search results for: "<%= params[:last_name] %>"</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>School</th>
+		<th>Contact Info</th>
+		<th>Conference Rep</th>
+		<th>National Committee</th>
+		<th>Affiliation</th>
+	</tr>
+	<%= render @users %>
+</table>

@@ -1,6 +1,3 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
@@ -8,12 +5,12 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   filter_parameter_logging :password, :password_confirmation
   
-  helper_method :current_user, :current_user_session, :logged_in?, :login_required, :admin_required, :admin?, :require_no_user
+  helper_method :current_user, :signed_in?, :admin?
   
   private
   
-  def logged_in?
-    UserSession.find
+  def signed_in?
+    current_user
   end
   
   def current_user_session  
@@ -25,23 +22,12 @@ class ApplicationController < ActionController::Base
     @current_user = current_user_session && current_user_session.record
   end
   
-  def login_required
-    access_denied unless logged_in?
-  end
-  
-  def admin_required
-    access_denied unless logged_in? && current_user.admin == true
+  def sign_in_required
+  	signed_in? || access_denied
   end
   
   def admin?
-    logged_in? && current_user.admin?
-  end
-  
-  def require_no_user
-    if logged_in?
-      flash[:error] = "You can't reset your password if you're already logged in!"
-      redirect_to login_path
-    end
+  	current_user.admin?
   end
   
   def access_denied

@@ -10,11 +10,6 @@
     <th>City</th>
     <th>State</th>
     <th>Zip</th>
-    <th>Secretary phone</th>
-    <th>Secretary fax</th>
-    <th>Coach name</th>
-		<%= "<th>Edit</th>" if admin? %>
-		<%= "<th>Destroy</th>" if admin? %>
   </tr>
 
 <% @schools.each do |school| %>
@@ -27,10 +22,6 @@
     <td><%=h school.city %></td>
     <td><%=h school.state %></td>
     <td><%=h school.zip %></td>
-		<% if admin? -%>
-	    <td><%= link_to 'Edit', edit_school_path(school) %></td>
-	    <td><%= link_to 'Destroy', school, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% end -%>
   </tr>
 <% end %>
 </table>

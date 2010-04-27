@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :sign_in_required, :except => [:new, :create]
   before_filter :authorized?, :only => [:edit, :update]
+  before_filter :admin_required, :only => :destroy
   
   # GET /users
   # GET /users.xml
@@ -37,6 +38,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find(params[:id], :include => :school)
   end
 
   # POST /users
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:success] = 'User was successfully created.'
+        flash[:notice] = 'User was successfully created.'
         format.html { redirect_to(@user) }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
@@ -60,9 +62,11 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
+    @user = User.find(params[:id])
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:success] = 'User was successfully updated.'
+        flash[:notice] = 'User was successfully updated.'
         format.html { redirect_to(@user) }
         format.xml  { head :ok }
       else
@@ -71,31 +75,22 @@ class UsersController < ApplicationController
       end
     end
   end
-  
-  # GET /users/conference_reps
-  # GET /users/conference_reps.xml
-  def conference_reps
-  	@users = User.find_all_by_conference_rep(true)
+
+  # DELETE /users/1
+  # DELETE /users/1.xml
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(users_url) }
+      format.xml  { head :ok }
+    end
   end
-  
-  # GET /users/national_committee
-  # GET /users/national_committee.xml
-  def national_committee
-  	@users = User.find_all_by_national_committee(true)
-  end
-  
-  # GET /users/search
-  # GET /users/search.xml
-  def search
-  	@users = User.all(:conditions => [ "last_name LIKE ?", "%#{params[:last_name]}%" ] )
-  	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
-  end
-  
   
   private
   
   def authorized?
-    @user = User.find(params[:id])
-    @user.changeable_by?(current_user) || access_denied
+    User.find(params[:id]).changeable_by?(current_user) || access_denied
   end
 end

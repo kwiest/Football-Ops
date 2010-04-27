@@ -14,8 +14,6 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :conference_rep
       t.boolean :national_committee
       t.boolean :admin
-      t.boolean :confirmed, :default => false
-      t.boolean :active, :default => true
 
       t.timestamps
     end

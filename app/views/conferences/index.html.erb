@@ -1,19 +1,7 @@
 <h1>All Conferences</h1>
 
-<table border="1">
-  <tr>
-    <th>Name</th>
-		<%= "<th>Edit</th>" if admin? %>
-		<%= "<th>Destroy</th>" if admin? %>
-  </tr>
-
-<% @conferences.each do |conference| %>
-  <tr>
-    <td><%= link_to conference.name, conference %></td>
-		<% if admin? -%>
-	    <td><%= link_to 'Edit', edit_conference_path(conference) %></td>
-	    <td><%= link_to 'Destroy', conference, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% end -%>
-  </tr>
-<% end %>
-</table>
+<ul id="conferences">
+	<% @conferences.each do |c| %>
+		<li><%= link_to c.name, c %></li>
+	<% end %>
+</ul>

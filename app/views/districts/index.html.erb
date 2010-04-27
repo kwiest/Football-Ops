@@ -1,19 +1,7 @@
 <h1>All Districts</h1>
 
-<table border="1">
-  <tr>
-    <th>Name</th>
-		<%= "<th>Edit</th>" if admin? %>
-		<%= "<th>Destroy</th>" if admin? %>
-  </tr>
-
-<% @districts.each do |district| %>
-  <tr>
-    <td><%= link_to district.name, district %></td>
-		<% if admin? -%>
-	    <td><%= link_to 'Edit', edit_district_path(district) %></td>
-	    <td><%= link_to 'Destroy', district, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% end -%>
-  </tr>
-<% end %>
-</table>
+<ul id="districts">
+	<% @districts.each do |d| %>
+		<li><%= link_to d.name, d %></li>
+	<% end %>
+</ul>

@@ -18,9 +18,19 @@
 
 <div class="clear"></div>
 
-<h3>Travel Guide</h3>
+<h2>Travel Guide</h2>
 <%= image_tag "pdf-icon.png" %>
 
 
 <h2>DFOs</h2>
-<%= render @school.users %>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>School</th>
+		<th>Contact Info</th>
+		<th>Conference Rep</th>
+		<th>National Committee</th>
+		<th>Affiliation</th>
+	</tr>
+	<%= render @school.users %>
+</table>
