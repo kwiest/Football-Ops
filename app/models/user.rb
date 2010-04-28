@@ -7,7 +7,11 @@ class User < ActiveRecord::Base
   has_one :division,   :through => :school
   acts_as_authentic
   
-  has_attached_file :photo, :styles => { :medium => "128x128#", :small => "50x50#" }
+  has_attached_file :photo, 
+  	:styles => { :medium => "128x128#", :small => "50x50#" },
+  	:storage => :s3,
+  	:s3_credentials => "#{{RAILS_ROOT"}/config/amazon_config.yml",
+  	:path => "/:attachment/:id/:style/:filename"
   validates_attachment_size :photo, :less_than => 2.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
   
