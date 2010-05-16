@@ -269,29 +269,18 @@ h3 {
  * Users
  ******************************************************************/
 
-#profile_picture {
-	float: left;
-	margin-right: 12px;
-	background: #ccc;
-	padding: 6px;
-}
-
-#profile_picture img {
-	background: #fff;
-}
-
-#profile_detail {
-	float: left;
+#user {
+	margin: 0 auto;
 	width: 800px;
 }
 
-#profile_detail input[type=text], #profile_detail input[type=password], #profile_detail select {
+#user input[type=text], #user input[type=password], #user select {
 	font-size: 1em;
 	padding-right: 0.5em;
 	vertical-align: middle;
 }
 
-#profile_detail fieldset {
+#user fieldset {
 	border: none;
 	padding: 0.5em;
 	border-bottom: 2px solid #eee;

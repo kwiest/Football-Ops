@@ -1,8 +1,4 @@
-<div id="profile_picture">
-		<%= image_tag @user.photo.url(:medium) %>
-</div>
-
-<div id="profile_detail">
+<% div_for @user do %>
 	<h1><%=h @user.full_name %></h1>
 	<h2><%= link_to @user.school.name, @user.school %></h2>
 
@@ -30,7 +26,4 @@
 		  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.national_committee %>
 		</p>
 		<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>
-</div>
-<div class="clear"></div>
-
-
+<% end %>
