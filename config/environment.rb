@@ -6,7 +6,6 @@ Rails::Initializer.run do |config|
   
   config.gem 'authlogic'
   config.gem 'formtastic'
-  config.gem 'canable'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end
