@@ -2,4 +2,3 @@
 tmp/**/*
 .DS_Store
 config/deploy.rb
-public/photos
