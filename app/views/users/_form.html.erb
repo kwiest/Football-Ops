@@ -1,8 +1,4 @@
-<div id="profile_picture">
-	<%= image_tag @user.photo.url(:medium) %>
-</div>
-
-<div id="profile_detail">
+<% div_for @user do %>
 	<%= f.error_messages %>
 	<% f.inputs do %>
 		<%= f.input :first_name %>
@@ -14,7 +10,6 @@
 		<%= f.input :email %>
 		<%= f.input :phone %>
 		<%= f.input :fax %>
-		<%= f.input :photo, :as => :file %>
 	<% end -%>
 	
 	<% f.inputs do %>
@@ -25,5 +20,4 @@
 	<% f.buttons do %>
 		<%= f.commit_button 'Save Profile' %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
 	<% end -%>
-</div>
-<div class="clear"></div>
+<% end %>

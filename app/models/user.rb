@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   include Permissions
-  
-  belongs_to :school
-  has_one :conference, :through => :school
-  has_one :district,   :through => :school
-  has_one :division,   :through => :school
   acts_as_authentic
   
-  validates_presence_of :first_name, :last_name
+  belongs_to :school
+  belongs_to :conference
+  belongs_to :district
+  belongs_to :division
+  
+  validates_presence_of :first_name, :last_name, :email
   default_scope :order => :last_name
   
   def user

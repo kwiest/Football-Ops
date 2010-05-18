@@ -1,29 +1,35 @@
 <% div_for @user do %>
 	<h1><%=h @user.full_name %></h1>
 	<h2><%= link_to @user.school.name, @user.school %></h2>
+	
+	<p>
+		<%= link_to @user.division.name, @user.division %><br />
+		<%= link_to @user.conference.name, @user.conference %><br />
+		<%= link_to @user.district.name, @user.district %>
+	</p>
 
-		<p>
-		  <strong>Email:</strong>
-		  <%= mail_to @user.email %>
-		</p>
+	<p>
+	  <strong>Email:</strong>
+	  <%= mail_to @user.email %>
+	</p>
 
-		<p>
-		  <strong>Phone:</strong>
-		  <%=h @user.phone %>
-		</p>
+	<p>
+	  <strong>Phone:</strong>
+	  <%=h @user.phone %>
+	</p>
 
-		<p>
-		  <strong>Fax:</strong>
-		  <%=h @user.fax %>
-		</p>
-		<p>
-		  <strong>Conference rep:</strong>
-		  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.conference_rep %>
-		</p>
+	<p>
+	  <strong>Fax:</strong>
+	  <%=h @user.fax %>
+	</p>
+	<p>
+	  <strong>Conference rep:</strong>
+	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.conference_rep %>
+	</p>
 
-		<p>
-		  <strong>National committee:</strong>
-		  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.national_committee %>
-		</p>
-		<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>
+	<p>
+	  <strong>National committee:</strong>
+	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.national_committee %>
+	</p>
+	<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>
 <% end %>
