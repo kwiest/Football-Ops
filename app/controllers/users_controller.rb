@@ -26,8 +26,15 @@ class UsersController < InheritedResources::Base
   
   private
   
-  def authorized?
-    @user = User.find(params[:id])
-    @user.changeable_by?(current_user) || access_denied
-  end
+    def authorized?
+      @user = User.find(params[:id])
+      @user.changeable_by?(current_user) || access_denied
+    end
+  
+    def collection
+      paginate_options ||= {}
+      paginate_options[:page] ||= (params[:page] || 1)
+      paginate_options[:per_page] ||= (params[:per_page] || 30)
+      @users = end_of_association_chain.paginate(paginate_options)
+    end
 end
