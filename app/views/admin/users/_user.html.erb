@@ -1,0 +1,24 @@
+<tr id="user_<%= user.id %>" class="user <%= cycle("odd", "even") %>">
+	<td class="user-name">
+		<%= link_to user.full_name, user %>
+	</td>
+	<td class="user-school">
+		<%= link_to user.school.name, user.school %>
+	</td>
+	<td class="user-contact">
+		Tel: <%= user.phone %><br />
+		Fax: <%= user.fax %><br />
+		<%= mail_to user.email %>
+	</td>
+	<td class="user-conf-rep">
+		<%= image_tag("check.png", :border => 0, :alt => "Yes") if user.conference_rep? %>
+	</td>
+	<td class="user-nat-committee">
+		<%= image_tag("check.png", :border => 0, :alt => "Yes") if user.national_committee? %>
+	</td>
+	<td class="user-affiliation">
+		Division: <%= link_to user.school.division.name, user.school.division %><br />
+		Conference: <%= link_to user.school.conference.name, user.school.conference %><br />
+		District: <%= link_to user.school.district.name, user.school.district %>
+	</td>
+</tr>

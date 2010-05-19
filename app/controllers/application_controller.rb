@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
   	signed_in? || access_denied
   end
   
+  def admin_required
+    current_user.admin? || access_denied
+  end
+  
   def admin?
   	current_user.admin?
   end

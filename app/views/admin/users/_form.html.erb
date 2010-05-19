@@ -1,0 +1,28 @@
+<% div_for @user do %>
+	<%= f.error_messages %>
+	<% f.inputs do %>
+		<%= f.input :first_name %>
+		<%= f.input :last_name %>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.input :school, :prompt => "(select your school)", :required => true %>
+		<%= f.input :email %>
+		<%= f.input :phone %>
+		<%= f.input :fax %>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation %>
+	<% end -%>
+	
+	<% f.inputs do %>
+		<%= f.input :conference_rep %>
+		<%= f.input :national_committee %>
+	<% end %>
+	
+	<% f.buttons do %>
+		<%= f.commit_button 'Save Profile' %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
+	<% end -%>
+<% end %>
