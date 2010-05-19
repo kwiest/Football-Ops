@@ -11,7 +11,9 @@ ActionController::Routing::Routes.draw do |map|
   	:search => :post
 	}
   
-  map.resources :schools, :districts, :conferences, :divisions
+  map.resources :schools, :collection => { :search => :post }
+  
+  map.resources :districts, :conferences, :divisions
   
   map.resources :user_sessions
   map.sign_up '/sign_up', :controller => :users, :action => :new

@@ -1,5 +1,11 @@
 <h1>All Schools</h1>
 
+<% form_tag "/schools/search", :method => :post do %>
+	<%= text_field_tag :name %> <%= submit_tag "Search" %>
+<% end %><br />
+
+<%= will_paginate @schools %>
+
 <table border="1">
   <tr>
   	<th>Name</th>
@@ -25,3 +31,5 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @schools %>
