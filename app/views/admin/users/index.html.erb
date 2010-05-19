@@ -1,6 +1,6 @@
 <h1>All DFOs</h1>
 
-<% form_tag "/users/search", :method => :post do %>
+<% form_tag "/admin/users/search", :method => :post do %>
 	<%= text_field_tag :last_name %> <%= submit_tag "Search by last name" %>
 <% end %><br />
 
@@ -14,6 +14,8 @@
 		<th>Conference Rep</th>
 		<th>National Committee</th>
 		<th>Affiliation</th>
+		<th>Edit</th>
+		<th>Delete</th>
 	</tr>
 	<%= render @users %>
 </table>
