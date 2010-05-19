@@ -1,22 +1,22 @@
 <h1><%= @school.name %></h1>
 
-<div class="float-left">
-	<p>
-		<strong>Division: </strong><%= @school.division.name %><br />
-		<strong>Conference: </strong><%= @school.conference.name %><br />
-		<strong>District: </strong><%= @school.district.name %>
-	</p>
-</div>
+<% div_for @school, :class => :clearfix do %>
+	<div class="float-left">
+		<p>
+			<strong>Division: </strong><%= @school.division.name %><br />
+			<strong>Conference: </strong><%= @school.conference.name %><br />
+			<strong>District: </strong><%= @school.district.name %>
+		</p>
+	</div>
 
-<div class="float-left">
-	<p>
-		<strong>Address:</strong><br />
-		<%= @school.address1 %><br />
-		<%= "#{@school.city}, #{@school.state} #{@school.zip}" %>
-	</p>
-</div>
-
-<div class="clear"></div>
+	<div class="float-left">
+		<p>
+			<strong>Address:</strong><br />
+			<%= @school.address1 %><br />
+			<%= "#{@school.city}, #{@school.state} #{@school.zip}" %>
+		</p>
+	</div>
+<% end %>
 
 <h2>Travel Guide</h2>
 <%= image_tag "pdf-icon.png" %>
