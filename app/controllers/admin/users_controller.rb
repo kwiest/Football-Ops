@@ -1,4 +1,4 @@
-class AdminUsersController < InheritedResources::Base
+class Admin::UsersController < InheritedResources::Base
   before_filter :admin_required
   actions :all
   respond_to :html, :xml, :json
