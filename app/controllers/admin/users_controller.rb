@@ -3,6 +3,11 @@ class Admin::UsersController < InheritedResources::Base
   actions :all
   respond_to :html, :xml, :json
   
+  def search
+    @users = User.last_name_like(params[:last_name]).paginate(:page => params[:page], :per_page => 30)
+    flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
+  end
+  
   private
     
     def collection
