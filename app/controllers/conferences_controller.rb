@@ -1,25 +1,5 @@
-class ConferencesController < ApplicationController
+class ConferencesController < InheritedResources::Base
   before_filter :sign_in_required
-  
-  # GET /conferences
-  # GET /conferences.xml
-  def index
-    @conferences = Conference.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @conferences }
-    end
-  end
-
-  # GET /conferences/1
-  # GET /conferences/1.xml
-  def show
-    @conference = Conference.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @conference }
-    end
-  end
+  actions :all, :except => [:destroy]
+  respond_to :html, :xml, :json
 end
