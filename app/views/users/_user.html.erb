@@ -17,8 +17,8 @@
 		<%= image_tag("check.png", :border => 0, :alt => "Yes") if user.national_committee? %>
 	</td>
 	<td class="user-affiliation">
-		Division: <%= link_to user.division.name, user.division %><br />
-		Conference: <%= link_to user.conference.name, user.conference %><br />
-		District: <%= link_to user.district.name, user.district %>
+		Division: <%= link_to user.school.division.name, user.school.division %><br />
+		Conference: <%= link_to user.school.conference.name, user.school.conference %><br />
+		District: <%= link_to user.school.district.name, user.school.district %>
 	</td>
 </tr>
