@@ -4,22 +4,16 @@ class UsersController < InheritedResources::Base
   actions :all, :except => [:destroy]
   respond_to :html, :xml, :json
   
-  # GET /users/conference_reps
-  # GET /users/conference_reps.xml
   def conference_reps
   	@users = User.find_all_by_conference_rep(true)
   end
   
-  # GET /users/national_committee
-  # GET /users/national_committee.xml
   def national_committee
   	@users = User.find_all_by_national_committee(true)
   end
   
-  # GET /users/search
-  # GET /users/search.xml
   def search
-    @users = User.last_name_like(params[:last_name])
+    @users = User.last_name_like(params[:last_name]).paginate(:page => params[:page], :per_page => 30)
   	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
   end
   

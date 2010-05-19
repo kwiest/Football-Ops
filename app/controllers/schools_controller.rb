@@ -4,7 +4,7 @@ class SchoolsController < InheritedResources::Base
   respond_to :html, :xml, :json
   
   def search
-    @schools = School.name_like(params[:name])
+    @schools = School.name_like(params[:name]).paginate(:page => params[:page], :per_page => 30)
     flash[:notice] = "Sorry, no schools found with a name like: #{params[:name]}." unless @schools.size > 0
   end
   
