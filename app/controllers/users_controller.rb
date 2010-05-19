@@ -19,7 +19,7 @@ class UsersController < InheritedResources::Base
   # GET /users/search
   # GET /users/search.xml
   def search
-    @users = User.full_name_like(params[:last_name])
+    @users = User.last_name_like(params[:last_name])
   	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
   end
   
