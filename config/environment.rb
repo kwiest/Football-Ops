@@ -8,6 +8,7 @@ Rails::Initializer.run do |config|
   config.gem 'formtastic', :version => '0.9.8'
   config.gem 'inherited_resources', :version => '1.0.6'
   config.gem 'will_paginate', :version => '2.3.12'
+  config.gem 'searchlogic', :version => '2.4.19'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end
