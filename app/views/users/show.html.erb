@@ -3,9 +3,9 @@
 	<h2><%= link_to @user.school.name, @user.school %></h2>
 	
 	<p>
-		<%= link_to @user.division.name, @user.division %><br />
-		<%= link_to @user.conference.name, @user.conference %><br />
-		<%= link_to @user.district.name, @user.district %>
+		<%= link_to @user.school.division.name, @user.school.division %><br />
+		<%= link_to @user.school.conference.name, @user.school.conference %><br />
+		<%= link_to @user.school.district.name, @user.school.district %>
 	</p>
 
 	<p>
