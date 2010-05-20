@@ -31,6 +31,10 @@
 		<th>Conference Rep</th>
 		<th>National Committee</th>
 		<th>Affiliation</th>
+		<% if admin? %>
+			<th>Edit</th>
+			<th>Delete</th>
+		<% end %>
 	</tr>
 	<%= render @school.users %>
 </table>

@@ -1,8 +1,6 @@
 <h1><%= @conference.name %></h1>
 
-<% form_tag "/users/search", :method => :post do %>
-	<%= text_field_tag :last_name %> <%= submit_tag "Search by last name" %>
-<% end %><br />
+<%= render 'users/search_users' %>
 
 <h2>DFOs</h2>
 <table>
@@ -13,6 +11,10 @@
 		<th>Conference Rep</th>
 		<th>National Committee</th>
 		<th>Affiliation</th>
+		<% if admin? %>
+			<th>Edit</th>
+			<th>Delete</th>
+		<% end %>
 	</tr>
 	<%= render @conference.users %>
 </table>

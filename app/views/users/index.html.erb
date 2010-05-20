@@ -1,10 +1,6 @@
 <h1>All DFOs</h1>
 
-<% form_tag "/users/search", :method => :post do %>
-	<%= text_field_tag :last_name %> <%= submit_tag "Search by last name" %>
-<% end %><br />
-
-<%= will_paginate @users %>
+<%= render 'user_nav' %>
 
 <table>
 	<tr>
@@ -14,6 +10,10 @@
 		<th>Conference Rep</th>
 		<th>National Committee</th>
 		<th>Affiliation</th>
+		<% if admin? %>
+			<th>Edit</th>
+			<th>Delete</th>
+		<% end %>
 	</tr>
 	<%= render @users %>
 </table>

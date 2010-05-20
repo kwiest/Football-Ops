@@ -1,7 +1,8 @@
 class UsersController < InheritedResources::Base
   before_filter :sign_in_required, :except => [:new, :create]
   before_filter :authorized?, :only => [:edit, :update]
-  actions :all, :except => [:destroy]
+  before_filter :admin_required, :only => :destroy
+  actions :all
   respond_to :html, :xml, :json
   
   def conference_reps

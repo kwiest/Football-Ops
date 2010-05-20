@@ -308,6 +308,10 @@ div.user fieldset {
 	margin: 0.5em 0;
 }
 
+#user-nav {
+	margin-bottom: 24px;
+}
+
 
 /******************************************************************
  * Listings

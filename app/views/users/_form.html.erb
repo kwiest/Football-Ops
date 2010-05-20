@@ -17,6 +17,14 @@
 		<%= f.input :password_confirmation %>
 	<% end -%>
 	
+	<% if admin? %>
+		<% f.inputs do %>
+			<%= f.input :conference_rep %>
+			<%= f.input :national_committee %>
+			<%= f.input :admin, :label => "Site administrator" %>
+		<% end %>
+	<% end %>
+	
 	<% f.buttons do %>
 		<%= f.commit_button 'Save Profile' %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
 	<% end -%>

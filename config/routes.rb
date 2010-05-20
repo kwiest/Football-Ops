@@ -1,11 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => :index, :action => :index
   
-  map.namespace :admin do |admin|
-  	admin.resources :users, :collection => { :search => :post }
-  	admin.resources :schools, :districts, :conferences, :divisions
-  end
-  
   map.resources :users, :collection => {
   	:conference_reps => :get,
   	:national_committee => :get,
