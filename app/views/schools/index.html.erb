@@ -24,7 +24,7 @@
   </tr>
 
 <% @schools.each do |school| %>
-  <tr>
+  <tr class ="school <%= cycle("odd", "even") %>">
     <td><%= link_to school.name, school %></td>
 		<td><%= link_to school.conference.name, school.conference %></td>
     <td><%= link_to school.district.name, school.district %></td>

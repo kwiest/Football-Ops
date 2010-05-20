@@ -319,6 +319,7 @@ div.user fieldset {
 
 .pagination {
 	font-size: 12px;
+	margin-right: 12px;
 }
 
 .pagination a, .pagination span {
@@ -339,6 +340,10 @@ div.user fieldset {
 .pagination span.current {
 	background: #33f;
 	color: #fff;
+}
+
+.pagination a.prev_page, .pagination a.next_page {
+	background: #f0f5fe;
 }
 
 /******************************************************************
