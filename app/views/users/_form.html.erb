@@ -17,7 +17,7 @@
 		<%= f.input :password_confirmation %>
 	<% end -%>
 	
-	<% if admin? %>
+	<% if signed_in? && admin? %>
 		<% f.inputs do %>
 			<%= f.input :conference_rep %>
 			<%= f.input :national_committee %>
