@@ -69,11 +69,11 @@ tr.odd {
 	background-color: #f0f5fe;
 }
 
-td.user-name, td.user-school, td.user-contact, td.user-conf-rep, td.user-nat-committee, td.user-affiliation {
+td.user-name, td.user-school, td.user-contact, td.user-conf-rep, td.user-nat-committee, td.user-affiliation, td.user-affiliation, td.user-edit {
 	border-left: 1px solid #eee;
 }
 
-td.user-affiliation {
+td.user-delete {
 	border-right: 1px solid #eee;
 }
 

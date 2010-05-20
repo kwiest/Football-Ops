@@ -3,7 +3,7 @@
 <%= render 'search_users' %>
 
 <% if admin? %>
-	<%= button_to "New user", new_user_path, :method => :get %>
+	<p><%= button_to "New user", new_user_path, :method => :get %></p>
 <% end %>
 
 <%= will_paginate @users %>

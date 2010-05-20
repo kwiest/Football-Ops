@@ -6,7 +6,7 @@
 	<% end -%>
 	
 	<% f.inputs do %>
-		<%= f.input :school, :prompt => "(select your school)", :required => true %>
+		<%= f.input :school, :required => true, :include_blank => false %>
 		<%= f.input :email %>
 		<%= f.input :phone %>
 		<%= f.input :fax %>
