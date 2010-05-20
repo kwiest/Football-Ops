@@ -1,0 +1,5 @@
+<div id="user-nav" class="clearfix">
+	<% form_tag :search_users, :method => :post do %>
+		<%= text_field_tag :last_name %> <%= submit_tag "Search by last name" %>
+	<% end %>
+</div>
