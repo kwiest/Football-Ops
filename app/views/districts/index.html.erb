@@ -1,7 +1,7 @@
 <h1>All Districts</h1>
 
 <% if admin? %>
-	<p><%= link_to "Add a new district", new_district_path %>
+	<p><%= button_to "New district", new_district_path, :method => :get %>
 <% end %>
 
 <ul id="districts">
