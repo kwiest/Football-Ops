@@ -317,10 +317,19 @@ div.user fieldset {
  * Pagination
  ******************************************************************/
 
-.pagination a, #pagination span {
+.pagination {
+	font-size: 12px;
+}
+
+.pagination a, .pagination span {
 	padding: 4px 6px;
 	border: 1px solid #b1b1b1;
 	text-decoration: none;
+}
+
+.pagination span.gap {
+	border: none;
+	color: #666;
 }
 
 .pagination span.disabled {
