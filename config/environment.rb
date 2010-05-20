@@ -9,7 +9,7 @@ Rails::Initializer.run do |config|
   config.gem 'inherited_resources', :version => '1.0.6'
   config.gem 'will_paginate', :version => '2.3.12'
   config.gem 'searchlogic', :version => '2.4.19'
-  config.gem 'google-geocode', :version => '1.2.1', :lib => 'google_geocode'
+  config.gem 'google_geocoding', :version => '0.2.0'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end

@@ -16,8 +16,8 @@ class School < ActiveRecord::Base
   end
   
   def geocoded_location
-    gg = GoogleGeocode.new(YAML.load_file(RAILS_ROOT + '/config/gmaps_api_key.yml')[ENV['RAILS_ENV']])
-    gg.locate(full_address)
+    gg = GoogleGeocoding::Geocoder.new(YAML.load_file(RAILS_ROOT + '/config/gmaps_api_key.yml')[ENV['RAILS_ENV']])
+    gg.query(full_address)
   end
   
 end

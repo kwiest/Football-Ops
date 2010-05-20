@@ -6,11 +6,11 @@ class SchoolsController < InheritedResources::Base
   def show
     @school = School.find(params[:id])
     @map = GMap.new("map_div")
-    @loc = @school.geocoded_location
+    @coordinates = @school.geocoded_location.results[0].coordinates
     @map.control_init(:small => true)
-    @map.center_zoom([@loc.latitude, @loc.longitude], 14)
+    @map.center_zoom([@coordinates[0], @coordinates[1]], 14)
     @map.overlay_init(GMarker.new(
-      [@loc.latitude, @loc.longitude], 
+      [@coordinates[0], @coordinates[1]], 
       :title => @school.name, 
       :info_bubble => @school.full_address))
   end
