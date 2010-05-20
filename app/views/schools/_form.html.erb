@@ -1,37 +1,21 @@
-<%= f.error_messages %>
-
-<p>
-  <%= f.label :conference_id %><br />
-  <%= f.collection_select :conference_id, Conference.all, :id, :name %>
-</p>
-<p>
-  <%= f.label :district_id %><br />
-  <%= f.collection_select :district_id, District.all, :id, :name %>
-</p>
-<p>
-  <%= f.label :division_id %><br />
-  <%= f.collection_select :division_id, Division.all, :id, :name %>
-</p>
-<p>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :address1 %><br />
-  <%= f.text_field :address1 %>
-</p>
-<p>
-  <%= f.label :city %><br />
-  <%= f.text_field :city %>
-</p>
-<p>
-  <%= f.label :state %><br />
-  <%= f.text_field :state %>
-</p>
-<p>
-  <%= f.label :zip %><br />
-  <%= f.text_field :zip %>
-</p>
-<p>
-  <%= f.submit 'Save' %>
-</p>
+<% div_for @school do %>
+	<%= f.error_messages %>
+	
+	<% f.inputs do %>
+		<%= f.input :conference %>
+		<%= f.input :district %>
+		<%= f.input :division %>
+	<% end %>
+	
+	<% f.inputs do %>
+		<%= f.input :name %>
+		<%= f.input :address1 %>
+		<%= f.input :city %>
+		<%= f.input :state %>
+		<%= f.input :zip %>
+	<% end %>
+	
+	<% f.buttons do %>
+		<%= f.commit_button "Save school" %> or <%= link_to 'Cancel', schools_path, :class => :cancel %>
+	<% end %>
+<% end %>

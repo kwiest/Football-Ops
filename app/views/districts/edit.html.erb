@@ -1,8 +1,5 @@
 <h1>Editing district</h1>
 
-<% form_for(@district) do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
+<% semantic_form_for @district do |f| %>
+	<%= render 'shared/form', :f => f %>
 <% end %>
-
-<%= link_to 'Show', @district %> |
-<%= link_to 'Back', districts_path %>

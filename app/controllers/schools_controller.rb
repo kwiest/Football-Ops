@@ -1,6 +1,7 @@
 class SchoolsController < InheritedResources::Base
   before_filter :sign_in_required
-  actions :index, :show
+  before_filter :admin_required, :except => [:index, :show]
+  actions :all
   respond_to :html, :xml, :json
   
   def search

@@ -1,8 +1,5 @@
 <h1>Editing conference</h1>
 
-<% form_for(@conference) do |f| %>
-	<%= render :partial => 'form', :locals => { :f => f } %>
+<% semantic_form_for @conference do |f| %>
+	<%= render 'shared/form', :f => f %>
 <% end %>
-
-<%= link_to 'Show', @conference %> |
-<%= link_to 'Back', conferences_path %>

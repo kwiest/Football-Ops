@@ -1,7 +1,16 @@
 <h1>All Conferences</h1>
 
+<% if admin? %>
+	<p><%= link_to "Add a new conference", new_conference_path %>
+<% end %>
+
 <ul id="conferences">
 	<% @conferences.each do |c| %>
-		<li><%= link_to c.name, c %></li>
+		<li>
+			<%= link_to c.name, c %>
+			<% if admin? %>
+				| <%= link_to "(edit)", edit_conference_path(c) %>
+			<% end %>
+		</li>
 	<% end %>
 </ul>

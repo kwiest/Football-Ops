@@ -1,7 +1,16 @@
 <h1>All Districts</h1>
 
+<% if admin? %>
+	<p><%= link_to "Add a new district", new_district_path %>
+<% end %>
+
 <ul id="districts">
 	<% @districts.each do |d| %>
-		<li><%= link_to d.name, d %></li>
+		<li>
+			<%= link_to d.name, d %>
+			<% if admin? %>
+				| <%= link_to "(edit)", edit_district_path(d) %>
+			<% end %>
+		</li>
 	<% end %>
 </ul>

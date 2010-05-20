@@ -1,15 +1,16 @@
 <h1>All Schools</h1>
 
-<div id="school-nav" class="clearfix">
-	<div class="float-left">
-		<%= will_paginate @schools %>
-	</div>
-	<div class="float-left">
-		<% form_tag :search_schools, :method => :post do %>
-			<%= text_field_tag :name %> <%= submit_tag "Search" %>
-		<% end %>
-	</div>
+<div id="school-nav">
+	<% form_tag :search_schools, :method => :post do %>
+		<%= text_field_tag :name %> <%= submit_tag "Search" %>
+	<% end %>
 </div>
+
+<% if admin? %>
+	<p><%= link_to "Add a new school", new_school_path %></p>
+<% end %>
+
+<%= will_paginate @schools %>
 
 <table border="1">
   <tr>
@@ -17,10 +18,10 @@
     <th>Conference</th>
     <th>District</th>
     <th>Division</th>
-    <th>Address1</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
+    <th>Address</th>
+		<% if admin? %>
+			<th>Edit</th>
+		<% end %>
   </tr>
 
 <% @schools.each do |school| %>
@@ -29,10 +30,13 @@
 		<td><%= link_to school.conference.name, school.conference %></td>
     <td><%= link_to school.district.name, school.district %></td>
     <td><%= link_to school.division.name, school.division %></td>
-    <td><%=h school.address1 %></td>
-    <td><%=h school.city %></td>
-    <td><%=h school.state %></td>
-    <td><%=h school.zip %></td>
+    <td>
+			<%=h school.address1 %><br />
+			<%=h "#{school.city}, #{school.state} #{school.zip}" %>
+		</td>
+		<% if admin? %>
+			<td><%= link_to "Edit", edit_school_path(school) %>
+		<% end %>
   </tr>
 <% end %>
 </table>
