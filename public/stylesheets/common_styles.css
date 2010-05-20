@@ -308,10 +308,27 @@ div.user fieldset {
 	margin: 0.5em 0;
 }
 
-#user-nav {
+#user-nav, #school-nav {
 	margin-bottom: 24px;
 }
 
+
+/******************************************************************
+ * Pagination
+ ******************************************************************/
+
+#pagination a, #pagination span {
+	padding: 4px;
+	border: 1px solid #b1b1b1;
+}
+
+#pagination span .disabled {
+	color: #666;
+}
+
+#pagination span .current {
+	background: #f0f5fe;
+}
 
 /******************************************************************
  * Listings
