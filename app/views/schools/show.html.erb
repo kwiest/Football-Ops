@@ -18,9 +18,13 @@
 	</div>
 <% end %>
 
-<h2>Travel Guide</h2>
-<%= image_tag "pdf-icon.png" %>
+<%= @map.to_html %>
+<%= @map.div (:width => 500, :height => 300) %>
 
+<h2>Uploaded Files</h2>
+<ul>
+	<li>File 1...</li>
+</ul>
 
 <h2>DFOs</h2>
 <table>
