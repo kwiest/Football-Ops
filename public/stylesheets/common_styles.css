@@ -319,7 +319,7 @@ div.user fieldset {
 
 .pagination {
 	font-size: 12px;
-	margin-right: 12px;
+	margin: 12px 12px 12px 0;
 }
 
 .pagination a, .pagination span {
@@ -345,13 +345,3 @@ div.user fieldset {
 .pagination a.prev_page, .pagination a.next_page {
 	background: #f0f5fe;
 }
-
-/******************************************************************
- * Listings
- ******************************************************************/
-
-.show, .edit, .delete, .accepted { padding: 0 18px; }
-.show { background: transparent url("/images/icons/search_16.png") left no-repeat; }
-.edit { background: transparent url("/images/icons/paper&pencil_16.png") left no-repeat; }
-.delete { background: transparent url("/images/icons/cancel_16.png") left no-repeat; }
-.accepted { background: transparent url("/images/icons/accepted_16.png") left no-repeat; }
