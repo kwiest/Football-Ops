@@ -1,0 +1,14 @@
+development:
+  bucket: footballops_development
+  access_key_id: AKIAJJS76LHBMMUAS25A
+  secret_access_key: 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
+
+test:
+  bucket: footballops_test
+  access_key_id: AKIAJJS76LHBMMUAS25A
+  secret_access_key: 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
+
+production:
+  bucket: footballops_production
+  access_key_id: AKIAJJS76LHBMMUAS25A
+  secret_access_key: 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
