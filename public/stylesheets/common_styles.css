@@ -294,6 +294,12 @@ h3 {
  * Users
  ******************************************************************/
 
+#email-users {
+	padding-left: 30px;
+	background: transparent url("/images/email_24.png") left center no-repeat;
+	margin-bottom: 24px;
+}
+
 div.user {
 	margin: 0 auto;
 	width: 800px;
