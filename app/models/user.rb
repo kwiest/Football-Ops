@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
   def full_name
     [first_name, last_name].join(" ")
   end
+  
+  def deliver_password_reset_instructions
+    reset_perishable_token!
+    UserMailer.deliver_mimi_password_reset_instructions(self)
+  end
 end

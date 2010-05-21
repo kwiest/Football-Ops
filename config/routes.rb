@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   	:national_committee => :get,
   	:search => :post
 	}
+	
+	map.resources :password_resets
   
   map.resources :schools, :collection => { :search => :post }
   

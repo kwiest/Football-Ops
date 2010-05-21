@@ -26,6 +26,13 @@ class ApplicationController < ActionController::Base
   	signed_in? || access_denied
   end
   
+  def require_no_user
+    if current_user
+      flash[:notice] = "You have to sign-out before you can access this page."
+      redirect_to current_user
+    end
+  end
+  
   def admin_required
     current_user.admin? || access_denied
   end

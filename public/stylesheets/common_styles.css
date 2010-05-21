@@ -18,6 +18,7 @@ html, body {
 body {
 	font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 	background: #fff;
+	margin: 0 0 20px;
 }
 
 a, a:visited {
@@ -29,7 +30,6 @@ a, a:visited {
 
 a.cancel, abbr {
 	color: red;
-	font-size: 12px;
 }
 
 a img {

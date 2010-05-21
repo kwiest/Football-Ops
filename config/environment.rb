@@ -9,6 +9,12 @@ Rails::Initializer.run do |config|
   config.gem 'inherited_resources', :version => '1.0.6'
   config.gem 'will_paginate', :version => '2.3.12'
   config.gem 'searchlogic', :version => '2.4.19'
+  config.gem 'mad_mimi_mailer', :version => '0.1.2.1'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end
+
+MadMimiMailer.api_settings = {
+  :username => "kyle.wiest@gmail.com",
+  :api_key => "19b119009045535fca3b1e720077fae3"
+}
