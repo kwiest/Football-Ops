@@ -7,7 +7,7 @@
 </div>
 
 <% if admin? %>
-	<p><%= button_to "New school", new_school_path, :method => :get %></p>
+	<%= button_to "New school", new_school_path, :method => :get %>
 <% end %>
 
 <%= will_paginate @schools %>
