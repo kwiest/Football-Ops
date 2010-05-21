@@ -11,6 +11,7 @@ Rails::Initializer.run do |config|
   config.gem 'searchlogic', :version => '2.4.19'
   config.gem 'mad_mimi_mailer', :version => '0.1.2.1'
   config.gem 'aws-s3', :version => '0.6.2', :lib => 'aws/s3'
+  config.gem 'paperclip', :version => '2.3.1.1'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end
