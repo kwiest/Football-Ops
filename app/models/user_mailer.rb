@@ -1,4 +1,4 @@
-class UserMailer < MadMimiMailer
+class UserMailer < ActionMailer::Base
   def mimi_password_reset_instructions(user)
     use_erb     true
     subject     "FootballOps Password Reset Instructions"
