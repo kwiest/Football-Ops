@@ -1,0 +1,5 @@
+<% if users.size > 0 %>
+	<p id="email-users">
+		<%= mail_to formatted_emails(users), "Email all of these users" %>
+	</p>
+<% end %>
