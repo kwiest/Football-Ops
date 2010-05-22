@@ -45,4 +45,17 @@ class ApplicationController < ActionController::Base
     flash[:error] = "Sorry, but you don't have access to this section."
     redirect_to root_url
   end
+  
+  # Find object for polymorphic uploads
+  def context
+    if params[:conference_id]
+      Conference.find(params[:conference_id])
+    elsif params[:district_id]
+      District.find(params[:district_id])
+    elsif params[:division_id]
+      Division.find(params[:division_id])
+    elsif params[:school_id]
+      School.find(params[:school_id])
+    end
+  end
 end

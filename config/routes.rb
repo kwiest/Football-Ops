@@ -9,9 +9,21 @@ ActionController::Routing::Routes.draw do |map|
 	
 	map.resources :password_resets
   
-  map.resources :schools, :collection => { :search => :post }
+  map.resources :schools, :collection => { :search => :post } do |school|
+    school.resources :uploads, :except => :index
+  end
   
-  map.resources :districts, :conferences, :divisions
+  map.resources :districts do |district|
+    district.resources :uploads, :except => :index
+  end
+  
+  map.resources :conferences do |conference|
+    conference.resources :uploads, :except => :index
+  end
+  
+  map.resources :divisions do |division|
+    division.resources :uploads, :except => :index
+  end
   
   map.resources :user_sessions
   map.sign_up '/sign_up', :controller => :users, :action => :new

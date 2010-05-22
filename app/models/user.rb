@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   belongs_to :school
+  has_many :uploads
   
   validates_presence_of :first_name, :last_name, :email
   default_scope :order => :last_name

@@ -1,0 +1,11 @@
+<h1>Editing Upload for <%= @parent.name %></h1>
+
+<% semantic_form_for [@parent, @upload] do |f| %>
+	<% f.inputs do %>
+		<%= f.input :name %>
+	<% end %>
+	
+	<% f.buttons do %>
+		<%= f.commit_button "Update" %> or <%= link_to "Cancel", @parent, :class => :cancel %>
+	<% end %>
+<% end %>
