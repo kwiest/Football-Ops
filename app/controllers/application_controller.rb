@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_filter :find_recent_jobs
+  
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -57,5 +59,9 @@ class ApplicationController < ActionController::Base
     elsif params[:school_id]
       School.find(params[:school_id])
     end
+  end
+  
+  def find_recent_jobs
+    @jobs = Job.all(:limit => 5)
   end
 end

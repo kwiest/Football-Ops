@@ -1,0 +1,35 @@
+<% content_for :nav do %>
+	<p><%= link_to "← Back to FootballOps Home", root_path %></p>
+<% end %>
+
+<div id="new-job" class="clearfix">
+	<%= link_to "Post a job", new_job_path, :class => "special-button" %>
+</div>
+
+<div id="category-1" class="jobs">
+	<h2>Full Time Jobs (<%= @full_time.size %>)</h2>
+	<ul>
+		<%= render @full_time %>
+	</ul>
+</div>
+
+<div id="category-2" class="jobs">
+	<h2>Part Time Jobs (<%= @part_time.size %>)</h2>
+	<ul>
+		<%= render @part_time %>
+	</ul>
+</div>
+
+<div id="category-3" class="jobs">
+	<h2>Paid Internships (<%= @paid_internships.size %>)</h2>
+	<ul>
+		<%= render @paid_internships %>
+	</ul>
+</div>
+
+<div id="category-4" class="jobs">
+	<h2>Unpaid Internships (<%= @unpaid_internships.size %>)</h2>
+	<ul>
+		<%= render @unpaid_internships %>
+	</ul>
+</div>

@@ -25,6 +25,8 @@ ActionController::Routing::Routes.draw do |map|
     division.resources :uploads, :except => :index
   end
   
+  map.resources :jobs, :collection => { :feed => :get }
+  
   map.resources :user_sessions
   map.sign_up '/sign_up', :controller => :users, :action => :new
   map.sign_in '/sign_in', :controller => :user_sessions, :action => :new

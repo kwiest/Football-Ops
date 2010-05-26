@@ -1,0 +1,178 @@
+/******************************************************************
+ * Job Board
+ ******************************************************************/
+
+body {
+	background: #f0f5fe;
+}
+
+#page-wrap {
+	width: 800px;
+	margin: 50px auto;
+	
+}
+
+#jobs-wrap {
+	padding: 30px;
+	border: 1px solid #b1b1b1;
+	background: #fff;
+	
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	
+	box-shadow: 0 0 3px #999;
+	-moz-box-shadow: 0 0 3px #999;
+}
+
+h1.job-title {
+	font-size: 36px;
+	font-family: 'Nobile', serif;
+	font-weight: normal;
+	margin-bottom: 40px;
+	color: #333;
+}
+
+div.jobs {
+	border-top: 2px solid #666;
+	padding-top: 12px;
+	margin-bottom: 60px;
+}
+
+div.jobs h2 {
+	font-size: 24px;
+	margin-bottom: 24px;
+}
+
+div.jobs ul {
+	margin-bottom: 24px;
+}
+
+div.jobs ul li {
+	list-style-type: none;
+	margin: 0;
+	font-size: 13px;
+}
+
+div.jobs ul li a {
+	padding: 10px;
+	color: #999;
+	text-decoration: none;
+	display: block;
+	border-bottom: 1px solid #b1b1b1;
+}
+
+div.jobs ul li a span {
+	color: #000;
+}
+
+div.jobs ul li a span.job-location {
+	font-weight: bold;
+	font-size: 15px;
+	margin-right: 14px;
+	color: #222;
+}
+
+div.jobs ul li a span.job-title {
+	margin-right: 6px;
+}
+
+div.jobs ul li a span.job-school {
+	margin-left: 6px;
+}
+
+div.jobs ul li a span.job-date {
+	float: right;
+	color: #999;
+	font-size: 11px;
+}
+
+#new-job a.special-button {
+	float: right;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 8px 19px 9px;
+	text-decoration: none;
+	margin-bottom: 12px;
+	color: #fff;
+	background: #014464;
+	background: -moz-linear-gradient(top, #0D658E, #0C577A 50%, #014D71 51%, #003E5C);
+	background: -webkit-gradient(linear, left top, left bottombottom, color-stop(0, #0E658E), color-stop(.5, #0C577A), color-stop(.5, #014D71), to(#003E5C));
+
+	border: 1px solid #368DBE;
+	border-top: 1px solid #c3d6df;
+	-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	
+	text-shadow: 0 -1px 1px #000;
+	
+	box-shadow: 0 1px 3px #000;
+	-moz-box-shadow: 0 1px 3px #000;
+	-webkit-box-shadow:  0 1px 3px #000;
+}
+
+#new-job a.special-button:hover {
+	background: #014464;
+	background: -moz-linear-gradient(top, #0c5f85, #0b5273 50%, #024869 51%, #003853);
+	background: -webkit-gradient(linear, left top, left bottombottom, color-stop(0, #0c5f85), color-stop(.5, #0b5273), color-stop(.51, #024869), to(#003853));
+}
+
+
+/******************************************************************
+ * Job Post
+ ******************************************************************/
+
+p.job-posted-on {
+	margin-top: -30px;
+	color: #999;
+	font-size: 13px;
+}
+
+p.job-category-at {
+	margin-top: 40px;
+	font-size: 18px;
+}
+
+div.job {
+	padding-top: 20px;
+	border-top: 1px solid #ccc;
+}
+
+div.job p {
+	font-size: 15px;
+	margin-bottom: 24px;
+}
+
+div.job h2 {
+	font-size: 18px
+}
+
+div.job div.apply {
+	padding: 10px 20px;
+	margin: 20px 0;
+	background: #eee;
+	border: 1px solid #ccc;
+	
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+#job-spread {
+	float: right;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+#job-spread a {
+	text-decoration: none;
+	font-size: 14px;
+	border-bottom: 1px dotted #ddd;
+	padding: 8px;
+}
+
+#job-spread a.email {
+	padding-left: 30px;
+	background: transparent url("/images/email_24.png") center left no-repeat;
+}

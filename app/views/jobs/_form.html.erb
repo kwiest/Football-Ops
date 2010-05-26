@@ -1,0 +1,17 @@
+<%= f.error_messages %>
+
+<% f.inputs do %>
+	<%= f.input :title, :label => "Job title" %>
+	<%= f.input :category, :label => "Job type", :as => :radio, :collection => [
+		["Full Time", "full_time"], ["Part Time", "part_time"], ["Paid Internship", "paid_internship"], ["Unpaid Internship", "unpaid_internship"]
+	], :input_html => { :rows => 12 } %>
+	<%= f.input :school, :hint => "Example: University of Oregon" %>
+	<%= f.input :location, :label => "Job location", :hint => "Example: Eugene, OR" %>
+	<%= f.input :description, :label => "Job description", :input_html => { :class => "mceEditor" } %>
+	<%= f.input :apply, :label => "How to apply", :hint => "Example: Send a resume to you@school.edu", :input_html => { :rows => 6 } %>
+<% end %>
+
+<% f.buttons do %>
+	<%= f.commit_button "Save job" %> or <%= link_to "Cancel", jobs_path, :class => :cancel %>
+<% end %>
+	

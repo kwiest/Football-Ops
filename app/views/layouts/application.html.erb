@@ -39,12 +39,27 @@
 			<div class="clear"></div>
 		</ul>
 		
-		<% flash.each do |key, value| -%>
-			<div class="<%= key %>"><%= value %></div>
-		<% end -%>
+		<div id="sidebar">
+			<h2>Recently Posted Jobs</h2>
+			<ul>
+				<% @jobs.each do |job| %>
+					<li>
+						<%= job.created_at.strftime('%B %d') %> - <%= link_to "#{job.title} at #{job.school}", job %>
+					</li>
+				<% end %>
+			</ul>
+			
+			<p><%= link_to "See all jobs", jobs_path %></p>
+		</div>
 		
-		<%= yield %>
-	
+		<div id="main-content">
+			<% flash.each do |key, value| -%>
+				<div class="<%= key %>"><%= value %></div>
+			<% end -%>
+			
+			<%= yield %>
+		</div>
+			
 	</div>
 
 </body>

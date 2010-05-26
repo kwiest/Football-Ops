@@ -12,6 +12,7 @@ Rails::Initializer.run do |config|
   config.gem 'mad_mimi_mailer', :version => '0.1.2.1'
   config.gem 'aws-s3', :version => '0.6.2', :lib => 'aws/s3'
   config.gem 'paperclip', :version => '2.3.1.1'
+  config.gem 'tiny_mce', :version => '0.1.3'
   
   config.time_zone = 'Pacific Time (US & Canada)'
 end

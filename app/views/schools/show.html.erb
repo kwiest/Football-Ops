@@ -25,17 +25,6 @@
 
 <h2>DFOs</h2>
 <table>
-	<tr>
-		<th>Name</th>
-		<th>School</th>
-		<th>Contact Info</th>
-		<th>Conference Rep</th>
-		<th>National Committee</th>
-		<th>Affiliation</th>
-		<% if admin? %>
-			<th>Edit</th>
-			<th>Delete</th>
-		<% end %>
-	</tr>
+	<%= render 'users/user_table' %>
 	<%= render @school.users %>
 </table>

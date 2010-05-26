@@ -1,0 +1,9 @@
+<li>
+	<a href="/jobs/<%= job.id %>">
+		<span class="job-location"><%= job.location %></span>
+		<span class="job-title"><%= job.title %></span>
+		at
+		<span class="job-school"><%= job.school %></span>
+		<span class="job-date"><%= job.created_at.strftime("%B %d") %></span>
+	</a>
+</li>
