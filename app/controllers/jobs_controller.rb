@@ -9,7 +9,7 @@ class JobsController < InheritedResources::Base
     :theme_advanced_buttons1 => %w{bold italic bullist numlist},
     :theme_advanced_buttons2 => [],
     :theme_advanced_buttons3 => []
-  }, :only => [:new, :edit]
+  }, :only => [:new, :create, :edit, :update]
       
   
   def index

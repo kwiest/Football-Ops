@@ -3,7 +3,7 @@ class Job < ActiveRecord::Base
   
   belongs_to :user
   
-  validates_presence_of :title, :category, :school, :location, :description, :apply, :state
+  validates_presence_of :title, :category, :school, :location, :description, :apply
   
   default_scope :order => 'created_at DESC'
   named_scope :full_time, :conditions => {:category => "full_time"}
