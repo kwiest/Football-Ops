@@ -22,6 +22,10 @@
 			<%= yield :nav %>
 		</div>
 		<div id="jobs-wrap">
+			<% flash.each do |key, value| -%>
+				<div class="<%= key %>"><%= value %></div>
+			<% end -%>
+			
 			<%= yield %>
 		</div>
 	</div>
