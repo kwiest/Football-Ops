@@ -8,7 +8,7 @@
 	<%= f.input :school, :hint => "Example: University of Oregon" %>
 	<%= f.input :location, :label => "Job location", :hint => "Example: Eugene, OR" %>
 	<%= f.input :description, :label => "Job description", :input_html => { :class => "mceEditor" } %>
-	<%= f.input :apply, :label => "How to apply", :hint => "Example: Send a resume to you@school.edu", :input_html => { :rows => 6 } %>
+	<%= f.input :apply, :label => "How to apply", :hint => "Example: Send a resume to you@school.edu", :input_html => { :class => "mceEditor", :rows => 6 } %>
 <% end %>
 
 <% f.buttons do %>
