@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   end
   
   def unsubscribe_from_newsletter!
-    HOMINID.unsubscribe(newsletter_list_id, email)
+    HOMINID.unsubscribe(newsletter_list_id, email) if subscribed_to_newsletter?
   end
   
   def subscribed_to_newsletter?
