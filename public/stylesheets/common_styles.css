@@ -325,7 +325,7 @@ h3 {
 
 div.user {
 	margin: 0 auto;
-	width: 800px;
+	width: 100%;
 }
 
 div.user input[type=text], div.user input[type=password], div.user select {
@@ -390,4 +390,38 @@ div.user fieldset {
 
 .pagination a.prev_page, .pagination a.next_page {
 	background: #f0f5fe;
+}
+
+
+/******************************************************************
+ * Super Button
+ ******************************************************************/
+
+a.super-button {
+	background: #fff url("/images/button_overlay.png") repeat-x;
+	display: inline-block;
+	border-color: rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.25) rgba(0, 0, 0, 0.35);
+	border-style: solid;
+	border-width: 1px;
+	padding: 6px 17px 8px;
+	color: #555;
+	text-decoration: none;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1;
+	position: relative;
+	cursor: pointer;
+	vertical-align: bottom;
+	
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+a.super-button:hover {
+	background-color: #eee;
 }

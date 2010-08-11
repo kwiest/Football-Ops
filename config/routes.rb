@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   	:conference_reps => :get,
   	:national_committee => :get,
   	:search => :post
+	}, :member => {
+	  :subscribe_to_newsletter => :get,
+	  :unsubscribe_from_newsletter => :get
 	}
 	
 	map.resources :password_resets

@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email
   default_scope :order => :last_name
   
+  after_create :subscribe_to_newsletter!
+  before_destroy :unsubscribe_from_newsletter!
+  
   def user
   	self
   end
@@ -27,7 +30,13 @@ class User < ActiveRecord::Base
   end
   
   def unsubscribe_from_newsletter!
-    HOMINID.ubsubscribe(newsletter_list_id, email)
+    HOMINID.unsubscribe(newsletter_list_id, email)
+  end
+  
+  def subscribed_to_newsletter?
+    HOMINID.member_info(newsletter_list_id, email)
+  rescue Hominid::ListError
+    false
   end
   
   

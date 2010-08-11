@@ -1,7 +1,5 @@
 <h1>Sign in</h1>
 
-<p><%= link_to "I forgot my password", new_password_reset_path %></p>
-
 <% semantic_form_for @user_session do |f| -%>
 	<%= f.error_messages %>
 	<% f.inputs do %>
@@ -12,3 +10,5 @@
 		<%= f.commit_button "Sign in" %>
 	<% end %>
 <% end -%>
+
+<p>Help! <%= link_to "I forgot my password", new_password_reset_path %></p>

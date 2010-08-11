@@ -1,5 +1,14 @@
 <% div_for @user do %>
 	<h1><%=h @user.full_name %></h1>
+	
+	<% unless @user.subscribed_to_newsletter? %>
+		<div class="notice">
+			<h2>You're Not Currently Subscribed to the DFO Newsletter</h2>
+			<p>The newsletter contains lots of helpful information and news from around the country. Please subscribe now.</p>
+			<%= link_to 'Subscribe now!', subscribe_to_newsletter_user_path(@user), :class => 'super-button' %>
+		</div>
+	<% end %>
+	
 	<h2><%= link_to @user.school.name, @user.school %></h2>
 	
 	<p>

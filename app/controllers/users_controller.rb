@@ -18,6 +18,20 @@ class UsersController < InheritedResources::Base
   	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
   end
   
+  def subscribe_to_newsletter
+    @user = User.find(params[:id])
+    @user.subscribe_to_newsletter!
+    flash[:notice] = "You've successfully subscribed to the DFO newsletter."
+    redirect_to @user
+  end
+  
+  def unsubscribe_from_newsletter
+    @user = User.find(params[:id])
+    @user.unsubscribe_from_newsletter!
+    flash[:notice] = "You've successfully unsubscribed to the DFO newsletter. Please reconsider, the newsletter has lots of important and useful information."
+    redirect_to @user
+  end
+  
   
   private
   
