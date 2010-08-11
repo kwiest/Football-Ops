@@ -21,4 +21,19 @@ class User < ActiveRecord::Base
     reset_perishable_token!
     UserMailer.deliver_password_reset_instructions(self)
   end
+  
+  def subscribe_to_newsletter!
+    HOMINID.subscribe(newsletter_list_id, email, { :FNAME => first_name, :LNAME => last_name }, { :email_type => 'html' })
+  end
+  
+  def unsubscribe_from_newsletter!
+    HOMINID.ubsubscribe(newsletter_list_id, email)
+  end
+  
+  
+  private
+  
+  def newsletter_list_id
+    "de1f0cd8b5"
+  end
 end

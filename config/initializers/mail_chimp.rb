@@ -1,0 +1,1 @@
+HOMINID = Hominid::Base.new({:api_key => "0541b52fd419fea90832dd5166022269-us1"})
