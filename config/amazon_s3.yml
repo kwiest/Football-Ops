@@ -1,14 +1,14 @@
 development:
   bucket: footballops-development
-  access_key_id: AKIAJJS76LHBMMUAS25A
-  secret_access_key: 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
+  access_key_id: ENV['S3_KEY']
+  secret_access_key: ENV['S3_SECRET']
 
 test:
   bucket: footballops-test
-  access_key_id: AKIAJJS76LHBMMUAS25A
-  secret_access_key: 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
+  access_key_id: ENV['S3_KEY']
+  secret_access_key: ENV['S3_SECRET']
 
 production:
   bucket: footballops-production
-  access_key_id: AKIAJJS76LHBMMUAS25A
-  secret_access_key: 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
+  access_key_id: ENV['S3_KEY']
+  secret_access_key: ENV['S3_SECRET']
