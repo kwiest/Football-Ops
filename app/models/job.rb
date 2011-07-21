@@ -6,8 +6,8 @@ class Job < ActiveRecord::Base
   validates_presence_of :title, :category, :school, :location, :description, :apply
   
   default_scope :order => 'created_at DESC'
-  named_scope :full_time, :conditions => {:category => "full_time"}
-  named_scope :part_time, :conditions => {:category => "part_time"}
-  named_scope :paid_internships, :conditions => {:category => "paid_internship"}
-  named_scope :unpaid_internships, :conditions => {:category => "unpaid_internship"}
+  scope :full_time, where(:category => 'full_time')
+  scope :part_time, where(:category => "part_time")
+  scope :paid_internships, where(:category => "paid_internship")
+  scope :unpaid_internships, where(:category => "unpaid_internship")
 end

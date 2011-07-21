@@ -1,18 +1,5 @@
-RAILS_GEM_VERSION = '2.3.8' unless defined? RAILS_GEM_VERSION
+# Load the rails application
+require File.expand_path('../application', __FILE__)
 
-require File.join(File.dirname(__FILE__), 'boot')
-
-Rails::Initializer.run do |config|
-  
-  config.gem 'authlogic', :version => '2.1.3'
-  config.gem 'formtastic', :version => '0.9.8'
-  config.gem 'inherited_resources', :version => '1.0.6'
-  config.gem 'will_paginate', :version => '2.3.12'
-  config.gem 'searchlogic', :version => '2.4.19'
-  config.gem 'hominid', :version => '2.1.5'
-  config.gem 'aws-s3', :version => '0.6.2', :lib => 'aws/s3'
-  config.gem 'paperclip', :version => '2.3.1.1'
-  config.gem 'tiny_mce', :version => '0.1.3'
-  
-  config.time_zone = 'Pacific Time (US & Canada)'
-end
+# Initialize the rails app
+FootballOps::Application.initialize!
