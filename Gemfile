@@ -30,6 +30,6 @@ group :test do
   gem 'capybara'
 end
 
-grou :production do
+group :production do
   gem 'therubyracer-heroku'
 end
