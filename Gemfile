@@ -29,3 +29,8 @@ group :test do
   gem 'mocha'
   gem 'capybara'
 end
+
+grou :production do
+  gem 'therubyracer-heroku'
+end
+end
