@@ -11,6 +11,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem 'paperclip'
 
 gem 'barista'
+gem 'yui-compressor', git: 'git://github.com/oleander/ruby-yui-compressor.git', require: 'yui/compressor'
 gem 'jammit'
 gem 'coffee-script'
 

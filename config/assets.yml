@@ -1,6 +1,8 @@
 template_function: Handlebars.template
 template_extension: handlebars
 
+package_assets: yes
+
 javascripts:
   vendor:
     - public/javascripts/vendor/jquery-1.6.2.min.js
