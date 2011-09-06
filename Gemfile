@@ -29,3 +29,8 @@ group :test do
   gem 'mocha'
   gem 'capybara'
 end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
