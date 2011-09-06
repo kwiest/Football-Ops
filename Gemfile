@@ -33,4 +33,3 @@ end
 grou :production do
   gem 'therubyracer-heroku'
 end
-end
