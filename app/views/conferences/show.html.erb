@@ -1,12 +1,5 @@
-<h1><%= @conference.name %></h1>
+<h1>DFOs in the <%= @conference.name %></h1>
 
-<h2>Uploaded Files</h2>
-<%= render 'uploads/upload' %>
+<%= render 'uploads/upload', resource: @conference %>
 
-<%= render 'shared/email_users', :users => @conference.users %>
-
-<h2>DFOs</h2>
-<table>
-	<%= render 'users/user_table' %>
-	<%= render @conference.users %>
-</table>
+<%= render 'shared/user_table', users: @users %>

@@ -1,49 +1,68 @@
-class UsersController < InheritedResources::Base
-  before_filter :sign_in_required, :except => [:new, :create]
-  before_filter :authorized?, :only => [:edit, :update]
-  before_filter :admin_required, :only => :destroy
-  actions :all
-  respond_to :html, :xml, :json
+class UsersController < ApplicationController
+  authorize_resource
+  
+  before_filter :find_user, only: [:show, :edit, :update, :destroy]
+  
+  respond_to :html, :json
+  
+  def index
+    @users = User.all.paginate(page: params[:page], per_page: 30)
+  end
+  
+  def show
+  end
+  
+  def new
+    @user = User.new
+  end
+  
+  def edit
+  end
+  
+  def create
+    @user = User.create(params[:user])
+    if @user.save
+      redirect_to user_path(@user), notice: "User successfully created!"
+    else
+      render action: :new
+    end
+  end
+  
+  def update
+    if @user.update_attributes(params[:user])
+      redirect_to user_path(@user), notice: "User successfully updated!"
+    else
+      render action: :edit
+    end
+  end
+  
+  def destroy
+    @user.destroy
+    redirect_to users_path, alert: "User successfully deleted."
+  end
+  
+  # Non RESTful Actions
   
   def conference_reps
-  	@users = User.find_all_by_conference_rep(true)
+  	@users = User.find_all_by_conference_rep(true).paginate(page: params[:page], per_page: 30)
   end
   
   def national_committee
-  	@users = User.find_all_by_national_committee(true)
+  	@users = User.find_all_by_national_committee(true).paginate(page: params[:page], per_page: 30)
   end
   
   def search
-    @users = User.last_name_like(params[:last_name]).paginate(:page => params[:page], :per_page => 30)
+    @users = User.all(conditions: ["last_name LIKE ?", "%#{params[:last_name]}%"]).paginate(:page => params[:page], :per_page => 30)
   	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
-  end
-  
-  def subscribe_to_newsletter
-    @user = User.find(params[:id])
-    @user.subscribe_to_newsletter!
-    flash[:notice] = "You've successfully subscribed to the DFO newsletter."
-    redirect_to @user
-  end
-  
-  def unsubscribe_from_newsletter
-    @user = User.find(params[:id])
-    @user.unsubscribe_from_newsletter!
-    flash[:notice] = "You've successfully unsubscribed to the DFO newsletter. Please reconsider, the newsletter has lots of important and useful information."
-    redirect_to @user
+  	render action: :index
   end
   
   
   private
   
-    def authorized?
-      @user = User.find(params[:id])
-      @user.changeable_by?(current_user) || access_denied
-    end
-  
-    def collection
-      paginate_options ||= {}
-      paginate_options[:page] ||= (params[:page] || 1)
-      paginate_options[:per_page] ||= (params[:per_page] || 30)
-      @users = end_of_association_chain.paginate(paginate_options)
-    end
+  def find_user
+    @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: "Sorry, but that user cannot be found."
+  end
 end

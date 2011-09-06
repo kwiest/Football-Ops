@@ -1,16 +1,34 @@
 <h1>All Divisions</h1>
 
-<% if admin? %>
-	<%= button_to "New division", new_division_path, :method => :get %>
+<% if can? :create, Division %>
+  <p>
+  	<%= link_to "Create a new division", new_division_path, class: "btn primary" %>
+	</p>
 <% end %>
 
-<ul id="divisions">
-	<% @divisions.each do |d| %>
-		<li>
-			<%= link_to d.name, d %>
-			<% if admin? %>
-				| <%= link_to "(edit)", edit_division_path(d) %>
-			<% end %>
-		</li>
-	<% end %>
-</ul>
+<table class="zebra-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% if can? :edit, Division %>
+        <th>Edit</th>
+      <% end %>
+      <% if can? :delete, Division %>
+        <th>Delete</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @divisions.each do |d| %>
+      <tr>
+        <td><%= link_to d.name, division_path(d) %></td>
+        <% if can? :edit, d %>
+          <td><%= link_to "Edit", edit_division_path(d), class: "edit" %></td>
+        <% end %>
+        <% if can? :delete, d %>
+          <td><%= link_to "Delete", division_path(d), method: :delete, class: "edit", confirm: "Are you sure you want to delete this division? There is no going back!" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

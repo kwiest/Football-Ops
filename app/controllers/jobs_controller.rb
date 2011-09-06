@@ -1,28 +1,37 @@
-class JobsController < InheritedResources::Base
-  before_filter :sign_in_required, :except => [:index, :show, :feed]
-  before_filter :authorized?, :only => [:edit, :update, :destroy]
-  skip_before_filter :find_recent_jobs
-  actions :all
-  respond_to :html, :xml, :json
-  uses_tiny_mce :options => { :theme => 'advanced',
-    :theme_advanced_toolbar_location => "top",
-    :theme_advanced_buttons1 => %w{bold italic bullist numlist},
-    :theme_advanced_buttons2 => [],
-    :theme_advanced_buttons3 => []
-  }, :only => [:new, :create, :edit, :update]
-      
+class JobsController < ApplicationController
+  authorize_resource
+  
+  before_filter :find_job, only: [:edit, :update]
+  
+  respond_to :html, :json
+  
   
   def index
-    @full_time = Job.full_time
-    @part_time = Job.part_time
-    @paid_internships = Job.paid_internships
-    @unpaid_internships = Job.unpaid_internships
-    index!
+    @jobs = Job.all
+  end
+  
+  def new
+    @job = current_user.jobs.new
+  end
+  
+  def edit
   end
   
   def create
     @job = current_user.jobs.create(params[:job])
-    create!
+    if @job.save
+      redirect_to jobs_path, :notice => 'Job successfully created!'
+    else
+      render action: :new
+    end
+  end
+  
+  def update
+    if @job.update_attributes(params[:job])
+      redirect_to job_path(@job), :notice => 'Job successfully updated!'
+    else
+      render action: :edit
+    end
   end
   
   def feed
@@ -31,10 +40,12 @@ class JobsController < InheritedResources::Base
     response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
   
+  
   private
   
-  def authorized?
+  def find_job
     @job = Job.find(params[:id])
-    access_denied unless @job.changeable_by?(current_user)
+  rescue ActiveRecord::RecordNotFound
+    redirect_to jobs_path, alert: "Sorry, but that job could not be found."
   end
 end

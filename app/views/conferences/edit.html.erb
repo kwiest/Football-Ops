@@ -1,5 +1,10 @@
 <h1>Editing conference</h1>
 
-<% semantic_form_for @conference do |f| %>
+<% simple_form_for @conference do |f| %>
 	<%= render 'shared/form', :f => f %>
+	
+	<div class="actions">
+    <%= f.button :submit, "Save changes", class: "btn primary" %>
+    <%= link_to "Cancel", conferences_path, class: "btn" %>
+  </div>
 <% end %>

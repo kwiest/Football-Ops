@@ -1,11 +1,4 @@
 class UserMailer < ActionMailer::Base
-  def mimi_password_reset_instructions(user)
-    use_erb     true
-    subject     "FootballOps Password Reset Instructions"
-    from        "do-not-reply@footballops.org"
-    body        :user => user
-  end
-
   def password_reset_instructions(user)
     recipients      user.email
     from            "do-not-reply@footballops.org"

@@ -1,13 +1,12 @@
 <h1>Reset Your Password</h1>
 
-<% semantic_form_for :user, :url => password_resets_path do |f| %>
-	<%= f.error_messages %>
-
-	<% f.inputs do %>
-		<%= f.input :email, :label => "Email address", :required => true %>
-	<% end %>
-	
-	<% f.buttons do %>
-		<%= f.commit_button "Get instructions" %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
-	<% end %>
+<% simple_form_for :user, url: password_resets_path do |f| %>
+  <fieldset>
+    <%= f.input :email, label: "Email address", required: true %>
+  </fieldset>
+  
+  <div class="actions">
+    <%= f.button :submit, "Reset my password", class: "btn primary" %>
+    <%= link_to "Nevermind", new_user_session_path, class: "btn" %>
+  </div>
 <% end %>

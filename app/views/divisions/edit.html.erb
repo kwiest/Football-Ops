@@ -1,5 +1,10 @@
-<h1>Editing division</h1>
+<h1>Editing division <%= @division.name %></h1>
 
-<% semantic_form_for @division do |f| %>
+<% simple_form_for @division do |f| %>
 	<%= render 'shared/form', :f => f %>
+	
+	<div class="actions">
+    <%= f.button :submit, "Save changes", class: "btn primary" %>
+    <%= link_to "Cancel", divisions_path, class: "btn" %>
+  </div>
 <% end %>

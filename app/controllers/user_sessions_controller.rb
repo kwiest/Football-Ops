@@ -6,12 +6,10 @@ class UserSessionsController < ApplicationController
   
   def create
     @user_session = UserSession.new(params[:user_session])
-    
     if @user_session.save
-      flash[:success] = "Successfully signed in."
-      redirect_to root_url
+      redirect_to root_path, notice: "Successfully signed-in!"
     else
-      render :new
+      render action: :new
     end
   end
   
@@ -19,7 +17,6 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.find(params[:id])
     @user_session.destroy
     
-    flash[:notice] = "Successfully signed out."
-    redirect_to root_url
+    redirect_to root_path, notice: "Successfully signed-out. Come back soon."
   end
 end

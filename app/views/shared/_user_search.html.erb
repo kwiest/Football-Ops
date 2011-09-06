@@ -1,0 +1,13 @@
+<div id="user-search">
+	<% form_tag :search_users, :method => :post do %>
+		<%= text_field_tag :last_name %> <%= submit_tag "Search by last name", class: "btn" %>
+	<% end %>
+	
+	<% if can? :create, User %>
+    <p>
+      <%= link_to "Create a new user", new_user_path, class: "btn primary" %>
+    </p>
+  <% end %>
+</div>
+
+<hr />

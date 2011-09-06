@@ -1,21 +1,13 @@
-<% div_for @school do %>
-	<%= f.error_messages %>
-	
-	<% f.inputs do %>
-		<%= f.input :conference, :include_blank => false %>
-		<%= f.input :district, :include_blank => false %>
-		<%= f.input :division, :include_blank => false %>
-	<% end %>
-	
-	<% f.inputs do %>
-		<%= f.input :name %>
-		<%= f.input :address1 %>
-		<%= f.input :city %>
-		<%= f.input :state %>
-		<%= f.input :zip %>
-	<% end %>
-	
-	<% f.buttons do %>
-		<%= f.commit_button "Save school" %> or <%= link_to 'Cancel', schools_path, :class => :cancel %>
-	<% end %>
-<% end %>
+<fieldset>
+  <%= f.input :name, placeholder: "Western State University" %>
+  <%= f.input :address1, label: "Street address", placeholder: "123 A St" %>
+  <%= f.input :city, placeholder: "Anywhere" %>
+  <%= f.input :state, placeholder: "CA" %>
+  <%= f.input :zip, placeholder: "12345" %>
+</fieldset>
+
+<fieldset>
+  <%= f.association :conference, required: true, include_blank: false %>
+  <%= f.association :district, required: true, include_blank: false %>
+  <%= f.association :division, required: true, include_blank: false %>
+</fieldset>

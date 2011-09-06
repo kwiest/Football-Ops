@@ -1,0 +1,48 @@
+template_function: Handlebars.template
+template_extension: handlebars
+
+javascripts:
+  vendor:
+    - public/javascripts/vendor/jquery-1.6.2.min.js
+    - public/javascripts/vendor/jquery-ui-1.8.16.min.js
+    - public/javascripts/vendor/underscore-min.js
+    - public/javascripts/vendor/backbone-min.js
+    - public/javascripts/vendor/handlebars.js
+    - public/javascripts/vendor/tiny_mce/jquery.tinymce.js
+    
+  initializers:
+    - public/javascripts/initializers/*.js
+    
+  application:
+    - public/javascripts/application.js
+    - public/javascripts/rails.js
+  
+  jobs:
+    - public/javascripts/initializers/handlebars.js
+    - public/javascripts/vendor/tiny_mce/jquery.tinymce.js
+    - public/javascripts/jobs/models/*.js
+    - public/javascripts/jobs/views/*.js
+    - app/views/jobs/*.handlebars
+    - public/javascripts/jobs/job-app.js
+    
+stylesheets:
+  common:
+    - public/stylesheets/common_styles.css
+    - public/stylesheets/forms.css
+    
+  bootstrap:
+    - public/stylesheets/bootstrap/reset.css
+    - public/stylesheets/bootstrap/layout.css
+    - public/stylesheets/bootstrap/type.css
+    - public/stylesheets/bootstrap/buttons.css
+    - public/stylesheets/bootstrap/tables.css
+    - public/stylesheets/bootstrap/messages.css
+    
+  application:
+    - public/stylesheets/application.css
+    - public/stylesheets/forms.css
+    - public/stylesheets/bootstrap/navigation.css
+    
+  jobs:
+    - public/stylesheets/jobs.css
+    

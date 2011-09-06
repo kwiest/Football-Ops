@@ -1,0 +1,65 @@
+<p>
+  <%= mail_to formatted_emails(users), "Email all of these users", class: "email" %>
+</p>
+
+<%= will_paginate users %>
+
+<table class="zebra-striped">
+  <thead>
+    <tr>
+    	<th>Name</th>
+    	<th>School</th>
+    	<th>Contact Info</th>
+    	<th>Conf. Rep</th>
+    	<th>Nat. Comm.</th>
+    	<th>Affiliation</th>
+    	<% if can? :edit, User %>
+    	  <th>Edit</th>
+    	<% end %>
+    	<% if can? :delete, User %>
+    	  <th>Delete</th>
+    	<% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr id="user_<%= user.id %>">
+      	<td class="user-name">
+      		<%= link_to user.full_name, user %>
+      	</td>
+      	<td class="user-school">
+      		<%= link_to user.school.name, user.school %>
+      	</td>
+      	<td class="user-contact">
+      		Tel: <%= user.phone %><br />
+      		Fax: <%= user.fax %><br />
+      		<%= mail_to user.email %>
+      	</td>
+      	<td class="user-conf-rep">
+      		<%= image_tag("check.png", :border => 0, :alt => "Yes") if user.conference_rep? %>
+      	</td>
+      	<td class="user-nat-committee">
+      		<%= image_tag("check.png", :border => 0, :alt => "Yes") if user.national_committee? %>
+      	</td>
+      	<td class="user-affiliation">
+      		Division: <%= link_to user.school.division.name, user.school.division %><br />
+      		Conference: <%= link_to user.school.conference.name, user.school.conference %><br />
+      		District: <%= link_to user.school.district.name, user.school.district %>
+      	</td>
+
+      	<% if can? :edit, user %>
+      		<td class="user-edit">
+            <%= link_to "Edit", edit_user_path(user), class: "edit" %>
+      		</td>
+      	<% end %>
+      	<% if can? :delete, user %>
+      		<td class="user-delete">
+      			<%= link_to "Delete", user_path(user), method: :delete, class: "delete", confirm: "Are you sure you want to delete #{user.full_name}? There is no going back!" %>
+      		</td>
+      	<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate users %>

@@ -1,5 +1,10 @@
-<h1>Editing school</h1>
+<h1>Editing <%= @school.name %></h1>
 
-<% semantic_form_for @school do |f| %>
-	<%= render 'form', :f => f %>
+<% simple_form_for @school do |f| %>
+  <%= render 'form', f: f %>
+  
+  <div class="actions">
+    <%= f.button :submit, "Save changes", class: "btn primary" %>
+    <%= link_to "Cancel", schools_path, class: "btn" %>
+  </div>
 <% end %>

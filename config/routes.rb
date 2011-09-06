@@ -5,14 +5,9 @@ FootballOps::Application.routes.draw do
       get :national_committee
       post :search
     end
-    
-    member do
-      get :subscribe_to_newsletter
-      get :unsubscribe_from_newsletter
-    end
   end
-
   resources :password_resets
+
   resources :schools do
     collection do
         post :search
@@ -31,7 +26,7 @@ FootballOps::Application.routes.draw do
   resources :divisions do
     resources :uploads, :except => :index
   end
-
+  
   resources :jobs do
     collection do
       get :feed

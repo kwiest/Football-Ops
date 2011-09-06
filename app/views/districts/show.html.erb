@@ -1,14 +1,5 @@
-<h1><%= @district.name %></h1>
+<h1>DFOs in the <%= @district.name %></h1>
 
-<h2>Uploaded Files</h2>
-<%= render 'uploads/upload' %>
+<%= render 'uploads/upload', resource: @district %>
 
-<%= render 'shared/email_users', :users => @district.users %>
-
-<%= render 'users/search_users' %>
-
-<h2>DFOs</h2>
-<table>
-	<%= render 'users/user_table' %>
-	<%= render @district.users %>
-</table>
+<%= render 'shared/user_table', users: @users %>

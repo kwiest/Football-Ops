@@ -1,20 +1,29 @@
 class User < ActiveRecord::Base
-  include Permissions
   acts_as_authentic
   
   belongs_to :school
+  has_one :division, through: :school
+  has_one :conference, through: :school
+  has_one :district, through: :school
+
+  delegate :name, to: :conference, prefix: true
+  delegate :name, to: :district, prefix: true
+  delegate :name, to: :division, prefix: true
+  delegate :name, to: :school, prefix: true
+  
   has_many :uploads
   has_many :jobs
   
-  validates_presence_of :first_name, :last_name, :email
-  default_scope :order => :last_name
+  validates_presence_of :first_name
+  validates_presence_of :last_name
+  validates_presence_of :email
+  validates_presence_of :school
+  
+  default_scope order: :last_name, include: [:school, :division, :conference, :district]
   
   after_create :subscribe_to_newsletter!
+  before_update :check_subscription_status
   before_destroy :unsubscribe_from_newsletter!
-  
-  def user
-  	self
-  end
   
   def full_name
     [first_name, last_name].join(" ")
@@ -34,7 +43,8 @@ class User < ActiveRecord::Base
   end
   
   def subscribed_to_newsletter?
-    HOMINID.member_info(newsletter_list_id, email)
+    info = HOMINID.member_info(newsletter_list_id, email)
+    info["status"] == "subscribed"
   rescue Hominid::ListError
     false
   end
@@ -44,5 +54,13 @@ class User < ActiveRecord::Base
   
   def newsletter_list_id
     "de1f0cd8b5"
+  end
+  
+  def check_subscription_status
+    if email_changed?
+      subscribe_to_newsletter! unless subscribed_to_newsletter?
+    else
+      true
+    end
   end
 end

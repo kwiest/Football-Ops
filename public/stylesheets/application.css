@@ -1,0 +1,48 @@
+#main-content {
+	width: 700px;
+	margin-top: 60px;
+	margin-right: 20px;
+	float: left;
+}
+
+#sidebar {
+	width: 200px;
+	margin-top: 60px;
+	margin-left: 20px;
+	float: right;
+}
+
+#sidebar ul {
+	margin: 0 0 20px;
+	padding: 0;
+	list-style-type: none;
+}
+
+#sidebar ul li {
+	margin-left: 0;
+}
+
+
+/*
+ * Users
+ */
+
+#user-avatar {
+	float: left;
+}
+
+#user-basic-info {
+	float: left;
+	margin-left: 30px;
+}
+
+
+/*
+ * Uploads
+ */
+
+#uploads {
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	margin: 20px 0;
+}

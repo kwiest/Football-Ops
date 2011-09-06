@@ -6,14 +6,17 @@ FootballOps::Application.configure do
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs.  Don't rely on the data there!
   config.cache_classes = true
+  
+  # Deprecation warnings
+  config.active_support.deprecation = :stderr
 
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
   # Show full error reports and disable caching
   config.action_controller.consider_all_requests_local = true
-  config.action_controller.perform_caching             = false
-  config.action_view.cache_template_loading            = true
+  # config.action_controller.perform_caching             = false
+  # config.action_view.cache_template_loading            = true
 
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false

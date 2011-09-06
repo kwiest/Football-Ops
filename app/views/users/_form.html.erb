@@ -1,31 +1,24 @@
-<% div_for @user do %>
-	<%= f.error_messages %>
-	<% f.inputs do %>
-		<%= f.input :first_name %>
-		<%= f.input :last_name %>
-	<% end -%>
-	
-	<% f.inputs do %>
-		<%= f.input :school, :required => true, :include_blank => false %>
-		<%= f.input :email %>
-		<%= f.input :phone %>
-		<%= f.input :fax %>
-	<% end -%>
-	
-	<% f.inputs do %>
-		<%= f.input :password %>
-		<%= f.input :password_confirmation %>
-	<% end -%>
-	
-	<% if signed_in? && admin? %>
-		<% f.inputs do %>
-			<%= f.input :conference_rep %>
-			<%= f.input :national_committee %>
-			<%= f.input :admin, :label => "Site administrator" %>
-		<% end %>
-	<% end %>
-	
-	<% f.buttons do %>
-		<%= f.commit_button 'Save Profile' %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
-	<% end -%>
+<fieldset>
+  <%= f.input :first_name, placeholder: "First name" %>
+  <%= f.input :last_name, placeholder: "Last name" %>
+  <%= f.association :school, required: true, include_blank: false %>
+</fieldset>
+
+<fieldset>
+  <%= f.input :email, placeholder: "you@school.edu" %>
+  <%= f.input :phone, placeholder: "(555) 123-4567" %>
+  <%= f.input :fax, placeholder: "(555) 123-4568" %>
+</fieldset>
+
+<fieldset>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+</fieldset>
+
+<% if can? :manage, User %>
+  <fieldset>
+    <%= f.input :conference_rep %>
+    <%= f.input :national_committee %>
+    <%= f.input :admin, label: "Site administrator" %>
+  </fieldset>
 <% end %>

@@ -1,22 +1,28 @@
 <% div_for @user do %>
-	<h1><%=h @user.full_name %></h1>
-	
-	<% unless @user.subscribed_to_newsletter? %>
-		<div class="notice">
-			<h2>You're Not Currently Subscribed to the DFO Newsletter</h2>
-			<p>The newsletter contains lots of helpful information and news from around the country. Please subscribe now.</p>
-			<%= link_to 'Subscribe now!', subscribe_to_newsletter_user_path(@user), :class => 'super-button' %>
-		</div>
-	<% end %>
-	
-	<h2><%= link_to @user.school.name, @user.school %></h2>
-	
-	<p>
-		<%= link_to @user.school.division.name, @user.school.division %><br />
-		<%= link_to @user.school.conference.name, @user.school.conference %><br />
-		<%= link_to @user.school.district.name, @user.school.district %>
-	</p>
+  <div id="user-avatar">
+    <%= image_tag "blank_avatar.jpg" %>
+  </div>
 
+  <div id="user-basic-info">
+  	<div id="user-name">
+  	  <h1><%= @user.full_name %></h1>
+  	</div>
+	
+  	<div id="user-school">
+  	  <h3><%= link_to @user.school_name, @user.school %></h3>
+  	</div>
+	
+  	<div id="user-affiliations">
+  		<%= link_to @user.division_name, @user.division %> |
+  		<%= link_to @user.conference_name, @user.conference %> |
+  		<%= link_to @user.district_name, @user.district %>
+  	</div>
+  </div>
+	
+	<div class="clearfix"></div>
+	<hr />
+
+  <h4>Contact Info</h4>
 	<p>
 	  <strong>Email:</strong>
 	  <%= mail_to @user.email %>
@@ -31,6 +37,8 @@
 	  <strong>Fax:</strong>
 	  <%=h @user.fax %>
 	</p>
+	
+	<h4>Positions</h4>
 	<p>
 	  <strong>Conference rep:</strong>
 	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.conference_rep %>
@@ -40,5 +48,12 @@
 	  <strong>National committee:</strong>
 	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.national_committee %>
 	</p>
-	<%= button_to('Edit Profile', edit_user_path(@user), :method => :get) if @user.changeable_by?(current_user) %>
+	
+	<%= render 'uploads/upload', resource: @user %>
+	
+	<% if can? :edit, @user %>
+	  <p>
+  	  <%= link_to "Edit profile", edit_user_path(@user), class: "btn primary" %>
+  	</p>
+	<% end %>
 <% end %>

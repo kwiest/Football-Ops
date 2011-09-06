@@ -1,18 +1,4 @@
 <h1>All DFOs</h1>
 
-<%= render 'shared/email_users', :users => User.all %>
-
-<%= render 'search_users' %>
-
-<% if admin? %>
-	<%= button_to "New user", new_user_path, :method => :get %>
-<% end %>
-
-<%= will_paginate @users %>
-
-<table>
-	<%= render 'user_table' %>
-	<%= render @users %>
-</table>
-
-<%= will_paginate @users %>
+<%= render 'shared/user_search' %>
+<%= render 'shared/user_table', :users => @users %>

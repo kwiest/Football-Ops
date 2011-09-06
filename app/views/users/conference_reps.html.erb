@@ -1,8 +1,4 @@
 <h1>All Conference Reps</h1>
 
-<%= render 'shared/email_users', :users => @users %>
-
-<table>
-	<%= render 'user_table' %>
-	<%= render @users %>
-</table>
+<%= render 'shared/user_search' %>
+<%= render 'shared/user_table', users: @users %>

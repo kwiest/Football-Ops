@@ -1,5 +1,10 @@
 <h1>New User Signup</h1>
 
-<% semantic_form_for @user do |f| %>
-  <%= render 'form', :f => f %>
+<%= simple_form_for @user do |f| %>
+  <%= render 'form', f: f %>
+    
+  <div class="actions">
+    <%= f.button :submit, "Create user", class: "btn primary" %>
+    <%= link_to "Cancel", users_path, class: "btn" %>
+  </div>
 <% end %>

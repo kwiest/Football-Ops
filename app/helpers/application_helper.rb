@@ -7,4 +7,8 @@ module ApplicationHelper
     end
     emails.join("; ")
 	end
+	
+	def recent_jobs
+    Job.all(:limit => 5)
+	end
 end

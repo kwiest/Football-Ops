@@ -1,4 +1,6 @@
 <div id="uploads">
+  <h4>Uploaded files</h4>
+  
 	<% if resource.uploads.size > 0 %>
 		<ul>
 			<% resource.uploads.each do |u| %>
@@ -13,7 +15,10 @@
 			<% end %>
 		</ul>
 	<% end %>
-	<%= button_to "Upload a file", 
-		"http://footballops.org/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/new", 
-		:method => :get %>
+	<p>
+  	<%= link_to "Upload a new file", 
+  		"http://footballops.org/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/new", 
+  		class: "btn"
+  	%>
+  </p>
 </div>
