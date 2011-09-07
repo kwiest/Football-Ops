@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   respond_to :html, :json
   
   def index
-    @users = User.all.paginate(page: params[:page], per_page: 30)
+    @users = User.paginate(page: params[:page], per_page: 30)
   end
   
   def show
@@ -44,15 +44,15 @@ class UsersController < ApplicationController
   # Non RESTful Actions
   
   def conference_reps
-  	@users = User.find_all_by_conference_rep(true).paginate(page: params[:page], per_page: 30)
+  	@users = User.where(conference_rep: true).paginate(:page => params[:page], :per_page => 30)
   end
   
   def national_committee
-  	@users = User.find_all_by_national_committee(true).paginate(page: params[:page], per_page: 30)
+  	@users = User.where(national_committee: true).paginate(:page => params[:page], :per_page => 30)
   end
   
   def search
-    @users = User.all(conditions: ["last_name LIKE ?", "%#{params[:last_name]}%"]).paginate(:page => params[:page], :per_page => 30)
+    @users = User.where(["last_name LIKE ?", "%#{params[:last_name]}%"]).paginate(:page => params[:page], :per_page => 30)
   	flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
   	render action: :index
   end

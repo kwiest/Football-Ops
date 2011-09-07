@@ -6,10 +6,11 @@ class SchoolsController < ApplicationController
   respond_to :html, :json
   
   def index
-    @schools = School.all.paginate(page: params[:page], per_page: 30)
+    @schools = School.paginate(page: params[:page], per_page: 30)
   end
   
   def show
+    @users = @school.users.paginate(page: params[:page], per_page: 30)
   end
   
   def new
@@ -42,7 +43,7 @@ class SchoolsController < ApplicationController
   end
   
   def search
-    @schools = School.all(conditions: ["name LIKE ?", "%#{params[:name]}%"]).paginate(page: params[:page], per_page: 30)
+    @schools = School.where(["name LIKE ?", "%#{params[:name]}%"]).paginate(page: params[:page], per_page: 30)
     flash[:alert] = "Sorry, no schools found with a name like #{params[:name]}." unless @schools.size > 0
     render action: :index
   end

@@ -7,7 +7,7 @@ gem 'cancan'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
 gem 'hominid', '2.1.5'
-gem 'aws-s3', :require => 'aws/s3'
+gem 'aws-s3', require: 'aws/s3'
 gem 'paperclip'
 
 gem 'barista'
@@ -18,12 +18,9 @@ gem 'coffee-script'
 gem 'unicorn'
 gem 'pg'
 
-group :development do
-  gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
-  gem 'ruby-debug19', :require => 'ruby-debug'
-end
+gem 'sqlite3'
 
-gem 'rspec-rails', :groups => [:development, :test]
+gem 'rspec-rails', groups: [:development, :test]
 
 group :test do
   gem 'shoulda'

@@ -1,6 +1,6 @@
 <h1><%= @school.name %></h1>
 
-<% div_for @school, :class => :clearfix do %>
+<% div_for @school, class: :clearfix do %>
 	<div class="float-left">
 		<p>
 			<strong>Division: </strong><%= @school.division.name %><br />
@@ -18,13 +18,9 @@
 	</div>
 <% end %>
 
-<h2>Uploaded Files</h2>
-<%= render 'uploads/upload' %>
+<%= render 'uploads/upload', resource: @school %>
 
-<%= render 'shared/email_users', :users => @school.users %>
 
-<h2>DFOs</h2>
-<table>
-	<%= render 'users/user_table' %>
-	<%= render @school.users %>
-</table>
+<h1>DFOs at <%= @school.name %></h1>
+
+<%= render 'shared/user_table', users: @users %>
