@@ -15,6 +15,9 @@ gem 'yui-compressor', git: 'git://github.com/oleander/ruby-yui-compressor.git', 
 gem 'jammit'
 gem 'coffee-script'
 
+gem 'unicorn'
+gem 'pg'
+
 group :development do
   gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
   gem 'ruby-debug19', :require => 'ruby-debug'
@@ -30,7 +33,3 @@ group :test do
   gem 'capybara'
 end
 
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
