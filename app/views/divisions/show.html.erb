@@ -1,14 +1,5 @@
-<h1><%= @division.name %></h1>
+<h1>DFOs in <%= @division.name %></h1>
 
-<h2>Uploaded Files</h2>
-<%= render 'uploads/upload' %>
+<%= render 'uploads/upload', resource: @division %>
 
-<%= render 'shared/email_users', :users => @division.users %>
-
-<%= render 'users/search_users' %>
-
-<h2>DFOs</h2>
-<table>
-	<%= render 'users/user_table' %>
-	<%= render @division.users %>
-</table>
+<%= render 'shared/user_table', users: @users %>
