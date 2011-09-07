@@ -18,7 +18,7 @@ gem 'coffee-script'
 gem 'unicorn'
 gem 'pg'
 
-gem 'sqlite3'
+gem 'sqlite3', groups: [:development, :test]
 
 gem 'rspec-rails', groups: [:development, :test]
 
