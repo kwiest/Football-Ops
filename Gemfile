@@ -12,6 +12,7 @@ gem 'paperclip'
 
 gem 'barista'
 gem 'yui-compressor', git: 'git://github.com/oleander/ruby-yui-compressor.git', require: 'yui/compressor'
+gem 'uglifier'
 gem 'jammit'
 gem 'coffee-script'
 

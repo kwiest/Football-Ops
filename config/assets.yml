@@ -1,7 +1,11 @@
 template_function: Handlebars.template
 template_extension: handlebars
 
-package_assets: yes
+package_assets: on
+compress_assets: on
+gzip_assets: on
+javascript_compressor: uglifier
+
 
 javascripts:
   vendor:
@@ -10,7 +14,6 @@ javascripts:
     - public/javascripts/vendor/underscore-min.js
     - public/javascripts/vendor/backbone-min.js
     - public/javascripts/vendor/handlebars.js
-    - public/javascripts/vendor/tiny_mce/jquery.tinymce.js
     
   initializers:
     - public/javascripts/initializers/*.js

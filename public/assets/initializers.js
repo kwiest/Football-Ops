@@ -1,1 +1,1 @@
-Handlebars.template=function(a){return function(){if(arguments.length<1){return a}else{Handlebars.templates=Handlebars.templates||{};Handlebars.templates[a]=Handlebars.templates[a]||Handlebars.compile(a);return Handlebars.templates[a](arguments[0],arguments[1])}}};
+Handlebars.template=function(a){return function(){return arguments.length<1?a:(Handlebars.templates=Handlebars.templates||{},Handlebars.templates[a]=Handlebars.templates[a]||Handlebars.compile(a),Handlebars.templates[a](arguments[0],arguments[1]))}}
