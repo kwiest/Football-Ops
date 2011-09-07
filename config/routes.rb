@@ -5,6 +5,8 @@ FootballOps::Application.routes.draw do
       get :national_committee
       post :search
     end
+    
+    resources :uploads, except: [:index, :show]
   end
   resources :password_resets
 
@@ -12,19 +14,19 @@ FootballOps::Application.routes.draw do
     collection do
         post :search
     end
-    resources :uploads, :except => :index
+    resources :uploads, except: [:index, :show]
   end
 
   resources :districts do
-    resources :uploads, :except => :index
+    resources :uploads, except: [:index, :show]
   end
 
   resources :conferences do
-    resources :uploads, :except => :index
+    resources :uploads, except: [:index, :show]
   end
 
   resources :divisions do
-    resources :uploads, :except => :index
+    resources :uploads, except: [:index, :show]
   end
   
   resources :jobs do
@@ -34,9 +36,9 @@ FootballOps::Application.routes.draw do
   end
 
   resources :user_sessions
-  match '/sign_up' => 'users#new', :as => :sign_up
-  match '/sign_in' => 'user_sessions#new', :as => :sign_in
-  match '/sign_out' => 'user_sessions#destroy', :as => :sign_out
+  match '/sign_up' => 'users#new', as: :sign_up
+  match '/sign_in' => 'user_sessions#new', as: :sign_in
+  match '/sign_out' => 'user_sessions#destroy', as: :sign_out
   
-  root :to => 'index#index'
+  root to: 'index#index'
 end

@@ -45,6 +45,11 @@ describe User do
     @user.full_name.should eql(full_name)
   end
   
+  it "should return #full_name when #name is called" do
+    full_name = [@user.first_name, @user.last_name].join " "
+    @user.name.should eql(full_name)
+  end
+  
   it "should provide a #conference_name" do
     conference_name = @user.conference.name
     @user.conference_name.should eql(conference_name)

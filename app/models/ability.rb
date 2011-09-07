@@ -18,6 +18,12 @@ class Ability
         u == user
       end
       
+      # Users can upload files, and manage them if they created them
+      can :create, Upload
+      can :manage, Upload do |upload|
+        upload.user == user
+      end
+      
       # Users can create/update job postings
       can :create, Job
       can :update, Job do |job|

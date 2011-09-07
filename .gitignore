@@ -1,5 +1,6 @@
 *.log
-tmp/**/*
+tmp/**/*.*
 .DS_Store
-config/deploy.rb
 db/*.sqlite3
+.rmvrc
+.powenv

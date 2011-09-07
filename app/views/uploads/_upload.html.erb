@@ -16,9 +16,6 @@
 		</ul>
 	<% end %>
 	<p>
-  	<%= link_to "Upload a new file", 
-  		"http://footballops.org/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/new", 
-  		class: "btn"
-  	%>
+  	<%= link_to "Upload a new file", "/#{resource.class.to_s.downcase.pluralize}/#{resource.to_param}/uploads/new", class: "btn" %>
   </p>
 </div>
