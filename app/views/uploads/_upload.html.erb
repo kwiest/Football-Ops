@@ -8,8 +8,8 @@
 					<%= link_to "#{u.name} (#{u.asset_file_name})", u.asset.url %><br />
 					<span class="uploaded-time">
 						Uploaded <%= distance_of_time_in_words(Time.now, u.created_at) %> ago by <%= u.user.full_name %>
-						(<%= link_to "edit", "http://footballops.org/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/#{u.id}/edit" %>,
-						<%= link_to "delete", "http://footballops.org/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/#{u.id}", :method => :delete, :confirm => "Are you sure you want to delete this download? There is no going back!" %>)
+						(<%= link_to "edit", "/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/#{u.id}/edit" %>,
+						<%= link_to "delete", "/#{resource.class.to_s.downcase.pluralize}/#{resource.id}/uploads/#{u.id}", :method => :delete, :confirm => "Are you sure you want to delete this download? There is no going back!" %>)
 					</span>
 				</li>
 			<% end %>
