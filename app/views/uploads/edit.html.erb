@@ -1,6 +1,6 @@
 <h1>Editing File Upload for <%= @parent.name %></h1>
 
-<% simple_form_for [@parent, @upload], html: { multipart: true } do |f| %>
+<% simple_form_for [@parent, @upload] do |f| %>
   <fieldset>
     <%= f.input :name, placeholder: "Western State 2011 Visitor's Guide" %>
   </fieldset>
