@@ -15,6 +15,7 @@ gem 'yui-compressor', git: 'git://github.com/oleander/ruby-yui-compressor.git', 
 gem 'uglifier'
 gem 'jammit'
 gem 'coffee-script'
+gem 'high_voltage'
 
 gem 'unicorn'
 gem 'pg'

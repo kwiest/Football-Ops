@@ -72,6 +72,7 @@ GEM
     faker (0.9.5)
       i18n (~> 0.4)
     ffi (1.0.9)
+    high_voltage (1.0.1)
     hominid (2.1.5)
     i18n (0.5.0)
     jammit (0.6.3)
@@ -173,6 +174,7 @@ DEPENDENCIES
   coffee-script
   factory_girl_rails
   faker
+  high_voltage
   hominid (= 2.1.5)
   jammit
   mocha
