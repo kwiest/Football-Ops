@@ -45,18 +45,18 @@ class UsersController < ApplicationController
   
   def conference_reps
     @users = User.where(conference_rep: true).paginate(:page => params[:page], :per_page => 30)
-    authorize! :show, @users
+    authorize! :read, @users
   end
   
   def national_committee
     @users = User.where(national_committee: true).paginate(:page => params[:page], :per_page => 30)
-    authorize! :show, @users
+    authorize! :read, @users
   end
   
   def search
     @users = User.where(["last_name LIKE ?", "%#{params[:last_name]}%"]).paginate(:page => params[:page], :per_page => 30)
     flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
-    authorize! :show, @users
+    authorize! :read, @users
     render action: :index
   end
   
