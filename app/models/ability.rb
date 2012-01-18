@@ -2,20 +2,7 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
-    # If there is no signed-in user, they cannot see anything
-    if user.nil?
-      can :create, User
-      can :read, Job
-    elsif user.admin?
-      # Admins can do anything
-      can :manage, :all
-    elsif user.conference_rep?
-      # Conference reps can manage users
-      can :manage, User
-    elsif user.national_committee?
-      # National committee members can manage users
-      can :manage, User
-    else
+    if user
       # All signed-in users can view all records
       can :read, :all
       
@@ -38,6 +25,27 @@ class Ability
       can :delete, Job do |job|
         job.user == user
       end
+
+      if user.admin?
+        # Admins can manage everything
+        can :manage, :all
+      end
+
+      if user.conference_rep?
+        # Conference reps can manage users
+        can :manage, User
+      end
+
+      if user.national_committee?
+        # National committee members can manage users
+        can :manage, User
+      end
+    end
+
+    # If there is no signed-in user, they cannot see anything
+    if user.nil?
+      can :create, User
+      can :read, Job
     end
   end
 end
