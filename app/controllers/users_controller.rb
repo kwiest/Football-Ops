@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  load_and authorize_resource except: [:index, :conference_reps, :national_committee, :search]
+  load_and_authorize_resource except: [:index, :conference_reps, :national_committee, :search]
   
   respond_to :html, :json
   
