@@ -12,6 +12,8 @@ class PasswordResetsController < ApplicationController
       @user.reset_perishable_token!
       UserMailer.password_reset_instructions(@user).deliver
       redirect_to root_path, notice: "An email with password reset instructions has been emailed to you. Please check your email."
+    rescue Postmark::InvalidMessageError e
+      render action :new, alert: "We could not send you a message to reset your email because an error occured: #{e.message}."
     else
       render action: :new, alert: "We couldn't find any account with the email: #{params[:user][:email]}..."
     end
