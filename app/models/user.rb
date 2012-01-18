@@ -30,11 +30,6 @@ class User < ActiveRecord::Base
   end
   alias_method :name, :full_name
   
-  def deliver_password_reset_instructions
-    reset_perishable_token!
-    UserMailer.deliver_password_reset_instructions(self)
-  end
-  
   def subscribe_to_newsletter!
     HOMINID.subscribe(newsletter_list_id, email, { :FNAME => first_name, :LNAME => last_name }, { :email_type => 'html' })
   end

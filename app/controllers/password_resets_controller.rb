@@ -9,7 +9,8 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by_email(params[:user][:email])
     
     if @user
-      @user.deliver_password_reset_instructions
+      @user.reset_perishable_token!
+      UserMailer.password_reset_instructions(@user).deliver
       redirect_to root_path, notice: "An email with password reset instructions has been emailed to you. Please check your email."
     else
       render action: :new, alert: "We couldn't find any account with the email: #{params[:user][:email]}..."
