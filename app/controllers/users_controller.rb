@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  authorize_resource
+  authorize_resource except: [:conference_reps, :national_committee, :search]
   
   before_filter :find_user, only: [:show, :edit, :update, :destroy]
   
