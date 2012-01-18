@@ -9,6 +9,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'hominid', '2.1.5'
 gem 'aws-s3', require: 'aws/s3'
 gem 'paperclip'
+gem 'postmark-rails'
 
 gem 'barista'
 gem 'yui-compressor', git: 'git://github.com/oleander/ruby-yui-compressor.git', require: 'yui/compressor'

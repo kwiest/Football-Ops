@@ -4,3 +4,4 @@ tmp/**/*.*
 db/*.sqlite3
 .rmvrc
 .powenv
+.powrc

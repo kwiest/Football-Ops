@@ -41,5 +41,9 @@ module FootballOps
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
+
+    # Use Postmark App for emails
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { api_key: ENV['POSTMARK_API_KEY'] }
   end
 end
