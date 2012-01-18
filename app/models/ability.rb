@@ -10,8 +10,10 @@ class Ability
       # Admins can do anything
       can :manage, :all
     elsif user.conference_rep?
+      # Conference reps can manage users
       can :manage, User
     elsif user.national_committee?
+      # National committee members can manage users
       can :manage, User
     else
       # All signed-in users can view all records
