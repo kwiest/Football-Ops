@@ -1,5 +1,5 @@
-Rails app for footballops.org
+# FootballOps.org Website
 
-Doc coming soon...
+# Current Status
 
-Temporarily running on Heroku
+# Contributing
