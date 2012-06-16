@@ -2,6 +2,6 @@
 tmp/**/*.*
 .DS_Store
 db/*.sqlite3
-.rmvrc
+.rvmrc
 .powenv
 .powrc
