@@ -1,7 +1,6 @@
 *.log
-tmp/**/*.*
+tmp/**/*
 .DS_Store
-db/*.sqlite3
 .powenv
 .powrc
 vendor/bundle
