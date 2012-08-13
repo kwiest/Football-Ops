@@ -2,7 +2,5 @@
 tmp/**/*.*
 .DS_Store
 db/*.sqlite3
-.rvmrc
 .powenv
 .powrc
-Gemfile.lock
