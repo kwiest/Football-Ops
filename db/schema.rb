@@ -1,10 +1,12 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
@@ -13,20 +15,20 @@ ActiveRecord::Schema.define(:version => 20100526053512) do
 
   create_table "conferences", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "districts", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "divisions", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "jobs", :force => true do |t|
@@ -35,9 +37,8 @@ ActiveRecord::Schema.define(:version => 20100526053512) do
     t.string   "category"
     t.text     "description"
     t.text     "apply"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "state",       :default => "inactve"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "location"
     t.string   "school"
   end
@@ -48,15 +49,11 @@ ActiveRecord::Schema.define(:version => 20100526053512) do
     t.integer  "division_id"
     t.string   "name"
     t.string   "address1"
-    t.string   "address2"
     t.string   "city"
     t.string   "state"
     t.string   "zip"
-    t.string   "secretary_phone"
-    t.string   "secretary_fax"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "coach_name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "uploads", :force => true do |t|
@@ -67,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20100526053512) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
   end
 
@@ -86,13 +83,8 @@ ActiveRecord::Schema.define(:version => 20100526053512) do
     t.boolean  "conference_rep"
     t.boolean  "national_committee"
     t.boolean  "admin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "confirmed",          :default => false
-    t.boolean  "active",             :default => true
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end
