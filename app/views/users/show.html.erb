@@ -1,59 +1,47 @@
-<% div_for @user do %>
-  <div id="user-avatar">
-    <%= image_tag "blank_avatar.jpg" %>
-  </div>
+<h1><%= @user.full_name %></h1>
 
-  <div id="user-basic-info">
-  	<div id="user-name">
-  	  <h1><%= @user.full_name %></h1>
-  	</div>
-	
-  	<div id="user-school">
-  	  <h3><%= link_to @user.school_name, @user.school %></h3>
-  	</div>
-	
-  	<div id="user-affiliations">
-  		<%= link_to @user.division_name, @user.division %> |
-  		<%= link_to @user.conference_name, @user.conference %> |
-  		<%= link_to @user.district_name, @user.district %>
-  	</div>
-  </div>
-	
-	<div class="clearfix"></div>
-	<hr />
+<div class="btn-group">
+  <%= link_to '<i class="icon-edit"></i> Edit profile'.html_safe,
+    edit_user_path(@user), class: 'btn' %>
+  <%= link_to '<i class="icon-folder-open"></i> Upload a document'.html_safe,
+    new_user_upload_path(@user), class: 'btn' %>
+  <%= link_to '<i class="icon-trash"></i> Delete profile'.html_safe,
+    user_path(@user), method: :delete, class: 'btn',
+    confirm: 'Are you sure you want to delete this user?' %>
+</div>
 
-  <h4>Contact Info</h4>
-	<p>
-	  <strong>Email:</strong>
-	  <%= mail_to @user.email %>
-	</p>
+<div class="well">
+  <dl>
+    <dt>School:</dt>
+    <dd><%= link_to @user.school_name, @user.school %></dd>
 
-	<p>
-	  <strong>Phone:</strong>
-	  <%=h @user.phone %>
-	</p>
+    <dt>Conference:</dt>
+    <dd><%= link_to @user.conference_name, @user.conference %></dd>
 
-	<p>
-	  <strong>Fax:</strong>
-	  <%=h @user.fax %>
-	</p>
-	
-	<h4>Positions</h4>
-	<p>
-	  <strong>Conference rep:</strong>
-	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.conference_rep %>
-	</p>
+    <dt>District:</dt>
+    <dd><%= link_to @user.district_name, @user.district %></dd>
 
-	<p>
-	  <strong>National committee:</strong>
-	  <%= image_tag("check.png", :alt => "Yes", :border => 0) if @user.national_committee %>
-	</p>
-	
-	<%= render 'uploads/upload', resource: @user %>
-	
-	<% if can? :edit, @user %>
-	  <p>
-  	  <%= link_to "Edit profile", edit_user_path(@user), class: "btn primary" %>
-  	</p>
-	<% end %>
-<% end %>
+    <dt>Division:</dt>
+    <dd><%= link_to @user.division_name, @user.division %></dd>
+  </dl>
+</div>
+
+<div class="well">
+  <dl>
+    <dt>Email:</dt>
+    <dd><%= mail_to @user.email %></dd>
+
+    <dt>Phone:</dt>
+    <dd><%= @user.phone %></dd>
+
+    <dt>Fax:</dt>
+    <dd><%= @user.fax %></dd>
+  </dl>
+</div>
+
+<div class="well">
+  <dl>
+    <dt>Positions:</dt>
+    <dd><%= tags_for(@user) %></dd>
+  </dl>
+</div>

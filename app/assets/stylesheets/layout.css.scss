@@ -1,3 +1,23 @@
+dl dt {
+  float: left;
+  margin-right: 18px;
+  width: 160px;
+  text-align: right;
+  font-weight: normal;
+  color: #999;
+}
+
+dl dd {
+  margin-left: 177px;
+}
+
+.well {
+  background-color: #fefefe;
+  border-color: #dadada;
+  border-top-color: #bbb;
+}
+
+
 header#main-nav {
   width: 100%;
   margin-bottom: 36px;
