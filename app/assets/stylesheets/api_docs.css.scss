@@ -1,0 +1,24 @@
+table.api-navigation {
+  margin: 36px 0 18px;
+
+  tr {
+    height: 60px;
+    border-bottom: 1px solid #dadada;
+
+    td {
+      width: 50%;
+
+      strong {
+        font-size: 16px;
+      }
+
+      span {
+        color: #666;
+      }
+    }
+  }
+}
+
+.api-method {
+  margin-top: 36px;
+}
