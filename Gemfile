@@ -22,6 +22,11 @@ group :assets do
   gem 'uglifier',              '~> 1.2.7'
 end
 
+# Development Gems
+group :development do
+  gem 'quiet_assets',          '~> 1.0.1'
+end
+
 # Testing Gems
 group :test do
   gem 'capybara',              '~> 1.1.2'
