@@ -28,3 +28,14 @@ a.user:hover {
   text-decoration: none;
   background-color: #fafafa;
 }
+
+.user-controls {
+  div.pagination {
+    float: left;
+    margin: 0 0 18px;
+  }
+
+  a.email-link {
+    float: right;
+  }
+}
