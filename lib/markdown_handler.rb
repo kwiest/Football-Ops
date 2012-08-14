@@ -1,16 +1,19 @@
 require 'rdiscount'
 require 'action_view'
 
-module MarkdownRails
-  class Handler
-    def initialize
-    end
+module ActionView
+  module Template::Handlers
+    class Markdown < ERB
+      def initialize
+      end
 
-    def call(template)
-      RDiscount.new(template.source).to_html.inspect + '.html_safe'
+      def call(template)
+        markdown = RDiscount.new(template.source).to_html
+        erb = markdown.gsub /\{\{(.*?)\}\}/, '<%= \1 %>'
+        self.class.erb_implementation.new(erb).src
+      end
     end
   end
 end
 
-handler = MarkdownRails::Handler.new
-ActionView::Template.register_template_handler :markdown, handler
+ActionView::Template.register_template_handler :markdown, ActionView::Template::Handlers::Markdown
