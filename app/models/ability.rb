@@ -17,15 +17,6 @@ class Ability
         upload.user == user
       end
       
-      # Users can create/update job postings
-      can :create, Job
-      can :update, Job do |job|
-        job.user == user
-      end
-      can :delete, Job do |job|
-        job.user == user
-      end
-
       if user.admin?
         # Admins can manage everything
         can :manage, :all
