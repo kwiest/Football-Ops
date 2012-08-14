@@ -5,8 +5,6 @@ FootballOps::Application.routes.draw do
       get :national_committee
       get :search
     end
-    
-    resources :uploads, except: [:index, :show]
   end
   resources :password_resets
 
@@ -14,26 +12,9 @@ FootballOps::Application.routes.draw do
     collection do
         post :search
     end
-    resources :uploads, except: [:index, :show]
   end
 
-  resources :districts do
-    resources :uploads, except: [:index, :show]
-  end
-
-  resources :conferences do
-    resources :uploads, except: [:index, :show]
-  end
-
-  resources :divisions do
-    resources :uploads, except: [:index, :show]
-  end
-  
-  resources :jobs do
-    collection do
-      get :feed
-    end
-  end
+  resources :conferences, :districts, :divisions
 
   resources :user_sessions
   match '/sign_up' => 'users#new', as: :sign_up
