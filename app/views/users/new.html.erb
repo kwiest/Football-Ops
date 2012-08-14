@@ -1,10 +1,10 @@
 <h1>New User Signup</h1>
 
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, html: { class: 'form-vertical' } do |f| %>
   <%= render 'form', f: f %>
     
-  <div class="actions">
-    <%= f.button :submit, "Create user", class: "btn primary" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Create user", class: "btn btn-primary" %>
     <%= link_to "Cancel", users_path, class: "btn" %>
   </div>
 <% end %>
