@@ -1,10 +1,10 @@
 <h1>Editing <%= "#{@user.full_name}'s Profile" %></h1>
 
-<%= simple_form_for @user do |f| %>
+<%= simple_form_for @user, html: { class: 'form-vertical' } do |f| %>
   <%= render 'form', f: f %>
     
-  <div class="actions">
-    <%= f.button :submit, "Save changes", class: "btn primary" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Save changes", class: "btn btn-primary" %>
     <%= link_to "Cancel", users_path, class: "btn" %>
   </div>
 <% end %>
