@@ -31,7 +31,9 @@ header#main-nav {
 
 
 header.page-head {
-  h2 {
+  margin-bottom: 36px;
+
+  h1 {
     float: left;
   }
 
@@ -47,4 +49,36 @@ header.page-head {
   #q {
     width: 593px;
   }
+}
+
+
+div.pagination {
+  font-size: 16px;
+
+  .disabled {
+    color: #ccc;
+  }
+
+  a, em {
+    font-style: none;
+    display: inline;
+    padding: 0 3px;
+    float: none;
+    border: none;
+  }
+
+  .previous_page {
+    padding-right: 8px;
+  }
+
+  .next_page {
+    padding-left: 8px;
+  }
+}
+
+footer {
+  margin-top: 36px;
+  padding: 20px;
+  height: 40px;
+  background-color: #fafafa;
 }
