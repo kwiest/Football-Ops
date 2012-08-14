@@ -3,7 +3,7 @@ FootballOps::Application.routes.draw do
     collection do
       get :conference_reps
       get :national_committee
-      post :search
+      get :search
     end
     
     resources :uploads, except: [:index, :show]

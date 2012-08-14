@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
   validates_presence_of :school
   
   default_scope order: :last_name, include: [:school, :division, :conference, :district]
+
+  # Search method
+  def self.search(query)
+    sql = sanitize_sql_array ["plainto_tsquery('english', ?)", query]
+    where("search @@ #{sql}").order("ts_rank_cd(search, #{sql}) DESC")
+  end
   
   def full_name
     [first_name, last_name].join(" ")

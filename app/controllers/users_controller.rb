@@ -50,8 +50,8 @@ class UsersController < ApplicationController
   end
   
   def search
-    @users = User.where(["last_name LIKE ?", "%#{params[:last_name]}%"]).paginate(:page => params[:page], :per_page => 30)
-    flash[:notice] = "Sorry, no users found by last name: #{params[:last_name]}." unless @users.size > 0
+    @query = params.fetch :q, ''
+    @users = User.search(@query).paginate(page: params[:page], per_page: 50)
     authorize! :read, @users
     render action: :index
   end

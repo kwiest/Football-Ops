@@ -5,7 +5,7 @@
     new_user_path, class: 'btn btn-primary btn-small' %>
 </header>
 
-<%= form_tag '#', method: :get, class: 'form-search' do %>
+<%= form_tag search_users_path, method: :get, class: 'form-search' do %>
   <%= text_field_tag :q, nil, placeholder: 'Search by name', class: 'search-query' %>
   <button type="submit" class="btn"><i class="icon-search"></i></button>
 <% end %>
