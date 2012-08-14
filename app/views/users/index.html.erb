@@ -1,4 +1,19 @@
-<h1>All DFOs</h1>
+<header class="page-head clearfix">
+  <h2>All DFOs</h2>
 
-<%= render 'shared/user_search' %>
-<%= render 'shared/user_table', :users => @users %>
+  <%= link_to '<i class="icon-plus-sign"></i> Create a new user'.html_safe,
+    new_user_path, class: 'btn btn-primary btn-small' %>
+</header>
+
+<%= form_tag '#', method: :get, class: 'form-search' do %>
+  <%= text_field_tag :q, nil, placeholder: 'Search by name', class: 'search-query' %>
+  <button type="submit" class="btn"><i class="icon-search"></i></button>
+<% end %>
+
+<% @users.each do |user| %>
+  <%= link_to user_path(user), class: 'user clearfix' do %>
+    <div class="user-name"><%= user.full_name %></div>
+    <span class="user-school"><%= user.school_name %></span>
+    <span class="user-tags"><%= tags_for user %></span>
+  <% end %>
+<% end %>

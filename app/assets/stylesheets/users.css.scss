@@ -1,0 +1,27 @@
+a.user {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid #dadada;
+
+  .user-name {
+    font-size: 20px;
+    color: #222;
+  }
+
+  .user-school {
+    width: 250px;
+    display: inline-block;
+  }
+
+  .user-tags {
+  }
+}
+
+a.user:hover {
+  text-decoration: none;
+  background-color: #fafafa;
+}

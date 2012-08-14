@@ -1,4 +1,4 @@
-header {
+header#main-nav {
   width: 100%;
   margin-bottom: 36px;
   border-bottom: 1px solid #ccc;
@@ -26,5 +26,25 @@ header {
     .dropdown .caret {
       margin-top: 5px;
     }
+  }
+}
+
+
+header.page-head {
+  h2 {
+    float: left;
+  }
+
+  a {
+    float: right;
+  }
+}
+
+
+.form-search {
+  font-size: 18px;
+
+  #q {
+    width: 593px;
   }
 }
