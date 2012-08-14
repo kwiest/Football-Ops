@@ -1,3 +1,10 @@
+#main-content {
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 dl dt {
   float: left;
   margin-right: 18px;
@@ -29,6 +36,7 @@ header#main-nav {
     line-height: 34px;
     font-weight: bold;
     color: #bababa;
+    text-shadow: -1px -1px 0 #fff;
   }
 
   a.brand:hover {
