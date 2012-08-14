@@ -10,7 +10,7 @@ FootballOps::Application.routes.draw do
 
   resources :schools do
     collection do
-        post :search
+      get :search
     end
   end
 
