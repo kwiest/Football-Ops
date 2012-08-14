@@ -39,6 +39,8 @@ FootballOps::Application.routes.draw do
   match '/sign_up' => 'users#new', as: :sign_up
   match '/sign_in' => 'user_sessions#new', as: :sign_in
   match '/sign_out' => 'user_sessions#destroy', as: :sign_out
+
+  match '/developer/:action' => 'developer#:action'
   
   root to: 'index#index'
 end
