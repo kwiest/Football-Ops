@@ -9,6 +9,7 @@ gem 'high_voltage',            '~> 1.1.1'
 gem 'jquery-rails',            '~> 2.0.2'
 gem 'paperclip',               '~> 3.1.4'
 gem 'pg',                      '~> 0.14.0'
+gem 'pizzazz',                 '~> 0.1.2'
 gem 'postmark-rails',          '~> 0.4.1'
 gem 'rdiscount',               '~> 1.6.8'
 gem 'simple_form',             '~> 2.0.2'
@@ -25,6 +26,7 @@ end
 
 # Development Gems
 group :development do
+  gem 'pry',                   '~> 0.9.10'
   gem 'quiet_assets',          '~> 1.0.1'
 end
 
