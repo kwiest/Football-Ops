@@ -54,6 +54,36 @@ You must be authenticated to use the API. Please see the [authentication documen
                 Delete a User found by id
             </td>
         </tr>
+        <tr>
+            <td>
+                <strong><a href='#search'>Search for a user by name</a></strong>
+                <br />
+                <span>GET users/search/:q</span>
+            </td>
+            <td>
+                Return a list of all Users matching the search query passed
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong><a href='#conference-reps'>Return a list of conference reps</a></strong>
+                <br />
+                <span>GET users/conference_reps</span>
+            </td>
+            <td>
+                Return a list of all Users who are Conference Representatives
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong><a href='#national-committee'>Return a list of national committee members</a></strong>
+                <br />
+                <span>GET users/national_committee</span>
+            </td>
+            <td>
+                Return a list of all Users who are on the National Committee
+            </td>
+        </tr>
     </tbody>
 </table>
 
