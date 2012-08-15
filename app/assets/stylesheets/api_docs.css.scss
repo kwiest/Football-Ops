@@ -2,7 +2,8 @@ p {
   margin-bottom: 18px;
 }
 
-table.api-navigation {
+table#api-navigation {
+  width: 100%;
   margin: 36px 0 18px;
 
   tr {
@@ -23,6 +24,38 @@ table.api-navigation {
   }
 }
 
+table.params {
+  width: 100%;
+  margin-bottom: 24px;
+
+  tr {
+    border-bottom: 1px solid #dadada;
+
+    td {
+      width: 50%;
+      padding: 6px 0;
+
+      .param {
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      span {
+        color: #666;
+      }
+
+      span.restricted {
+        color: #d12;
+      }
+    }
+  }
+}
+
 .api-method {
   margin-top: 36px;
+}
+
+.highlight {
+  background-color: #fffe97;
+  padding: 2px 0;
 }

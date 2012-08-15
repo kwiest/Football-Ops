@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $('pre[data-highlight=conference-rep] span:contains("conference_rep")').addClass('highlight').next().addClass('highlight');
+
+      $('pre[data-highlight=national-committee] span:contains("national_committee")').addClass('highlight').next().addClass('highlight');
+    });
+  </script>
+<% end %>
+
 <h1>Users Documentation</h1>
 
 <p>
@@ -5,7 +15,7 @@
   <%= link_to 'authentication documentation', '#' %>.
 </p>
 
-<table class="api-navigation">
+<table id="api-navigation">
   <tbody>
     <tr>
       <td>
@@ -104,8 +114,8 @@
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users"</span> \
--H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span></pre>
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h4>Example Response</h4>
 <pre class="pizzazz">
@@ -130,8 +140,8 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
--H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
 <h4>Example Response</h4>
@@ -153,13 +163,113 @@ Content-Type: application/json; charset=utf-8</span>
 </pre>
 
 <h4>Parameters</h4>
-<dl class="params">
-</dl>
+<table class="params">
+  <tbody>
+    <tr>
+      <td>
+        <div class="param">user[first_name]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's first name</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[last_name]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's last name</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[school_id]</div>
+        <span>Required</span>
+      </td>
+      <td>The id of the school that the user belongs to</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[email]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's email address</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[password]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's desired password</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[password_confirmation]</div>
+        <span>Required</span>
+      </td>
+      <td>A password confirmation. Must match original password.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[phone]</div>
+        <span>Optional</span>
+      </td>
+      <td>The user's phone number</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[fax]</div>
+        <span>Optional</span>
+      </td>
+      <td>The user's fax number</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[conference_rep]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a conference rep.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[national_committee]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a member of the national committee.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[admin]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a site administrator.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span class="restricted">*Restricted</span> - Only an authenticated
+        site administrator can set these params.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
--H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/"</span> \
+  -X POST -d <span class="string">"user[first_name]=Kyle"</span> \
+  -d <span class="string">"user[last_name]=Wiest"</span> \
+  -d <span class="string">"user[school_id]=345"</span> \
+  -d <span class="string">"user[email]=kwiest%40uoregon.edu"</span> \
+  -d <span class="string">"user[password]=secret"</span> \
+  -d <span class="string">"user[password_confirmation]=secret"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
 <h4>Example Response</h4>
@@ -168,3 +278,236 @@ Content-Type: application/json; charset=utf-8</span>
 Content-Type: application/json; charset=utf-8</span>
 
 <%= Pizzazz.ify(@user).html_safe %></pre>
+
+
+<div id="update" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Update a User</h2>
+  <p>Updates an existing user by id</p>
+</div>
+
+<pre class="pizzazz">
+<strong>PUT</strong> users/<span class="string">:id</span>
+</pre>
+
+<h4>Parameters</h4>
+<table class="params">
+  <tbody>
+    <tr>
+      <td>
+        <div class="param">user[first_name]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's first name</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[last_name]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's last name</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[school_id]</div>
+        <span>Required</span>
+      </td>
+      <td>The id of the school that the user belongs to</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[email]</div>
+        <span>Required</span>
+      </td>
+      <td>The user's email address</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[password]</div>
+        <span>Optional</span>
+      </td>
+      <td>The user's desired password. *Only needed to change password</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[password_confirmation]</div>
+        <span>Optional</span>
+      </td>
+      <td>A password confirmation. Must match original password.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[phone]</div>
+        <span>Optional</span>
+      </td>
+      <td>The user's phone number</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[fax]</div>
+        <span>Optional</span>
+      </td>
+      <td>The user's fax number</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[conference_rep]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a conference rep.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[national_committee]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a member of the national committee.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">user[admin]</div>
+        <span>Optional</span> (<span class="restricted">*restricted</span>)
+      </td>
+      <td>
+        Whether or not the user is a site administrator.<br />
+        <code>0 => false, 1 => true</code>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span class="restricted">*Restricted</span> - Only an authenticated
+        site administrator can set these params.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+  -X PUT -d <span class="string">"user[password]=new%20password"</span> \
+  -d <span class="string">"user[password_confirmation]=new%password"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
+</pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify(@user).html_safe %></pre>
+
+
+<div id="delete" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Delete a User</h2>
+  <p>
+    Delete a user found by id.<br />
+    <strong>*NOTE:</strong> You must be a site administrator, or conference rep to
+    delete users.
+  </p>
+</div>
+
+<pre class="pizzazz"><strong>DELETE</strong> users/<span class="string">:id</span></pre>
+
+<h4>Parameters</h4>
+<p>This method does not accept any parameters</p>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+  -X DELETE -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span></pre>
+
+
+<div id="search" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Search Users by Name</h2>
+  <p>Get a list of users matching the supplied name.</p>
+</div>
+
+<pre class="pizzazz"><strong>GET</strong> users/search</pre>
+
+<h4>Parameters</h4>
+<table class="params">
+  <tbody>
+    <tr>
+      <td>
+        <div class="param">q</div>
+        <span>Required</span>
+      </td>
+      <td>Case insensitive name to search for (can be first or last).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/search"</span> \
+  -d <span class="string">"q=wiest"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify([@user, {'next_user' => '...'}]).html_safe %></pre>
+
+
+<div id="conference-reps" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Conference Reps</h2>
+  <p>Returns a list of users who are conference reps.</p>
+</div>
+
+<pre class="pizzazz"><strong>GET</strong> users/conference_reps</pre>
+
+<h4>Parameters</h4>
+<p>This method does not accept any parameters.</p>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/conference_reps"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz" data-highlight="conference-rep">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify([@user, {'next_user' => '...'}]).html_safe %></pre>
+
+
+<div id="national-committee" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>National Committee</h2>
+  <p>Returns a list of users who are on the national committee.</p>
+</div>
+
+<pre class="pizzazz"><strong>GET</strong> users/national_committee</pre>
+
+<h4>Parameters</h4>
+<p>This method does not accept any parameters.</p>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/national_committee"</span> \
+  -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz" data-highlight="national-committee">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify([@hawk, {'next_user' => '...'}]).html_safe %></pre>
