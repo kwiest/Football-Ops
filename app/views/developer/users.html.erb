@@ -1,0 +1,170 @@
+<h1>Users Documentation</h1>
+
+<p>
+  You must be authenticated to use the API. Please see the 
+  <%= link_to 'authentication documentation', '#' %>.
+</p>
+
+<table class="api-navigation">
+  <tbody>
+    <tr>
+      <td>
+        <strong><a href='#index'>Show all users</a></strong>
+        <br />
+        <span>GET users</span>
+      </td>
+      <td>
+        Returns a list of all users signed up for FootballOps.org
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#show'>Show a user</a></strong>
+        <br />
+        <span>GET users/:id</span>
+      </td>
+      <td>
+        Returns a User found by id
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#create'>Create a new user</a></strong>
+        <br />
+        <span>POST users</span>
+      </td>
+      <td>
+        Create a new User
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#update'>Update a user</a></strong>
+        <br />
+        <span>PUT users/:id</span>
+      </td>
+      <td>
+        Update a User found by id
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#delete'>Delete a user</a></strong>
+        <br />
+        <span>DELETE users/:id</span>
+      </td>
+      <td>
+        Delete a User found by id
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#search'>Search for a user by name</a></strong>
+        <br />
+        <span>GET users/search/:q</span>
+      </td>
+      <td>
+        Return a list of all Users matching the search query passed
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#conference-reps'>Return a list of conference reps</a></strong>
+        <br />
+        <span>GET users/conference_reps</span>
+      </td>
+      <td>
+        Return a list of all Users who are Conference Representatives
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><a href='#national-committee'>Return a list of national committee members</a></strong>
+        <br />
+        <span>GET users/national_committee</span>
+      </td>
+      <td>
+        Return a list of all Users who are on the National Committee
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div id="index" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Show All Users</h2>
+  <p>Returns a full list of all users signed up for FootballOps.org.</p>
+</div>
+
+<pre class="pizzazz"><strong>GET</strong> users/</pre>
+
+<h4>Parameters</h4>
+<p>This method does not accept any parameters</p>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users"</span> \
+-H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span></pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify([@user, {'next_user' => '...'}]).html_safe %></pre>
+
+
+<div id="show" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Show a User</h2>
+  <p>Returns a user found by id.</p>
+</div>
+
+<pre class="pizzazz">
+<strong>GET</strong> users/<span class="string">:id</span>
+</pre>
+
+<h4>Parameters</h4>
+<p>This method does not accept any parameters</p>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
+-H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+</pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify(@user).html_safe %></pre>
+
+
+<div id="create" class="api-method">
+  <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
+  <h2>Create a User</h2>
+  <p>Creates a new user</p>
+</div>
+
+<pre class="pizzazz">
+<strong>POST</strong> users/
+</pre>
+
+<h4>Parameters</h4>
+<dl class="params">
+</dl>
+
+<h4>Example Request</h4>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
+-H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+</pre>
+
+<h4>Example Response</h4>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify(@user).html_safe %></pre>
