@@ -87,12 +87,12 @@ You must be authenticated to use the API. Please see the [authentication documen
     </tbody>
 </table>
 
-<div id="index" class="api-method"></div>
+<div id="index" class="api-method"><a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a></div>
 ## Show All Users
 Returns a full list of all users signed up for FootballOps.org.
 
 <pre class="pizzazz">
-<strong>GET</strong> users
+<strong>GET</strong> users/
 </pre>
 
 #### Parameters
@@ -109,4 +109,53 @@ This method does not accept any parameters
 <span class="headers">HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8</span>
 </pre>
-{{Pizzazz.ify_html([@user])}}
+{{Pizzazz.ify_html([@user, {'next_user' => '...'}])}}
+
+
+<div id="show" class="api-method"><a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a></div>
+## Show a User
+Returns a user found by id.
+
+<pre class="pizzazz">
+<strong>GET</strong> users/<span class="string">:id</span>
+</pre>
+
+#### Parameters
+This method does not accept any parameters
+
+#### Example Request
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
+-H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+</pre>
+
+#### Example Response
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+</pre>
+{{Pizzazz.ify_html(@user)}}
+
+
+<div id="show" class="api-method"><a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a></div>
+## Create a User
+Creates a new user
+
+<pre class="pizzazz">
+<strong>POST</strong> users/
+</pre>
+
+#### Parameters
+
+#### Example Request
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/users/105"</span> \
+-H <span class="string">"Authorization: Bearer 6999bc74b782f3ff118d2b205904d622"</span>
+</pre>
+
+#### Example Response
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+</pre>
+{{Pizzazz.ify_html(@user)}}
