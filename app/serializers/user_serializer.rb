@@ -1,6 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :first_name, :last_name, :email, :school_id, :created_at, :updated_at,
-    :conference_id, :district_id, :division_id, :school, :url
+  attributes :id, :first_name, :last_name, :email, :created_at, :updated_at, :url,
+    :conference_id, :conference_name,
+    :district_id, :district_name,
+    :division_id, :division_name,
+    :school_id, :school_name
 
   def conference_id
     user.conference.id
