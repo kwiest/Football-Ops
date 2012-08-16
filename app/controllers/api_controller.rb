@@ -1,4 +1,4 @@
-class ApiController < ActionController::API
+class ApiController < ApplicationController
   def current_user
     nil
   end
