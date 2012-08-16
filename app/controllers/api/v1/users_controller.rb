@@ -14,7 +14,7 @@ module Api
       end
 
       def create
-        @user = User.create params[:user]
+        @user = User.create clean_params
         if @user.save
           render json: @user
         else
@@ -24,7 +24,7 @@ module Api
 
       def update
         @user = User.find params[:id]
-        @user.update_attributes params[:user]
+        @user.update_attributes clean_params
         if @user.save
           render json: @user
         else
@@ -53,6 +53,17 @@ module Api
         render json: @users.to_a
       end
 
+
+      private
+
+      def clean_params
+        unless can? :manage, User
+          params[:user].delete :admin
+          params[:user].delete :conference_rep
+          params[:user].delete :national_committee
+        end
+        params[:user]
+      end
     end
   end
 end
