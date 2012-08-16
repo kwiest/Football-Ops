@@ -106,8 +106,14 @@ div.pagination {
 }
 
 footer {
+  color: #999;
   margin-top: 36px;
   padding: 20px;
   height: 40px;
-  background-color: #fafafa;
+
+  a {
+    color: #999;
+    text-decoration: underline;
+    margin: 0 6px;
+  }
 }
