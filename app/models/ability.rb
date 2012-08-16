@@ -11,12 +11,6 @@ class Ability
         u == user
       end
       
-      # Users can upload files, and manage them if they created them
-      can :create, Upload
-      can :manage, Upload do |upload|
-        upload.user == user
-      end
-      
       if user.admin?
         # Admins can manage everything
         can :manage, :all
@@ -36,7 +30,6 @@ class Ability
     # If there is no signed-in user, they cannot see anything
     if user.nil?
       can :create, User
-      can :read, Job
     end
   end
 end
