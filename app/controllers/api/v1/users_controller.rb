@@ -1,6 +1,7 @@
 module Api
   module V1
     class UsersController < ::ApiController
+      load_and_authorize_resource
 
       def index
         @users = User.all
