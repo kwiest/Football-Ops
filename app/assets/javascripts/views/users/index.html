@@ -1,0 +1,19 @@
+<h1>All Users (<span data-bind="users.length"></span>)</h1>
+
+<div data-foreach-user="users">
+  <a data-bind-href="user.url" class="user clearfix">
+    <div class="user-name" data-bind="user.full_name"></div>
+    <span class="user-school" data-bind="user.school_name"></span>
+    <span class="user-tags">
+      <span data-showif="user.admin" class="badge badge-warning">
+        Site Administrator
+      </span>
+      <span data-showif="user.conference_rep" class="badge badge-info">
+        Conference Rep
+      </span>
+      <span data-showif="user.national_committee" class="badge badge-success">
+        National Committee
+      </span>
+    </span>
+  </a>
+</div>
