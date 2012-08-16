@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :school
   
-  default_scope order: :last_name, include: [:school, :division, :conference, :district]
+  default_scope order(:last_name).joins(:school, :division, :conference, :district)
 
   # Search method
   def self.search(query)
