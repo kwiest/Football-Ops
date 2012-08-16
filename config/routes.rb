@@ -24,6 +24,8 @@ FootballOps::Application.routes.draw do
   match '/developer'         => 'developer#index'
   match '/developer/:action' => 'developer#:action'
 
+  match '/directory' => 'directory#index'
+
   namespace :api, defaults: { format: 'json' } do
     namespace :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, except: %w(new edit) do
