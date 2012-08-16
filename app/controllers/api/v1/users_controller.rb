@@ -5,18 +5,18 @@ module Api
 
       def index
         @users = User.all
-        render json: @users
+        render json: @users, root: false
       end
 
       def show
         @user = User.find params[:id]
-        render json: @user
+        render json: @user, root: false
       end
 
       def create
         @user = User.create clean_params
         if @user.save
-          render json: @user
+          render json: @user, root: false
         else
           render json: @user.errors, status: :unprocessable_entity
         end
@@ -26,7 +26,7 @@ module Api
         @user = User.find params[:id]
         @user.update_attributes clean_params
         if @user.save
-          render json: @user
+          render json: @user, root: false
         else
           render json: @user.errors, status: :unprocessable_entity
         end
@@ -40,17 +40,17 @@ module Api
 
       def search
         @users = User.search params[:q]
-        render json: @users.to_a
+        render json: @users.to_a, root: false
       end
 
       def conference_reps
         @users = User.where conference_rep: true
-        render json: @users.to_a
+        render json: @users.to_a, root: false
       end
 
       def national_committee
         @users = User.where national_committee: true
-        render json: @users.to_a
+        render json: @users.to_a, root: false
       end
 
 
