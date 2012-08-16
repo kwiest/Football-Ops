@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?, :admin?
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to :unauthorized
+    head :unauthorized
   end
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
