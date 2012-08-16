@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to root_path, notice: "Successfully signed-in!"
+      redirect_to directory_path
     else
       render action: :new
     end
