@@ -14,40 +14,28 @@ module Api
       end
 
       def create
-        if can? :create, User
-          @user = User.create params[:user]
-          if @user.save
-            render json: @user
-          else
-            render json: @user.errors, status: :unprocessable_entity
-          end
+        @user = User.create params[:user]
+        if @user.save
+          render json: @user
         else
-          head :unauthorized
+          render json: @user.errors, status: :unprocessable_entity
         end
       end
 
       def update
-        if can? :update, User
-          @user = User.find params[:id]
-          @user.update_attributes params[:user]
-          if @user.save
-            render json: @user
-          else
-            render json: @user.errors, status: :unprocessable_entity
-          end
+        @user = User.find params[:id]
+        @user.update_attributes params[:user]
+        if @user.save
+          render json: @user
         else
-          head :unauthorized
+          render json: @user.errors, status: :unprocessable_entity
         end
       end
 
       def destroy
-        if can? :delete, User
-          @user = User.find params[:id]
-          @user.destroy
-          head :no_content
-        else
-          head :unauthorized
-        end
+        @user = User.find params[:id]
+        @user.destroy
+        head :no_content
       end
 
       def search
