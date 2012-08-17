@@ -1,5 +1,9 @@
+<div class="title">
+  <h1>Directory</h1>
+</div>
+
 <div data-foreach-user="users" data-mixin="animation">
-  <a data-bind-href="user.url" class="user clearfix">
+  <a data-route="routes.users[user]" class="user clearfix">
     <div class="user-pic"><img src="/assets/blank_avatar_small.jpg" alt="User pic" /></div>
     <div class="user-detail">
       <div class="user-name" data-bind="user.full_name"></div>
