@@ -4,7 +4,7 @@ window.FootballOps = class FootballOps extends Batman.App
 
     @root 'users#index'
     # @route '/controller/:id', 'controller#show', resource: 'model', action: 'show'
-    @resources 'users'
+    @resources 'users', 'schools', 'conferences', 'districts', 'divisions'
 
     @on 'run', ->
         console?.log "Running ...."

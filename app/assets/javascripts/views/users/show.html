@@ -1,0 +1,78 @@
+<div id="show-user">
+  <div class="link-back">
+    <a data-route="routes.users"><i class="icon-arrow-left"></i> Back to directory</a>
+  </div>
+
+  <div id="top" class="clearfix">
+    <div class="user-pic"><img src="/assets/blank_avatar.jpg" alt="User pic" /></div>
+
+    <div class="title">
+      <div class="user-name" data-bind="user.full_name"></div>
+      <div class="user-school" data-bind="user.school_name"></div>
+    </div>
+
+    <div class="btn-group" id="user-controls">
+      <a data-route="routes.users[user].edit" class="btn"><i class="icon-edit"></i></a>
+      <a data-event-click="user.destroy" class="btn"><i class="icon-trash"></i></a>
+    </div>
+  </div>
+
+  <div class="well">
+    <dl>
+      <dt>School:</dt>
+      <dd>
+        <a data-route="routes.schools[user.school_id]" data-bind="user.school_name"></a>
+        &nbsp;
+      </dd>
+
+      <dt>Conference:</dt>
+      <dd>
+        <a data-route="routes.conferences[user.conference_id]" data-bind="user.conference_name"></a>
+        &nbsp;
+      </dd>
+
+      <dt>District:</dt>
+      <dd>
+        <a data-route="routes.districts[user.district_id]" data-bind="user.district_name"></a>
+        &nbsp;
+      </dd>
+
+      <dt>Division:</dt>
+      <dd>
+        <a data-route="routes.divisions[user.division_id]" data-bind="user.division_name"></a>
+        &nbsp;
+      </dd>
+    </dl>
+  </div>
+
+  <div class="well">
+    <dl>
+      <dt>Email:</dt>
+      <dd data-bind="user.email"></dd>
+  
+      <dt>Phone:</dt>
+      <dd data-bind="user.phone | default '&nbsp;'"></dd>
+  
+      <dt>Fax:</dt>
+      <dd data-bind="user.fax | default '&nbsp;'"></dd>
+    </dl>
+  </div>
+  
+  <div class="well">
+    <dl>
+      <dt>Positions:</dt>
+      <dd>
+        <span data-showif="user.admin" class="badge badge-warning">
+          Site Admin
+        </span>
+        <span data-showif="user.conference_rep" class="badge badge-info">
+          Conference Rep
+        </span>
+        <span data-showif="user.national_committee" class="badge badge-success">
+          National Committee
+        </span>
+        &nbsp;
+      </dd>
+    </dl>
+  </div>
+</div>

@@ -5,17 +5,21 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-dl dt {
-  float: left;
-  margin-right: 18px;
-  width: 160px;
-  text-align: right;
-  font-weight: normal;
-  color: #999;
-}
+dl {
+  font-size: 18px;
 
-dl dd {
-  margin-left: 177px;
+  dt {
+    float: left;
+    margin-right: 18px;
+    width: 160px;
+    text-align: right;
+    font-weight: normal;
+    color: #999;
+  }
+
+  dd {
+    margin-left: 177px;
+  }
 }
 
 .well {

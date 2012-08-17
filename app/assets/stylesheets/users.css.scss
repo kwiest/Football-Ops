@@ -1,3 +1,7 @@
+/*
+ * Index styles
+ **************************/
+
 a.user {
   display: block;
   color: #666;
@@ -43,7 +47,7 @@ a.user:hover {
   background-color: #fafafa;
 }
 
-.user-controls {
+.users-controls {
   div.pagination {
     float: left;
     margin: 0 0 18px;
@@ -51,5 +55,53 @@ a.user:hover {
 
   a.email-link {
     float: right;
+  }
+}
+
+
+/*
+ * Show styles
+ **************************/
+
+#show-user {
+  #top {
+    //width: 100%;
+    margin: 8px 0 24px;
+    padding: 8px;
+    background: #444;
+    color: #fff;
+    border-radius: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+    .user-pic {
+      float: left;
+      margin-right: 16px;
+      padding: 2px;
+      background: #fff;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .title {
+      float: left;
+
+      .user-name {
+        font-size: 36px;
+        line-height: 42px;
+        font-weight: bold;
+      }
+
+      .user-school {
+        font-size: 24px;
+        color: #ccc;
+      }
+    }
+
+    #user-controls {
+      float: right;
+
+      a.btn {
+        font-size: 18px;
+      }
+    }
   }
 }

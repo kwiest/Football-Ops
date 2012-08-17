@@ -6,6 +6,8 @@ class FootballOps.UsersController extends Batman.Controller
         @set 'users', FootballOps.User.get 'all'
     
     show: (params) ->
+        @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) ->
+            throw err if err
 
     create: (params) ->
 
