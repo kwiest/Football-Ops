@@ -1,0 +1,81 @@
+<fieldset>
+    <legend>
+        <span data-showif="user.isNew">Create a New DFO</span>
+        <span data-hideif="user.isNew">Edit DFO Profile</span>
+    </legend>
+
+    <div id="error-explanation" class="alert alert-error" data-showif="user.errors.length">
+        <p>
+            <strong><span data-bind="'error' | pluralize user.errors.length"></span>
+            prevented this user from being created:</strong>
+        </p>
+        <ul>
+            <li data-foreach="user.errors" data-bind="error.message"></li>
+        </ul>
+    </div>
+
+    <div class="input string required" data-addclass-error="user.errors['first_name'].length" data-addclass-error="user.errors['last_name'].length">
+        <label class="string required control-label" for="user_first_name">
+            <abbr title="required">*</abbr> Name
+        </label>
+        <input class="string required" id="user_first_name" name="user[first_name]" placeholder="First name" size="30" type="text" data-bind="user.first_name">
+        <input class="string required" id="user_last_name" name="user[last_name]" placeholder="Last name" size="30" type="text" data-bind="user.last_name">
+    </div>
+
+    <div class="input string required" data-addclass-error="user.errors['email'].length">
+        <label class="string required control-label" for="user_email">
+            <abbr title="required">*</abbr> Email
+        </label>
+        <input class="string required" id="user_email" name="user[email]" placeholder="Email address" size="50" type="text" data-bind="user.email">
+    </div>
+
+    <div class="input select required" data-addclass-error="user.errors['school_id'].length">
+        <label class="select required control-label" for="user_school_id">
+            <abbr title="required">*</abbr> School
+        </label>
+        <select class="select required" id="user_school_id" name="user[school_id]" data-bind="user.school_id">
+            <option data-foreach-school="schools" data-bind-selected="school.id"><span data-bind="school.name"></span></option>
+        </select>
+    </div>
+
+    <div class="input string required" data-addclass-error="user.errors['phone'].length">
+        <label class="string required control-label" for="user_phone">
+            <abbr title="required">*</abbr> Phone number
+        </label>
+        <input class="string required" id="user_phone" name="user[phone]" placeholder="Phone number" size="50" type="text" data-bind="user.phone">
+    </div>
+
+    <div class="input string required" data-addclass-error="user.errors['fax'].length">
+        <label class="string required control-label" for="user_fax">
+            <abbr title="required">*</abbr> Fax number
+        </label>
+        <input class="string required" id="user_fax" name="user[fax]" placeholder="Fax number" size="50" type="text" data-bind="user.fax">
+    </div>
+
+    <div data-showif="user.isNew">
+        <div class="input password optional" data-addclass-error="user.errors['password'].length">
+            <label class="password optional control-label" for="user_password">
+                Password
+            </label>
+            <input class="password optional" id="user_password" name="user[password]" placeholder="Password" size="50" type="password" data-bind="user.password">
+        </div>
+
+        <div class="input password optional" data-addclass-error="user.errors['password_confirmation'].length">
+            <label class="password optional control-label" for="user_password_confirmation">
+                Password confirmation
+            </label>
+            <input class="password optional" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Password confirmation" size="50" type="password" data-bind="user.password_confirmation">
+        </div>
+    </div>
+
+    <div data-showif="user.canManage">
+        Admin checkbox
+        Conference rep checkbox
+        National committee checkbox
+    </div>
+</fieldset>
+
+<div class="form-actions">
+    <input class="btn btn-primary" name="commit" type="submit" value="Save">
+    <a data-route="routes.users" class="btn btn-danger">Cancel</a>
+</div>

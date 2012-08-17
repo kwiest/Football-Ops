@@ -9,7 +9,6 @@ a.user {
   width: 100%;
   padding: 10px 4px;
   border-bottom: 1px solid #dadada;
-  //min-height: 75px;
 
   .user-pic {
     float: left;
@@ -105,3 +104,13 @@ a.user:hover {
     }
   }
 }
+
+
+/*
+ * Form styles
+ **************************/
+
+input#user_first_name {
+  width: 80px;
+}
+
