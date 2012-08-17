@@ -3,24 +3,38 @@ a.user {
   color: #666;
   font-size: 16px;
   width: 100%;
-  margin-bottom: 8px;
-  padding: 8px 0;
+  padding: 10px 4px;
   border-bottom: 1px solid #dadada;
+  //min-height: 75px;
 
-  .user-name {
-    font-size: 20px;
-    color: #222;
+  .user-pic {
+    float: left;
+    margin-right: 16px;
   }
 
-  .user-school {
-    width: 250px;
-    display: inline-block;
-  }
+  .user-detail {
+    float: left;
 
-  .user-tags {
-    .badge {
-      margin: 0 2px;
+    .user-name {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: #222;
     }
+
+    .user-school {
+      font-size: 20px;
+    }
+
+    .user-tags {
+      .badge {
+        margin-right: 2px;
+      }
+    }
+  }
+
+  .user-next {
+    margin-top: 26px;
+    float: right;
   }
 }
 
