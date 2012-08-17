@@ -4,7 +4,7 @@ class FootballOps.User extends Batman.Model
     @storageKey: 'api/v1/users'
     @persist Batman.RailsStorage
 
-    @encode 'id', 'first_name', 'last_name', 'email', 'created_at', 'updated_at', 'url',
+    @encode 'id', 'first_name', 'last_name', 'email', 'phone', 'created_at', 'updated_at', 'url',
         'conference_rep', 'national_committee', 'admin', 'conference_id', 'conference_name',
         'district_id', 'district_name', 'division_id', 'division_name', 'school_id', 'school_name'
 
