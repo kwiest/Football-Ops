@@ -11,4 +11,13 @@ class DeveloperController < ApplicationController
     end
   end
 
+  def schools
+    if signed_in?
+      @school = UserSerializer.new(current_user.school).serializable_hash
+    else
+      # Use Oregon by default
+      @school = UserSerializer.new(School.find 345).serializable_hash
+    end
+  end
+
 end

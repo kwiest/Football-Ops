@@ -29,6 +29,10 @@ FootballOps::Application.routes.draw do
           get :national_committee
         end
       end
+
+      resources :schools, only: %w(index show) do
+        get :search, on: :collection
+      end
     end
   end
   
