@@ -18,6 +18,13 @@ class FootballOps.UsersController extends Batman.Controller
     create: (params) ->
 
     update: (params) ->
+        @get('user').save (err) =>
+            if err
+                throw err unless err instanceof Batman.ErrorSet
+            else
+                FootballOps.set 'flash.success', "User #{@get 'user.full_name'} updated successfully!"
+                @redirect FootballOps.get 'routes.users.path'
+
 
     destroy: (params) ->
     
