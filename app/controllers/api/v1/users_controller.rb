@@ -57,12 +57,22 @@ module Api
       private
 
       def clean_params
+        params['api/v1/user'].delete 'url'
+        params['api/v1/user'].delete 'conference_id'
+        params['api/v1/user'].delete 'conference_name'
+        params['api/v1/user'].delete 'district_id'
+        params['api/v1/user'].delete 'district_name'
+        params['api/v1/user'].delete 'division_id'
+        params['api/v1/user'].delete 'division_name'
+        params['api/v1/user'].delete 'school_name'
+
         unless can? :manage, User
-          params[:user].delete :admin
-          params[:user].delete :conference_rep
-          params[:user].delete :national_committee
+          Rails.logger.info "Unpermitted user #{current_user.id} attempted to change protected attrs"
+          params['api/v1/user'].delete :admin
+          params['api/v1/user'].delete :conference_rep
+          params['api/v1/user'].delete :national_committee
         end
-        params[:user]
+        params['api/v1/user']
       end
     end
   end
