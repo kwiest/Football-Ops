@@ -1,5 +1,14 @@
 /*
- * Index styles
+ * Universal User styles
+ **************************/
+
+.badge {
+  margin-right: 2px;
+}
+
+
+/*
+ * Index view styles
  **************************/
 
 a.user {
@@ -26,12 +35,6 @@ a.user {
 
     .user-school {
       font-size: 20px;
-    }
-
-    .user-tags {
-      .badge {
-        margin-right: 2px;
-      }
     }
   }
 
@@ -107,7 +110,7 @@ a.user:hover {
 
 
 /*
- * Form styles
+ * Form view styles
  **************************/
 
 input#user_first_name {
