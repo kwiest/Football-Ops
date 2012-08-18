@@ -1,13 +1,31 @@
+# Batman.js and its adapters
+#
+#= require batman/es5-shim
+#= require batman/batman
+#= require batman/batman.jquery
+#= require batman/batman.rails
+#
+#= require_self
+#
+#= require_tree ./models
+#= require_tree ./controllers
+#= require_tree ./helpers
+#= require_tree ./views
+
+
 window.FootballOps = class FootballOps extends Batman.App
 
     Batman.ViewStore.prefix = 'assets/views'
 
-    @root 'users#index'
     # @route '/controller/:id', 'controller#show', resource: 'model', action: 'show'
+    @root 'users#index'
     @resources 'users', 'schools', 'conferences', 'districts', 'divisions'
 
     @on 'run', ->
-        console?.log "Running ...."
+        user = new FootballOps.User()
+        user.url = '/user_sessions/current'
+        user.load (err) -> throw err if err
+        @set 'currentUser', user
 
     @on 'ready', ->
         console?.log "FootballOps ready for use."
