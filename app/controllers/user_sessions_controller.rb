@@ -1,4 +1,6 @@
 class UserSessionsController < ApplicationController
+  skip_before_filter :ensure_authenticated, except: :current
+
   def new
     redirect_to root_path if signed_in?
   	@user_session = UserSession.new
@@ -18,5 +20,9 @@ class UserSessionsController < ApplicationController
     @user_session.destroy
     
     redirect_to root_path, notice: "Successfully signed-out. Come back soon."
+  end
+
+  def current
+    render json: current_user
   end
 end
