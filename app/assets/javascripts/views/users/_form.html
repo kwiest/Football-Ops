@@ -34,7 +34,7 @@
             <abbr title="required">*</abbr> School
         </label>
         <select class="select required" id="user_school_id" name="user[school_id]" data-bind="user.school_id">
-            <option data-foreach-school="schools" data-bind-selected="school.id"><span data-bind="school.name"></span></option>
+            <option data-foreach-school="schools" data-bind="school.name" data-bind-value="school.id"></option>
         </select>
     </div>
 
@@ -89,5 +89,6 @@
 
 <div class="form-actions">
     <input class="btn btn-primary" name="commit" type="submit" value="Save">
-    <a data-route="routes.users" class="btn btn-danger">Cancel</a>
+    <a data-route="routes.users" data-showif="user.isNew" class="btn btn-danger">Cancel</a>
+    <a data-route="routes.users[user]" data-hideif="user.isNew" class="btn btn-danger">Cancel</a>
 </div>

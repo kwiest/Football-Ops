@@ -13,7 +13,7 @@ class FootballOps.UsersController extends Batman.Controller
 
     edit: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err
-        #@set 'schools', FootballOps.School.get 'all'
+        @set 'schools', FootballOps.School.get 'all'
 
     create: (params) ->
 
