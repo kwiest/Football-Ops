@@ -1,2 +1,19 @@
 <div id="loading-spinner"></div>
+
+<form accept-charset="UTF-8" id="user-search" method="get" data-event-submit="controllers.users.submitSearch" class="form-search">
+  <input type="hidden" name="utf8" value="✓">
+  <input data-addclass-error="controllers.users.searchQueryError" id="user-query" name="q" placeholder="Search by name" type="text" class="search-query">
+</form>
+
+<div data-showif="flash.success" id="flash-success" class="alert alert-success">
+  <a class="close" data-dismiss="alert" href="#">x</a>
+  <h4 class="alert-heading">Success!</h4>
+  <div data-bind="flash.success"></div>
+</div>
+<div data-showif="flash.error" id="flash-error" class="alert alert-error">
+  <a class="close" data-dismiss="alert" href="#">x</a>
+  <h4 class="alert-heading">Error</h4>
+  <div data-bind="flash.error"></div>
+</div>
+
 <div data-yield="main"></div>
