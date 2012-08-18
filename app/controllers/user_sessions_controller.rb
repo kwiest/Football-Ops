@@ -23,6 +23,6 @@ class UserSessionsController < ApplicationController
   end
 
   def current
-    render json: current_user
+    render json: current_user, root: false
   end
 end
