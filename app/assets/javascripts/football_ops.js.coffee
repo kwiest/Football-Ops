@@ -20,6 +20,7 @@ window.FootballOps = class FootballOps extends Batman.App
     # @route '/controller/:id', 'controller#show', resource: 'model', action: 'show'
     @root 'users#index'
     @resources 'users', 'schools', 'conferences', 'districts', 'divisions'
+    @route '/user-search', 'users#search'
 
     @on 'run', ->
         user = new FootballOps.User()

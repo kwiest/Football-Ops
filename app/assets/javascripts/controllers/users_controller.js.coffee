@@ -1,5 +1,6 @@
 class FootballOps.UsersController extends Batman.Controller
     routingKey: 'users'
+    searchQueryError: false
 
     index: (params) ->
         FootballOps.User.load (err) -> throw err if err
@@ -25,6 +26,19 @@ class FootballOps.UsersController extends Batman.Controller
                 FootballOps.set 'flash.success', "User #{@get 'user.full_name'} updated successfully!"
                 @redirect FootballOps.get 'routes.users.path'
 
+    submitSearch: (form) =>
+        searchQuery = $(form).find('#user-query').val()
+        @redirect "/user-search?q=#{searchQuery}"
 
-    destroy: (params) ->
-    
+    search: (params) ->
+        if params.q && (params.q = params.q.replace(/^\s+|\s+$/g,'')).length > 0
+            @set 'searchQueryError', false
+            @set 'searchQuery', params.q
+            @set 'searchUsers', null
+
+            FootballOps.User.search params.q, (err, records) =>
+                throw err if err
+                @set 'searchUsers', records
+        else
+            @set 'searchQueryError', true
+
