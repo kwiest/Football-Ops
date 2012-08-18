@@ -1,4 +1,4 @@
-class FootballOps.UsersIndexView extends Batman.View
+class FootballOps.UsersAbstractView extends Batman.View
     constructor: ->
         super
         $('#loading-spinner').spin()
@@ -6,7 +6,8 @@ class FootballOps.UsersIndexView extends Batman.View
     @::on 'appear', ->
         $('#loading-spinner').spin false
 
-class FootballOps.UsersFormView extends Batman.View
+
+class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
     @accessor 'isSubmitting', -> @get('context.user')?.get('lifecycle.isSaving')
     constructor: ->
         super
@@ -20,5 +21,6 @@ class FootballOps.UsersFormView extends Batman.View
                 form.spin false
                 inputs.attr 'disabled', false
 
+class FootballOps.UsersIndexView extends FootballOps.UsersAbstractView
 class FootballOps.UsersCreateView extends FootballOps.UsersFormView
 class FootballOps.UsersEditView extends FootballOps.UsersFormView
