@@ -32,7 +32,7 @@ FootballOps::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   # Emails with links should direct to this url
-  config.action_mailer.default_url_options = { host: 'footballops.org' }
+  config.action_mailer.default_url_options = { host: 'footballops.herokuapp.com' }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
