@@ -4,8 +4,11 @@ module Api
       load_and_authorize_resource
 
       def index
-        @users = User.all
-        render json: @users, root: false
+        page     = params.fetch :page, 1
+        per_page = params.fetch :per_page, 25
+
+        @users = User.page(page).per(per_page)
+        render json: @users.to_a, root: false
       end
 
       def show
