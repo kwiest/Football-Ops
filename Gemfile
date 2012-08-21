@@ -9,6 +9,7 @@ gem 'batman-rails',             '~> 0.0.6'
 gem 'cancan',                   '~> 1.6.8'
 gem 'high_voltage',             '~> 1.1.1'
 gem 'jquery-rails',             '~> 2.0.2'
+gem 'kaminari',                 '~> 0.13.0'
 gem 'paperclip',                '~> 3.1.4'
 gem 'pg',                       '~> 0.14.0'
 gem 'pizzazz',                  '~> 0.1.2'
@@ -17,7 +18,6 @@ gem 'rdiscount',                '~> 1.6.8'
 gem 'simple_form',              '~> 2.0.2'
 gem 'thin',                     '~> 1.4.1'
 gem 'twitter-bootstrap-rails',  '~> 2.1.1'
-gem 'will_paginate',            '~> 3.0.3'
 
 # Assets
 group :assets do
