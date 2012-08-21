@@ -61,4 +61,7 @@ FootballOps::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Use Rack::SSL to make sure traffic is encrypted
+  config.use Rack::SSL
 end

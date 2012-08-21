@@ -38,3 +38,8 @@ group :test do
   gem 'database_cleaner',       '~> 0.8.0'
   gem 'shoulda',                '~> 3.1.1'
 end
+
+# Production Gems
+group :production do
+  gem 'rack-ssl',               '~> 1.3.2'
+end
