@@ -2,21 +2,6 @@
     <h1>Directory</h1>
 </div>
 
-<div data-foreach-user="users" data-mixin="animation">
-    <a data-route="routes.users[user]" class="user clearfix">
-        <div class="user-pic"><img src="/assets/blank_avatar_small.jpg" alt="User pic" /></div>
-        <div class="user-detail">
-            <div class="user-name" data-bind="user.full_name"></div>
-            <div class="user-school" data-bind="user.school_name"></div>
-            <span class="user-email" data-bind="user.email"></span>,
-            <span class="user-phone" data-bind="user.phone"></span>
-
-            <div class="user-tags">
-                <span data-showif="user.admin" class="badge badge-warning">Site Admin</span>
-                <span data-showif="user.conference_rep" class="badge badge-info">Conference Rep</span>
-                <span data-showif="user.national_committee" class="badge badge-success">National Committee</span>
-            </div>
-        </div>
-        <div class="user-next"><i class="icon-chevron-right"></i></div>
-    </a>
+<div data-foreach-user="users" data-mixin="animation" id="users">
+    <div data-partial="users/_user"></div>
 </div>
