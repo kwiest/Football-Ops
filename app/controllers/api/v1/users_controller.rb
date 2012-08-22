@@ -56,6 +56,11 @@ module Api
         render json: @users.to_a, root: false
       end
 
+      def total_count
+        @count = User.count
+        render json: { count: @count }
+      end
+
 
       private
 

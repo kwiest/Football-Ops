@@ -27,6 +27,7 @@ FootballOps::Application.routes.draw do
           get :search
           get :conference_reps
           get :national_committee
+          get :total_count
         end
       end
 
