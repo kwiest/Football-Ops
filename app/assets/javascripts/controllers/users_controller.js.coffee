@@ -3,14 +3,14 @@ class FootballOps.UsersController extends Batman.Controller
     searchQueryError: false
 
     index: (params) ->
-        FootballOps.User.load (err) -> throw err if err
-        @set 'users', FootballOps.User.get 'all'
+        paginator = new FootballOps.UserPaginator
+        @set 'paginatedUsers', paginator
     
     show: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err
 
     new: (params) ->
-        @set 'user', new FootballOps.User()
+        @set 'user', new FootballOps.User
 
     edit: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err
