@@ -3,8 +3,13 @@ class FootballOps.UsersController extends Batman.Controller
     searchQueryError: false
 
     index: (params) ->
-        paginator = new FootballOps.UserPaginator
+        page = params.page or 1
+        paginator = new FootballOps.UserPaginator page: page
         @set 'paginatedUsers', paginator
+
+    navigateToPage: (link) ->
+        page = $(link).html() or 1
+        @redirect "/users?page=#{page}"
     
     show: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err
