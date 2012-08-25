@@ -27,11 +27,29 @@ class FootballOps.User extends Batman.Model
 
     @validate 'first_name', 'last_name', 'email', 'school_id', presence: true
 
-    @search: (query, callback) ->
-        @request 'search', { data: { q: query } }, (err, responseJSON) ->
+    @conferenceReps: (callback) ->
+        @request 'conference_reps', {}, (err, responseJSON) ->
             unless err
                 records = for blob in responseJSON
                     record = new FootballOps.User
                     record.fromJSON blob
                     record
-            callback err, records
+                callback err, records
+
+    @nationalCommittee: (callback) ->
+        @request 'national_committee', {}, (err, responseJSON) ->
+            unless err
+                records = for blob in responseJSON
+                    record = new FootballOps.User
+                    record.fromJSON blob
+                    record
+                callback err, records
+
+    @search: (query, callback) ->
+        @request 'search', { data: { q: query } }, (err, responseJSON) =>
+            unless err
+                records = for blob in responseJSON
+                    record = new FootballOps.User
+                    record.fromJSON blob
+                    record
+                callback err, records
