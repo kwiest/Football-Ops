@@ -21,6 +21,7 @@ class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
                 form.spin false
                 inputs.attr 'disabled', false
 
+
 class FootballOps.UsersIndexView extends FootballOps.UsersAbstractView
 class FootballOps.UsersCreateView extends FootballOps.UsersFormView
 class FootballOps.UsersEditView extends FootballOps.UsersFormView

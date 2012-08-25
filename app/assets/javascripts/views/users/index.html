@@ -2,22 +2,12 @@
     <h1>Directory</h1>
 </div>
 
-<div class="pagination">
-    <ul>
-        <li data-addclass-disabled="paginatedUsers.onFirstPage">
-            <a href="#">Prev</a>
-        </li>
-        <li class="active">
-            <a href="#" data-bind="paginatedUsers.page"></a>
-        </li>
-        <li data-addclass-disabled="paginatedUsers.onLastPage">
-            <a href="#">Next</a>
-        </li>
-    </ul>
-</div>
+<div data-partial="users/_pagination"></div>
 
 <div id="users">
     <div data-foreach-user="paginatedUsers" data-mixin="animation">
         <div data-partial="users/_user"></div>
     </div>
 </div>
+
+<div data-partial="users/_pagination"></div>

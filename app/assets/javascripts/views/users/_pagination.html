@@ -1,0 +1,8 @@
+<div class="pagination">
+    <ul>
+        <li class="disabled">page:</li>
+        <li data-foreach-page="paginatedUsers.pages">
+            <a data-bind="page" data-event-click="controllers.users.navigateToPage"></a>
+        </li>
+    </ul>
+</div>
