@@ -30,9 +30,9 @@
               Directory <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to 'All members', '#!/users' %></li>
-              <li><%= link_to 'Conference Reps', '#!/users/conference-reps' %></li>
-              <li><%= link_to 'National Committee', '#!/users/national-committee' %></li>
+              <li><%= link_to 'All members', '/directory#!/users' %></li>
+              <li><%= link_to 'Conference Reps', '/directory#!/users/conference-reps' %></li>
+              <li><%= link_to 'National Committee', '/directory#/!/users/national-committee' %></li>
               <li><%= link_to 'By School', schools_path %></li>
               <!--
               <li><%= link_to "By Conference", conferences_path %></li>
@@ -48,7 +48,7 @@
               <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to 'Edit my profile' %></li>
+              <li><%= link_to 'Edit my profile', "/directory#!/users/#{current_user.id}/edit" %></li>
               <li><%= link_to 'Sign out', sign_out_path %></li>
             </ul>
           </li>
