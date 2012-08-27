@@ -10,78 +10,118 @@
             prevented this user from being created:</strong>
         </p>
         <ul>
-            <li data-foreach="user.errors" data-bind="error.message"></li>
+            <li data-foreach-error="user.errors">
+                <span data-bind="error.attribute | humanize"></span>
+                <span data-bind="error.message"></span>
+            </li>
         </ul>
     </div>
 
-    <div class="control-group input string required" data-addclass-error="user.errors['first_name'].length" data-addclass-error="user.errors['last_name'].length">
+    <div class="control-group input string required"
+        data-addclass-error="user.errors['first_name'].length"
+        data-addclass-error="user.errors['last_name'].length">
         <label class="string required control-label" for="user_first_name">
             <abbr title="required">*</abbr> Name
         </label>
-        <input class="string required" id="user_first_name" name="user[first_name]" placeholder="First name" size="30" type="text" data-bind="user.first_name">
-        <input class="string required" id="user_last_name" name="user[last_name]" placeholder="Last name" size="30" type="text" data-bind="user.last_name">
+        <input class="string required" id="user_first_name" name="user[first_name]"
+            placeholder="First name" size="30" type="text" data-bind="user.first_name">
+        <input class="string required" id="user_last_name" name="user[last_name]"
+            placeholder="Last name" size="30" type="text" data-bind="user.last_name">
     </div>
 
-    <div class="control-group input string required" data-addclass-error="user.errors['email'].length">
+    <div class="control-group input string required"
+        data-addclass-error="user.errors['email'].length">
         <label class="string required control-label" for="user_email">
             <abbr title="required">*</abbr> Email
         </label>
-        <input class="string required" id="user_email" name="user[email]" placeholder="Email address" size="50" type="text" data-bind="user.email">
+        <input class="string required" id="user_email" name="user[email]"
+            placeholder="Email address" size="50" type="text" data-bind="user.email">
     </div>
 
-    <div class="control-group input select required" data-addclass-error="user.errors['school_id'].length">
+    <div class="control-group input select required"
+        data-addclass-error="user.errors['school_id'].length">
         <label class="select required control-label" for="user_school_id">
             <abbr title="required">*</abbr> School
         </label>
-        <select class="select required" id="user_school_id" name="user[school_id]" data-bind="user.school_id">
-            <option data-foreach-school="schools" data-bind="school.name" data-bind-value="school.id"></option>
+        <select class="select required" id="user_school_id" name="user[school_id]"
+            data-bind="user.school_id">
+            <option data-showif="user.isNew" selected="selected">Select your school</option>
+            <option data-foreach-school="schools" data-bind="school.name"
+            data-bind-value="school.id"></option>
         </select>
     </div>
 
-    <div class="control-group input string required" data-addclass-error="user.errors['phone'].length">
-        <label class="string required control-label" for="user_phone">Phone number</label>
-        <input class="string required" id="user_phone" name="user[phone]" placeholder="Phone number" size="50" type="text" data-bind="user.phone">
+    <div class="control-group input string required"
+        data-addclass-error="user.errors['phone'].length">
+        <label class="string required control-label" for="user_phone">
+            Phone number
+        </label>
+        <input class="string required" id="user_phone" name="user[phone]"
+            placeholder="Phone number" size="50" type="text" data-bind="user.phone">
     </div>
 
-    <div class="control-group input string required" data-addclass-error="user.errors['fax'].length">
-        <label class="string required control-label" for="user_fax">Fax number</label>
-        <input class="string required" id="user_fax" name="user[fax]" placeholder="Fax number" size="50" type="text" data-bind="user.fax">
+    <div class="control-group input string required" 
+        data-addclass-error="user.errors['fax'].length">
+        <label class="string required control-label" for="user_fax">
+            Fax number
+        </label>
+        <input class="string required" id="user_fax" name="user[fax]"
+            placeholder="Fax number" size="50" type="text" data-bind="user.fax">
     </div>
 
     <div data-showif="user.isNew">
-        <div class="control-group input password optional" data-addclass-error="user.errors['password'].length">
-            <label class="password optional control-label" for="user_password">Password</label>
-            <input class="password optional" id="user_password" name="user[password]" placeholder="Password" size="50" type="password" data-bind="user.password">
+        <div class="control-group input password optional"
+            data-addclass-error="user.errors['password'].length">
+            <label class="password optional control-label" for="user_password">
+                Password
+            </label>
+            <input class="password optional" id="user_password" name="user[password]"
+                placeholder="Password" size="50" type="password" data-bind="user.password">
         </div>
 
-        <div class="control-group input password optional" data-addclass-error="user.errors['password_confirmation'].length">
-            <label class="password optional control-label" for="user_password_confirmation">Password confirmation</label>
-            <input class="password optional" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Password confirmation" size="50" type="password" data-bind="user.password_confirmation">
+        <div class="control-group input password optional"
+            data-addclass-error="user.errors['password_confirmation'].length">
+            <label class="password optional control-label" for="user_password_confirmation">
+                Password confirmation
+            </label>
+            <input class="password optional" id="user_password_confirmation"
+                name="user[password_confirmation]" placeholder="Password confirmation"
+                size="50" type="password" data-bind="user.password_confirmation">
         </div>
     </div>
 
     <div data-showif="currentUser.canAdminister">
         <div class="control-group boolean optional">
-            <label class="boolean optional control-label" for="user_admin">Site admin?</label>
+            <label class="boolean optional control-label" for="user_admin">
+                Site admin?
+            </label>
             <div class="controls">
                 <input name="user[admin]" type="hidden" value="0">
-                <input class="boolean optional" id="user_admin" name="user[admin]" type="checkbox" data-bind="user.admin">
+                <input class="boolean optional" id="user_admin" name="user[admin]"
+                    type="checkbox" data-bind="user.admin">
             </div>
         </div>
 
         <div class="control-group boolean optional">
-            <label class="boolean optional control-label" for="user_conference_rep">Conference rep?</label>
+            <label class="boolean optional control-label" for="user_conference_rep">
+                Conference rep?
+            </label>
             <div class="controls">
                 <input name="user[conference_rep]" type="hidden" value="0">
-                <input class="boolean optional" id="user_conference_rep" name="user[conference_rep]" type="checkbox" data-bind="user.conference_rep">
+                <input class="boolean optional" id="user_conference_rep"
+                    name="user[conference_rep]" type="checkbox" data-bind="user.conference_rep">
             </div>
         </div>
 
         <div class="control-group boolean optional">
-            <label class="boolean optional control-label" for="user_national_committee">National committee member?</label>
+            <label class="boolean optional control-label" for="user_national_committee">
+                National committee member?
+            </label>
             <div class="controls">
                 <input name="user[national_committee]" type="hidden" value="0">
-                <input class="boolean optional" id="user_national_committee" name="user[national_committee]" type="checkbox" data-bind="user.national_committee">
+                <input class="boolean optional" id="user_national_committee"
+                    name="user[national_committee]" type="checkbox"
+                    data-bind="user.national_committee">
             </div>
         </div>
     </div>
