@@ -48,6 +48,15 @@ class FootballOps.UsersController extends Batman.Controller
                 FootballOps.set 'flash.success', "DFO #{@get 'user.full_name'} updated successfully!"
                 @redirect FootballOps.get 'routes.users.path'
 
+    destroy: ->
+        user = @get 'user'
+        user.destroy (err) =>
+            if err
+                throw err unless err instanceof Batman.ErrorsSet
+            else
+                FootballOps.set 'flash.error', "DFO #{user.get 'full_name'} deleted."
+                @redirect FootballOps.get 'routes.users.path'
+
     submitSearch: (form) =>
         searchQuery = $(form).find('#user-query').val()
         @redirect "/user-search?q=#{searchQuery}"
