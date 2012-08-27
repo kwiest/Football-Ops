@@ -23,5 +23,5 @@ class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
 
 
 class FootballOps.UsersIndexView extends FootballOps.UsersAbstractView
-class FootballOps.UsersCreateView extends FootballOps.UsersFormView
+class FootballOps.UsersNewView extends FootballOps.UsersFormView
 class FootballOps.UsersEditView extends FootballOps.UsersFormView
