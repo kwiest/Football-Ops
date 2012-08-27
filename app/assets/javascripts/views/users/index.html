@@ -4,6 +4,9 @@
         Page: <span data-bind="paginatedUsers.page"></span> of
         <span data-bind="paginatedUsers.pageCount"></span>
     </h2>
+    <a data-showif-"currentUser.canManage" data-route="routes.users.new" class="btn btn-primary">
+        Create a new DFO
+    </a>
 </div>
 
 <div data-partial="users/_pagination"></div>
