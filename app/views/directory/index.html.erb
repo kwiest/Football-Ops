@@ -1,10 +1,12 @@
 <div id="loading-spinner"></div>
 
-<form accept-charset="UTF-8" id="user-search" method="get" data-event-submit="controllers.users.submitSearch" class="form-search">
-  <input type="hidden" name="utf8" value="✓">
-  <input data-addclass-error="controllers.users.searchQueryError" id="user-query"
-    name="q" placeholder="Search all DFOs by name" type="text" class="search-query">
-</form>
+<div data-view="UsersSearchView">
+  <form accept-charset="UTF-8" id="user-search" method="get" class="form-search"
+    data-event-submit="search">
+    <input id="user-query" data-bind="searchQuery"
+      name="q" placeholder="Search all DFOs by name" type="text" class="search-query">
+  </form>
+</div>
 
 <div data-showif="flash.success" id="flash-success" class="alert alert-success">
   <a class="close" data-dismiss="alert" href="#">x</a>

@@ -22,6 +22,30 @@ class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
                 inputs.attr 'disabled', false
 
 
+class FootballOps.UsersSearchView extends FootballOps.UsersAbstractView
+    @accessor 'searchQuery'
+    @accessor 'searchError', -> false
+
+    constructor: ->
+        super
+        @set 'searchQuery', ''
+
+    search: ->
+        query = @get 'searchQuery'
+        if @filterQuery query
+            controller = FootballOps.get 'controllers.users'
+            controller.redirect "/user-search?q=#{query}"
+            @set 'searchQuery', ''
+        else
+            @set 'searchError', true
+
+    filterQuery: (query) ->
+        if query and (query = query.replace(/^\s+|\s+[a-zA-Z]+$/, '')).length > 0
+            true
+        else
+            false
+
+
 class FootballOps.UsersIndexView extends FootballOps.UsersAbstractView
 class FootballOps.UsersNewView extends FootballOps.UsersFormView
 class FootballOps.UsersEditView extends FootballOps.UsersFormView

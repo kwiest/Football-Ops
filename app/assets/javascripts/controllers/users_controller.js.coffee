@@ -57,19 +57,7 @@ class FootballOps.UsersController extends Batman.Controller
                 FootballOps.set 'flash.error', "DFO #{user.get 'full_name'} deleted."
                 @redirect FootballOps.get 'routes.users.path'
 
-    submitSearch: (form) =>
-        searchQuery = $(form).find('#user-query').val()
-        @redirect "/user-search?q=#{searchQuery}"
-
     search: (params) ->
-        if params.q && (params.q = params.q.replace(/^\s+|\s+$/g,'')).length > 0
-            @set 'searchQueryError', false
-            @set 'searchQuery', params.q
-            @set 'searchUsers', null
-
-            FootballOps.User.search params.q, (err, records) =>
-                throw err if err
-                @set 'searchUsers', records
-        else
-            @set 'searchQueryError', true
-
+        FootballOps.User.search params.q, (err, records) =>
+            throw err if err
+            @set 'searchUsers', records
