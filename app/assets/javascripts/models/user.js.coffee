@@ -5,11 +5,13 @@ class FootballOps.User extends Batman.Model
     @persist Batman.RailsStorage
 
     @encode 'id', 'first_name', 'last_name', 'email', 'phone', 'fax',
-        'created_at', 'updated_at', 'url'
+        'password', 'password_confirmation', 'url',
         'conference_rep', 'national_committee', 'admin',
         'conference_id', 'conference_name',
         'district_id', 'district_name',
         'division_id', 'division_name', 'school_id', 'school_name'
+
+    @encode 'created_at', 'updated_at', Batman.Encoders.railsDate
 
     @accessor 'full_name', -> "#{@get 'first_name'} #{@get 'last_name'}"
 
