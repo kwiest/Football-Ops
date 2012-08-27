@@ -26,12 +26,19 @@ class FootballOps.UsersController extends Batman.Controller
 
     new: (params) ->
         @set 'user', new FootballOps.User
+        @set 'schools', FootballOps.School.get 'all'
 
     edit: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err
         @set 'schools', FootballOps.School.get 'all'
 
     create: (params) ->
+        @get('user').save (err) =>
+            if err
+                throw err unless err instanceof Batman.ErrorsSet
+            else
+                FootballOps.set 'flash.success', 'New DFO successfully created!'
+                @redirect FootballOps.get 'routes.users.path'
 
     update: (params) ->
         @get('user').save (err) =>
