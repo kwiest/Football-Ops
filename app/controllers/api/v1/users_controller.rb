@@ -65,6 +65,7 @@ module Api
       private
 
       def clean_params
+        params['api/v1/user'].delete 'created_at'
         params['api/v1/user'].delete 'url'
         params['api/v1/user'].delete 'conference_id'
         params['api/v1/user'].delete 'conference_name'
