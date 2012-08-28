@@ -47,5 +47,8 @@ class FootballOps.UsersSearchView extends FootballOps.UsersAbstractView
 
 
 class FootballOps.UsersIndexView extends FootballOps.UsersAbstractView
+class FootballOps.UsersConferenceRepsView extends FootballOps.UsersAbstractView
+class FootballOps.UsersNationalCommitteeView extends FootballOps.UsersAbstractView
+
 class FootballOps.UsersNewView extends FootballOps.UsersFormView
 class FootballOps.UsersEditView extends FootballOps.UsersFormView
