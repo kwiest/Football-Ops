@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SchoolTest < Test::Unit::TestCase
+class SchoolTest < ActiveSupport::TestCase
   # Test validations
   should validate_presence_of(:name)
   should validate_uniqueness_of(:name)
