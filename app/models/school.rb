@@ -5,8 +5,7 @@ class School < ActiveRecord::Base
   belongs_to :district
   belongs_to :division
   
-  validates_presence_of :name
-  validates_uniqueness_of :name
+  validates :name, presence: true, uniqueness: true
   validates :conference, :district, :division, presence: true
 
   default_scope order(:name)
