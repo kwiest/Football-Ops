@@ -4,9 +4,17 @@
         Page: <span data-bind="paginatedUsers.page"></span> of
         <span data-bind="paginatedUsers.pageCount"></span>
     </h2>
+</div>
+
+<div class="controls">
     <a data-showif-"currentUser.canManage" data-route="routes.users.new" class="btn btn-primary">
-        Create a new DFO
+        <i class="icon-plus-sign"></i> Create a new DFO
     </a>
+    <!--
+    <a href="#" class="btn btn-block btn-success">
+        <i class="icon-envelope"></i> Message all DFOs
+    </a>
+    -->
 </div>
 
 <div data-partial="users/_pagination"></div>
