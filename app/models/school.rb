@@ -10,9 +10,4 @@ class School < ActiveRecord::Base
   validates :conference, :district, :division, presence: true
 
   default_scope order(:name)
-  
-  def to_param
-    "#{id}-#{name.parameterize}"
-  end
-  
 end
