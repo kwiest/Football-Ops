@@ -11,9 +11,6 @@ class User < ActiveRecord::Base
   delegate :name, to: :division, prefix: true
   delegate :name, to: :school, prefix: true
   
-  has_many :uploads
-  has_many :jobs
-  
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :email
