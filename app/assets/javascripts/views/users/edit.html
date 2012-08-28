@@ -1,5 +1,11 @@
 <div id="edit-user">
-    <form accept-charset="UTF-8" class="simple_form form-vertical" id="user-form" data-formfor-user="user" data-event-submit="update">
+    <form accept-charset="UTF-8" class="simple_form form-vertical" id="user-form"
+        data-formfor-user="user" data-event-submit="update">
         <div data-partial="users/_form"></div>
+
+        <div class="form-actions">
+            <input class="btn btn-primary" name="commit" type="submit" value="Save">
+            <a data-route="routes.users[user]" class="btn btn-danger">Cancel</a>
+        </div>
     </form>
 </div>
