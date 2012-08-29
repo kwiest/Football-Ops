@@ -17,3 +17,4 @@ module ActionView
 end
 
 ActionView::Template.register_template_handler :markdown, ActionView::Template::Handlers::Markdown
+ActionView::Template.register_template_handler :md, ActionView::Template::Handlers::Markdown
