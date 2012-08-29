@@ -169,7 +169,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
@@ -419,7 +419,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
   -X PUT -d <span class="string">"user[password]=new%20password"</span> \
   -d <span class="string">"user[password_confirmation]=new%password"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
@@ -450,7 +450,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/105"</span> \
+<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
   -X DELETE -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h4>Example Response</h4>
