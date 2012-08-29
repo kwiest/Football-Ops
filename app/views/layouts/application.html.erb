@@ -30,13 +30,13 @@
               Directory <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
-              <li><a data-route="routes.users">All members</a></li>
-              <li><a data-route="routes.users.conferenceReps">Conference Reps</a></li>
-              <li><a data-route="routes.users.nationalCommittee">National Committee</a></li>
-              <li><%= link_to 'By School', '#' %></li>
-              <li><%= link_to 'By Conference', '#' %></li>
-              <li><%= link_to 'By District', '#' %></li>
-              <li><%= link_to 'By Division', '#' %></li>
+              <li><%= link_to 'All members',        '/directory#!/users' %></li>
+              <li><%= link_to 'Conference Reps',    '/directory#!/users/conference-reps' %></li>
+              <li><%= link_to 'National Committee', '/directory#!/users/national-committee' %></li>
+              <li><%= link_to 'By School',          '/directory#!/schools' %></li>
+              <li><%= link_to 'By Conference',      '/directory#!/conferences' %></li>
+              <li><%= link_to 'By District',        '/directory#!/districts' %></li>
+              <li><%= link_to 'By Division',        '/directory#!/divisions' %></li>
             </ul>
           </li>
           <li class="dropdown">
