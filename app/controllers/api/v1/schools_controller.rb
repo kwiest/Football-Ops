@@ -4,7 +4,10 @@ module Api
       load_and_authorize_resource
 
       def index
-        @schools = School.all
+        page  = params.fetch :page, 1
+        limit = params.fetch :limit, 25
+
+        @schools = School.page(page).per(limit)
         render json: @schools, root: false
       end
 
