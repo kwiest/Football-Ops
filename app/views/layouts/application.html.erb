@@ -34,14 +34,11 @@
               <li><a data-route="routes.users.conferenceReps">Conference Reps</a></li>
               <li><a data-route="routes.users.nationalCommittee">National Committee</a></li>
               <li><%= link_to 'By School', '#' %></li>
-              <!--
               <li><%= link_to 'By Conference', '#' %></li>
               <li><%= link_to 'By District', '#' %></li>
               <li><%= link_to 'By Division', '#' %></li>
-              -->
             </ul>
           </li>
-          <li><%= link_to "AFCA Convention", page_path("convention") %></li>
           <li class="dropdown">
             <%= link_to '#', 'data-toggle' => 'dropdown' do %>
               <%= current_user.full_name %>
