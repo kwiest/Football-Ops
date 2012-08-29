@@ -23,4 +23,27 @@ class DeveloperController < ApplicationController
     end
   end
 
+  def conferences
+    if signed_in?
+      @conference = ConferenceSerializer.new(current_user.conference).serializable_hash
+    else
+      @conference = ConferenceSerializer.new(Conference.find 58).serializable_hash
+    end
+  end
+
+  def districts
+    if signed_in?
+      @district = DistrictSerializer.new(current_user.district).serializable_hash
+    else
+      @district = DistrictSerializer.new(District.find 9).serializable_hash
+    end
+  end
+
+  def divisions
+    if signed_in?
+      @division = DivisionSerializer.new(current_user.division).serializable_hash
+    else
+      @division = DivisionSerializer.new(Division.find 2).serializable_hash
+    end
+  end
 end
