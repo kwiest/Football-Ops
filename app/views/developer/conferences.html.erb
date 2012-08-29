@@ -44,7 +44,7 @@
   <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
   <h2>Show All Conferences</h2>
   <p>
-    Returns a list of all conferences listed on FootballOps.org.
+    Returns a paginated  list of all conferences listed on FootballOps.org.
     Also includes all associated DFOs.
   </p>
 </div>
@@ -52,11 +52,30 @@
 <pre class="pizzazz"><strong>GET</strong> conferences/</pre>
 
 <h4>Parameters</h4>
-<p>This method does not accept any parameters</p>
+<table class="table params">
+  <tbody>
+    <tr>
+      <td>
+        <div class="param">page</div>
+        <span>Optional</span>
+      </td>
+      <td>The page offset for list of schools. Default is 1.</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">limit</div>
+        <span>Optional</span>
+      </td>
+      <td>The number of schools to return with your request. Default is 25.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4>Example Request</h4>
 <pre class="pizzazz">
 <strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/conferences"</span> \
+  -d <span class="string">"page=1"</span> \
+  -d <span class="string">"limit=25"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h4>Example Response</h4>
