@@ -5,45 +5,64 @@ class DeveloperController < ApplicationController
   end
 
   def users
-    @kyle= UserSerializer.new(User.find 105).serializable_hash
-    @hawk = UserSerializer.new(User.find 104).serializable_hash
-    if signed_in?
-      @user = UserSerializer.new(current_user).serializable_hash
-    else
-      @user = @kyle
-    end
+    @kyle = UserSerializer.new(kyle).serializable_hash
+    @hawk = UserSerializer.new(hawk).serializable_hash
+    @user = UserSerializer.new(user).serializable_hash
   end
 
   def schools
-    if signed_in?
-      @school = SchoolSerializer.new(current_user.school).serializable_hash
-    else
-      # Use Oregon by default
-      @school = SchoolSerializer.new(School.find 345).serializable_hash
-    end
+    @school = SchoolSerializer.new(user.school).serializable_hash
+    trim_users_for @school
   end
 
   def conferences
-    if signed_in?
-      @conference = ConferenceSerializer.new(current_user.conference).serializable_hash
-    else
-      @conference = ConferenceSerializer.new(Conference.find 58).serializable_hash
-    end
+    @conference = ConferenceSerializer.new(user.conference).serializable_hash
+    trim_users_for @conference
   end
 
   def districts
-    if signed_in?
-      @district = DistrictSerializer.new(current_user.district).serializable_hash
-    else
-      @district = DistrictSerializer.new(District.find 9).serializable_hash
-    end
+    @district = DistrictSerializer.new(user.district).serializable_hash
+    trim_users_for @district
   end
 
   def divisions
+    @division = DivisionSerializer.new(user.division).serializable_hash
+    trim_users_for @division
+  end
+
+
+  private
+
+  def assign_user
     if signed_in?
-      @division = DivisionSerializer.new(current_user.division).serializable_hash
+      @user = current_user
     else
-      @division = DivisionSerializer.new(Division.find 2).serializable_hash
+      @user = kyle
+    end
+  end
+
+  def kyle
+    @kyle ||= User.find 105
+  end
+
+  def hawk
+    @hawk ||= User.find 104
+  end
+
+  def trim_users_for(resource)
+    if signed_in?
+      resource[:users] = resource[:users].select { |user| user[:id] == current_user.id }
+    else
+      resource[:users] = resource[:users].slice! 0, 1
+    end
+    resource[:users] << { next_user: '...' }
+  end
+
+  def user
+    if signed_in?
+      current_user
+    else
+      kyle
     end
   end
 end
