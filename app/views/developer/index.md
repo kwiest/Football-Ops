@@ -13,7 +13,7 @@ to begin using the API, you must register your app. This simply involves a name,
 quick description, and a URI that we will redirect to after a successful
 authentication request.
 
-<a class="btn" href="/developer/apps/register">Register your app</a>
+<a class="btn btn-info" href="/developer/apps/register">Register your app</a>
 
 ## Authentication
 
