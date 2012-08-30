@@ -42,11 +42,11 @@ class DeveloperController < ApplicationController
   end
 
   def kyle
-    @kyle ||= User.find 105
+    User.find 105
   end
 
   def hawk
-    @hawk ||= User.find 104
+    User.find 104
   end
 
   def trim_users_for(resource)
