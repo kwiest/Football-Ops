@@ -1,5 +1,14 @@
-p {
+p, td, li {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1, h2, p, ol, ul, table {
   margin-bottom: 18px;
+}
+
+div.api-def {
+  margin-top: 54px;
 }
 
 table#api-navigation {
@@ -34,10 +43,11 @@ table.params {
     td {
       width: 50%;
       padding: 6px 0;
+      vertical-align: middle;
 
       .param {
         font-weight: 600;
-        font-size: 14px;
+        font-size: 18px;
       }
 
       span {
