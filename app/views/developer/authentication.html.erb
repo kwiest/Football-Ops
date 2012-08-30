@@ -1,0 +1,108 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/developer">Developer documentation</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <a href="/developer/authentication">Authentication guide</a>
+  </li>
+</ul>
+
+<h1>Authentication Guide</h1>
+
+<p>
+  FootballOps.org uses <%= link_to 'OAuth 2', 'http://oauth.net/2' %> for all
+  authentication processes.<br />
+  <em><strong>*Note:</strong> Before you can begin using the FootballOps.org API,
+  you must <%= link_to 'register your app', '/developer/apps/register' %>.</em>
+</p>
+
+<p>
+  After registering your app with FootballOps.org, you'll need to perform the following
+  steps in order to make authenticated requests on behalf of your users:
+</p>
+
+<ol>
+  <li><%= link_to 'Ask the user to allow your application access', '#authorization' %></li>
+  <li><%= link_to 'Convert the authorization code into an access token', '#token' %></li>
+  <li><%= link_to 'Supply the access token when making API requests', '#request' %></li>
+</ol>
+
+
+<div id="authorization" class="api-def"></div>
+<h2>Authorization</h2>
+<p>
+  All users must agree to allow your application access to make requests on their behalf.
+  To facilitate this, provide a link (or redirect) in your app to the following URI:
+</p>
+
+<pre class="pizzazz">http://footballops.org/api/oauth/authorize</pre>
+
+<p>There are also some query params that you should include in your link:</p>
+
+<h3>Query Parameters</h3>
+<table class="table params">
+  <tbody>
+    <tr>
+      <td>
+        <div class="param">client_id</div>
+        <span>Required</span>
+      </td>
+      <td>
+        This is your client_id that was givin to you after you registered your app.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">redirect_uri</div>
+        <span>Optional</span>
+      </td>
+      <td>
+        This optional param can tell FootballOps.org where to redirect to after
+        authorizing your application. If you do not supply this param, we will
+        use the redirect URI that you entered when registering your app.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="param">payload</div>
+        <span>Optional</span>
+      </td>
+      <td>
+        This is an optional param that will be returned with the redirect back to
+        your app (your redirect URI). This can be anything you want, and is typically
+        used to identify the user within your own app.<br />
+        <em>Note: This value will be truncated to 255 characters</em>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  If the user authorizes your application to access their data, FootballOps.org
+  will then redirect to your <code>redirect_uri</code> with the following params:
+</p>
+
+<h3>Response Parameters</h3>
+<table class="table params">
+  <tbody>
+    <tr>
+      <td><div class="param">code</div></td>
+      <td>
+        An authorization code that you can <%= link_to 'convert into an access token', '#token' %>.
+      </td>
+    </tr>
+    <tr>
+      <td><div class="param">payload</div></td>
+      <td>This is truncated value that you passed in the original request.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div id="token" class="api-def"></div>
+<h2>Converting an authorization code into an Access Token</h2>
+
+
+<div id="request" class="api-def"></div>
+<h2>Make authenticated requests</h2>
