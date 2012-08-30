@@ -12,7 +12,7 @@ FootballOps::Application.configure do
   config.assets.compile = true
 
   # Extra assets to precompile
-  # config.assets.precompile += %w( admin.css admin.js )
+  config.assets.precompile += %w( football_ops.js )
 
   # Generate digest for assets URLs
   config.assets.digest = true

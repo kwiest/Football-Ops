@@ -49,3 +49,6 @@ window.FootballOps = class FootballOps extends Batman.App
 
     @flashSuccess: (message) -> @set 'flash.success', message
     @flashError: (message) ->  @set 'flash.error', message
+
+$ ->
+    FootballOps.run()
