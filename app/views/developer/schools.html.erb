@@ -62,7 +62,7 @@
 
 <pre class="pizzazz"><strong>GET</strong> schools/</pre>
 
-<h4>Parameters</h4>
+<h3>Parameters</h3>
 <table class="table params">
   <tbody>
     <tr>
@@ -82,14 +82,14 @@
   </tbody>
 </table>
 
-<h4>Example Request</h4>
+<h3>Example Request</h3>
 <pre class="pizzazz">
 <strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/schools"</span> \
   -d <span class="string">"page=1"</span> \
   -d <span class="string">"limit=25"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
-<h4>Example Response</h4>
+<h3>Example Response</h3>
 <pre class="pizzazz">
 <span class="headers">HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8</span>
@@ -107,16 +107,16 @@ Content-Type: application/json; charset=utf-8</span>
 <strong>GET</strong> schools/<span class="string">:id</span>
 </pre>
 
-<h4>Parameters</h4>
+<h3>Parameters</h3>
 <p>This method does not accept any parameters</p>
 
-<h4>Example Request</h4>
+<h3>Example Request</h3>
 <pre class="pizzazz">
 <strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/schools/345"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
-<h4>Example Response</h4>
+<h3>Example Response</h3>
 <pre class="pizzazz">
 <span class="headers">HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8</span>
@@ -133,7 +133,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <pre class="pizzazz"><strong>GET</strong> schools/search</pre>
 
-<h4>Parameters</h4>
+<h3>Parameters</h3>
 <table class="params table">
   <tbody>
     <tr>
@@ -146,13 +146,13 @@ Content-Type: application/json; charset=utf-8</span>
   </tbody>
 </table>
 
-<h4>Example Request</h4>
+<h3>Example Request</h3>
 <pre class="pizzazz">
 <strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/schools/search"</span> \
   -X GET -d <span class="string">"q=<%= @school[:name].downcase %>"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
-<h4>Example Response</h4>
+<h3>Example Response</h3>
 <pre class="pizzazz">
 <span class="headers">HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8</span>
