@@ -1,0 +1,25 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/developer">Developer documentation</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <%= link_to 'Registered Apps', developer_apps_path %>
+  </li>
+</ul>
+
+<h1>Registered Apps</h1>
+
+<% if @apps.empty? %>
+  <p>
+    You don't have any apps registered yet.
+    <%= link_to 'Register an app', new_developer_app_path %>
+  </p>
+<% else %>
+  <ul>
+    <%= content_tag_for :li, @apps do |app| %>
+      <%= link_to app.name, developer_app_path(app) %>
+    <% end %>
+  </ul>
+  <%= link_to 'Register an app', new_developer_app_path, class: 'btn btn-info' %>
+<% end %>

@@ -1,0 +1,38 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/developer">Developer documentation</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/developer/apps">Registered Apps</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <%= link_to @app.name, "/developer/apps/#{@app.id}" %>
+  </li>
+</ul>
+
+<h1><%= @app.name %></h1>
+
+<dl>
+  <dt>Description:</dt>
+  <dd><%= @app.description %></dd>
+
+  <dt>Website:</dt>
+  <dd><%= link_to @app.website %></dd>
+
+  <dt>Redirect URI:</dt>
+  <dd><%= link_to @app.redirect_uri %></dd>
+
+  <dt>API Key:</dt>
+  <dd>coming</dd>
+
+  <dt>API Key Secret</dt>
+  <dd>coming</dd>
+</dl>
+
+<%= link_to 'Edit App', edit_developer_app_path(@app), class: 'btn' %>
+
+<hr />
+
+<h2>Get Started</h2>

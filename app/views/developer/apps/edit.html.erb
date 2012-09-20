@@ -1,0 +1,25 @@
+<ul class="breadcrumb">
+  <li>
+    <a href="/developer">Developer documentation</a> 
+    <span class="divider">/</span>
+  </li>
+  <li>
+    <a href="/developer/apps">Registered Apps</a> 
+    <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <%= link_to "Edit #{@app.name}", url_for([:developer, @app]) %>
+  </li>
+</ul>
+
+<h1>Edit <%= @app.name %></h1>
+
+<%= simple_form_for @app, url: developer_app_path(@app),
+  html: { class: 'form-vertical' } do |f| %>
+  <%= render 'form', f: f %>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Update app', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', developer_app_path(@app), class: 'btn' %>
+  </div>
+<% end %>
