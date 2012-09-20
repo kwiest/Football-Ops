@@ -25,13 +25,16 @@
   <dd><%= link_to @app.redirect_uri %></dd>
 
   <dt>API Key:</dt>
-  <dd>coming</dd>
+  <dd><%= @app.api_key %></dd>
 
   <dt>API Key Secret</dt>
-  <dd>coming</dd>
+  <dd><%= @app.api_key_secret %></dd>
 </dl>
 
 <%= link_to 'Edit App', edit_developer_app_path(@app), class: 'btn' %>
+<%= link_to 'Destroy App', developer_app_path(@app), method: :delete,
+  confirm: 'Are you sure you want to destroy this app?',
+  class: 'btn btn-danger' %>
 
 <hr />
 
