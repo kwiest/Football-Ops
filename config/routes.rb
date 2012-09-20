@@ -7,11 +7,10 @@ FootballOps::Application.routes.draw do
   resources :user_sessions, only: %w(create)
   resources :password_resets
 
-  match '/developer'         => 'developer#index'
-  match '/developer/:action' => 'developer#:action'
-
   namespace :developer do
     resources :apps
+    match '/'        => 'developer#index'
+    match '/:action' => 'developer#:action'
   end
 
   match '/directory' => 'directory#index'
