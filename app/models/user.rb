@@ -2,19 +2,19 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   belongs_to :school
-  has_one :division, through: :school
+
+  has_one :division,   through: :school
   has_one :conference, through: :school
-  has_one :district, through: :school
+  has_one :district,   through: :school
+
+  has_many :apps, dependent: :destroy
 
   delegate :name, to: :conference, prefix: true
-  delegate :name, to: :district, prefix: true
-  delegate :name, to: :division, prefix: true
-  delegate :name, to: :school, prefix: true
+  delegate :name, to: :district,   prefix: true
+  delegate :name, to: :division,   prefix: true
+  delegate :name, to: :school,     prefix: true
   
-  validates_presence_of :first_name
-  validates_presence_of :last_name
-  validates_presence_of :email
-  validates_presence_of :school
+  validates :first_name, :last_name, :email, :school, presence: true
   
   default_scope order(:last_name).includes(:school, :division, :conference, :district)
 
