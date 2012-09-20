@@ -10,6 +10,10 @@ FootballOps::Application.routes.draw do
   match '/developer'         => 'developer#index'
   match '/developer/:action' => 'developer#:action'
 
+  namespace :developer do
+    resources :apps
+  end
+
   match '/directory' => 'directory#index'
 
   namespace :api, defaults: { format: 'json' } do
