@@ -36,6 +36,7 @@ end
 group :test do
   gem 'capybara',               '~> 1.1.2'
   gem 'database_cleaner',       '~> 0.8.0'
+  gem 'mocha',                  '~> 0.12.3', require: false
   gem 'shoulda',                '~> 3.1.1'
 end
 
