@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920190114) do
+ActiveRecord::Schema.define(:version => 20120920221814) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(:version => 20120920190114) do
     t.string   "description"
     t.string   "website"
     t.string   "redirect_uri"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "api_key"
+    t.string   "api_key_secret"
   end
 
   create_table "conferences", :force => true do |t|
