@@ -7,14 +7,16 @@ FootballOps::Application.routes.draw do
   resources :user_sessions, only: %w(create)
   resources :password_resets
 
+  match '/directory' => 'directory#index'
+
+  # Developer Docs
   namespace :developer do
     resources :apps
     match '/'        => 'developer#index'
     match '/:action' => 'developer#:action'
   end
 
-  match '/directory' => 'directory#index'
-
+  # JSON API Routes
   namespace :api, defaults: { format: 'json' } do
     namespace :v1, constraints: ApiConstraints.new(version: 1, default: true) do
       resources :users, except: %w(new edit) do
