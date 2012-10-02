@@ -1,7 +1,7 @@
 ios:
   name: FootballOps.org for iOS
   description: Official iOS App
-  website: 'https://footballopsmobile.herokuapp.com'
-  redirect_uri: 'https://footballopsmobile.herokuapp.com/oauth/callback'
+  website: 'http://localhost:4567'
+  redirect_uri: 'http://localhost:4567/oauth/callback'
   api_key: 123
   api_key_secret: secret

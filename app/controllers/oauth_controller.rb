@@ -11,9 +11,9 @@ class OauthController < ApplicationController
     app_redirect_uri = params[:redirect_uri]
     state            = params[:state]
 
-    if params[:authorize]
-      authorization_code = @app.create_authorization_code!
-      redirect_uri = "#{app_redirect_uri}?authorization_code=#{authorization_code}&state=#{state}"
+    if params[:authorize] == 'true'
+      authorization_code = @app.create_authorization_code_for_user current_user
+      redirect_uri = "#{app_redirect_uri}?authorization_code=#{authorization_code.code}&state=#{state}"
     else
       redirect_uri = "#{app_redirect_uri}?authorization_code=DENIED&state=#{state}"
     end

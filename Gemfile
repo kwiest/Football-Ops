@@ -14,6 +14,7 @@ gem 'paperclip',                '~> 3.1.4'
 gem 'pg',                       '~> 0.14.0'
 gem 'pizzazz',                  '~> 0.1.2'
 gem 'postmark-rails',           '~> 0.4.1'
+gem 'pry',                      '~> 0.9.10'
 gem 'rdiscount',                '~> 1.6.8'
 gem 'simple_form',              '~> 2.0.2'
 gem 'thin',                     '~> 1.4.1'
@@ -28,13 +29,13 @@ end
 
 # Development Gems
 group :development do
-  gem 'pry',                    '~> 0.9.10'
   gem 'quiet_assets',           '~> 1.0.1'
 end
 
 # Testing Gems
 group :test do
   gem 'capybara',               '~> 1.1.2'
+  gem 'capybara-webkit',        '~> 0.12.0'
   gem 'database_cleaner',       '~> 0.8.0'
   gem 'mocha',                  '~> 0.12.3', require: false
   gem 'shoulda',                '~> 3.1.1'
