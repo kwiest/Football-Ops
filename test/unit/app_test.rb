@@ -21,11 +21,15 @@ class AppTest < ActiveSupport::TestCase
     refute_nil app.api_key_secret, 'API Key Secret should be generated'
   end
 
-  def test_create_authorization_code!
+  def test_create_authorization_code_for_user
+    kyle  = users :kyle
     count = -> { AuthorizationCode.count }
+
     assert_change count do
-      auth_code = @app.create_authorization_code!
+      auth_code = @app.create_authorization_code_for_user kyle
       refute_nil auth_code, 'Returned code should not be nil'
+      assert_equal @app, auth_code.app
+      assert_equal kyle, auth_code.user
     end
   end
 end

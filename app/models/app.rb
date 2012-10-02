@@ -8,9 +8,9 @@ class App < ActiveRecord::Base
 
   before_create :generate_api_key, :generate_api_secret_key
 
-  def create_authorization_code!
-    new_code = authorization_codes.create!
-    new_code.code
+  def create_authorization_code_for_user(user)
+    new_code = authorization_codes.create! user_id: user.id
+    new_code
   end
 
   private
