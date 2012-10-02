@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920221814) do
+ActiveRecord::Schema.define(:version => 20121001224755) do
 
   create_table "apps", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20120920221814) do
     t.datetime "updated_at",     :null => false
     t.string   "api_key"
     t.string   "api_key_secret"
+  end
+
+  create_table "authorization_codes", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "code"
+    t.string   "expires_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "conferences", :force => true do |t|
