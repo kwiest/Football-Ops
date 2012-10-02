@@ -1,0 +1,18 @@
+<h1>Authorize <%= @app.name %></h1>
+
+<h3><%= current_user.name %>, <%= @app.website %> wants to access your FootballOps.org data.</h3>
+
+<p>
+  This app will have full read/write access to your information, so only click 'Allow' if you
+  recognize and trust this application. You can also revoke access to this or any other
+  application at any time in your <%= link_to 'account settings' %>.
+</p>
+
+<p>Don't recognize this app? Simply click 'Deny' below.</p>
+
+<%= button_to 'Allow', oauth_authorize_path, method: :post, form: {
+  api_key: @app.api_key, authorize: true, redirect_uri: @redirect_uri, state: @state },
+  html_options: { class: 'btn' } %>
+<%= button_to 'Deny', oauth_authorize_path, method: :post, form: {
+  api_key: @app.api_key, authorize: false, redirect_uri: @redirect_uri, state: @state }.
+  html_options: { class: 'btn btn-danger' } %>
