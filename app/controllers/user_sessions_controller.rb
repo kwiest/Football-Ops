@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_filter :ensure_authenticated, except: :current
+  before_filter :ensure_authenticated, only: :current
 
   def new
     redirect_to root_path if signed_in?
@@ -9,17 +9,19 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to directory_path
+      redirect_to_path = session.fetch 'redirect_after_sign_in', directory_path
+      session['redirect_after_sign_in'] = nil
+      redirect_to redirect_to_path
     else
       render action: :new
     end
   end
   
   def destroy
-    @user_session = UserSession.find(params[:id])
-    @user_session.destroy
-    
-    redirect_to root_path, notice: "Successfully signed-out. Come back soon."
+    flash[:notice] = 'Successfully signed-out. Come back soon.'
+    redirect_to root_path and return unless signed_in?
+    current_user_session.destroy
+    redirect_to root_path
   end
 
   def current

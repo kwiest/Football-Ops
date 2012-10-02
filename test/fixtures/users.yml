@@ -3,6 +3,8 @@ kyle:
   last_name: Wiest
   email: kwiest@uoregon.edu
   school: oregon
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt('secret' + salt) %>
 
 hawk:
   first_name: Jeff
