@@ -47,9 +47,5 @@ module Developer
     rescue ActiveRecord::RecordNotFound
       redirect_to developer_apps_path, alert: 'Sorry, could not find your app.'
     end
-
-    def ensure_authenticated
-      redirect_to sign_in_path, alert: 'You must be signed-in' unless signed_in?
-    end
   end
 end
