@@ -2,6 +2,7 @@ class AuthorizationCode < ActiveRecord::Base
   EXPIRY_TIME = 1.hour
 
   belongs_to :app
+  belongs_to :user
 
   before_create :generate_code, :set_expiration_time
 

@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_one :conference, through: :school
   has_one :district,   through: :school
 
-  has_many :apps, dependent: :destroy
+  has_many :apps,                dependent: :destroy
+  has_many :authorization_codes, dependent: :destroy
 
   delegate :name, to: :conference, prefix: true
   delegate :name, to: :district,   prefix: true

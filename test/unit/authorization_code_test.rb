@@ -7,6 +7,7 @@ class AuthorizationCodeTest < ActiveSupport::TestCase
 
   # Test associations
   should belong_to :app
+  should belong_to :user
 
   def test_generate_code
     refute_nil @auth_code.code
