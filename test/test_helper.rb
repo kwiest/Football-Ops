@@ -5,6 +5,9 @@ require 'capybara/rails'
 require 'mocha'
 
 class ActiveSupport::TestCase
+  require_relative './support/assertion_helpers'
+  include AssertionHelpers
+
   fixtures :all
 end
 
