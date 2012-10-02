@@ -2,8 +2,8 @@ class App < ActiveRecord::Base
   attr_accessible :name, :description, :website, :redirect_uri
 
   belongs_to :user
-  has_many   :authorization_codes
-  has_many   :access_tokens
+  has_many   :authorization_codes, dependent: :destroy
+  has_many   :access_tokens,       dependent: :destroy
 
   validates :name, :description, :website, :redirect_uri, presence: true
 
