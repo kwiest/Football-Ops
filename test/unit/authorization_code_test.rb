@@ -9,11 +9,11 @@ class AuthorizationCodeTest < ActiveSupport::TestCase
   should belong_to :app
 
   def test_generate_code
-    refute @auth_code.code.nil?
+    refute_nil @auth_code.code
   end
 
   def test_set_expiration_time
-    refute @auth_code.expires_at.nil?
+    refute_nil @auth_code.expires_at
     assert_equal (Time.now + 1.hour).to_s, @auth_code.expires_at.to_s,
       'Auth code should expire in an hour'
   end
