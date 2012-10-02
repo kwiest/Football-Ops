@@ -17,8 +17,8 @@ class AppTest < ActiveSupport::TestCase
 
   def test_creating_api_key_and_secret_on_create
     app = App.create! name: 'test', description: 'test', website: 'test', redirect_uri: 'test'
-    refute app.api_key.nil?, 'API Key should be generated'
-    refute app.api_key_secret.nil?, 'API Key Secret should be generated'
+    refute_nil app.api_key, 'API Key should be generated'
+    refute_nil app.api_key_secret, 'API Key Secret should be generated'
   end
 
   def test_create_authorization_code!
