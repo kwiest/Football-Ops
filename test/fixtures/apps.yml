@@ -3,3 +3,5 @@ ios:
   description: Official iOS App
   website: 'https://footballopsmobile.herokuapp.com'
   redirect_uri: 'https://footballopsmobile.herokuapp.com/oauth/callback'
+  api_key: 123
+  api_key_secret: secret

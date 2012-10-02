@@ -1,6 +1,9 @@
 <h1>Authorize <%= @app.name %></h1>
 
-<h3><%= current_user.name %>, <%= @app.website %> wants to access your FootballOps.org data.</h3>
+<p><strong>
+  <%= current_user.name %>, <%= link_to @app.name, @app.website %> wants to access your 
+  FootballOps.org data.
+</strong></p>
 
 <p>
   This app will have full read/write access to your information, so only click 'Allow' if you
@@ -10,9 +13,18 @@
 
 <p>Don't recognize this app? Simply click 'Deny' below.</p>
 
-<%= button_to 'Allow', oauth_authorize_path, method: :post, form: {
-  api_key: @app.api_key, authorize: true, redirect_uri: @redirect_uri, state: @state },
-  html_options: { class: 'btn' } %>
-<%= button_to 'Deny', oauth_authorize_path, method: :post, form: {
-  api_key: @app.api_key, authorize: false, redirect_uri: @redirect_uri, state: @state }.
-  html_options: { class: 'btn btn-danger' } %>
+<%= form_tag '/oauth/authorize', style: 'display: inline-block' do %>
+  <%= hidden_field_tag :api_key, @app.api_key %>
+  <%= hidden_field_tag :authorize, false %>
+  <%= hidden_field_tag :redirect_uri, @redirect_uri %>
+  <%= hidden_field_tag :state, @state %>
+  <%= submit_tag 'Deny', class: 'btn' %>
+<% end %>
+
+<%= form_tag '/oauth/authorize', style: 'display: inline-block;' do %>
+  <%= hidden_field_tag :api_key, @app.api_key %>
+  <%= hidden_field_tag :authorize, true %>
+  <%= hidden_field_tag :redirect_uri, @redirect_uri %>
+  <%= hidden_field_tag :state, @state %>
+  <%= submit_tag 'Allow', class: 'btn btn-primary' %>
+<% end %>
