@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
-  before_filter :ensure_authenticated
-
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
-  helper_method :current_user, :signed_in?, :admin?
+  helper_method :current_user, :signed_in?
   
   rescue_from CanCan::AccessDenied do |exception|
     head :unauthorized
@@ -13,6 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound do |exception|
     head :not_found
   end
+
   
   private
   
@@ -21,12 +20,14 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user_session  
-    return @current_user_session if defined?(@current_user_session)  
-    @current_user_session = UserSession.find  
+    @current_user_session ||= UserSession.find
   end  
 
   def ensure_authenticated
-    head :unauthorized unless signed_in?
+    unless signed_in?
+      session['redirect_after_sign_in'] = request.path
+      redirect_to sign_in_path, alert: 'You must be signed-in to access this page.'
+    end
   end
   
   def require_no_user
