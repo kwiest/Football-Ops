@@ -9,6 +9,13 @@ FootballOps::Application.routes.draw do
 
   match '/directory' => 'directory#index'
 
+  # OAuth2
+  namespace :oauth do
+    # Authorization of app
+    get  '/authorize' => 'oauth#authorize'
+    post '/authorize' => 'oauth#create_authorization_code'
+  end
+
   # Developer Docs
   namespace :developer do
     resources :apps
