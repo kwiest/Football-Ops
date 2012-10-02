@@ -6,6 +6,8 @@ class AuthorizationCode < ActiveRecord::Base
 
   before_create :generate_code, :set_expiration_time
 
+  validates :app, :user, presence: true
+
   def expires_in
     (Time.at(expires_at.to_i) - Time.now).to_i
   end

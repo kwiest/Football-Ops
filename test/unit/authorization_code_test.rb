@@ -1,13 +1,19 @@
 require 'test_helper'
 
 class AuthorizationCodeTest < ActiveSupport::TestCase
-  def setup
-    @auth_code = AuthorizationCode.create!
-  end
+  # Test validations
+  should validate_presence_of :app
+  should validate_presence_of :user
 
   # Test associations
   should belong_to :app
   should belong_to :user
+
+  def setup
+    app  = apps :ios
+    user = users :kyle
+    @auth_code = AuthorizationCode.create! app: app, user: user
+  end
 
   def test_generate_code
     refute_nil @auth_code.code
