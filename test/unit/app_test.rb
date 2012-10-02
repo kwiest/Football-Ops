@@ -14,6 +14,7 @@ class AppTest < ActiveSupport::TestCase
   # Test associations
   should belong_to :user
   should have_many :authorization_codes
+  should have_many :access_tokens
 
   def test_creating_api_key_and_secret_on_create
     app = App.create! name: 'test', description: 'test', website: 'test', redirect_uri: 'test'

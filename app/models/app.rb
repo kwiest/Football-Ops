@@ -3,6 +3,7 @@ class App < ActiveRecord::Base
 
   belongs_to :user
   has_many   :authorization_codes
+  has_many   :access_tokens
 
   validates :name, :description, :website, :redirect_uri, presence: true
 

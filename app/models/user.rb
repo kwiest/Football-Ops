@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :apps,                dependent: :destroy
   has_many :authorization_codes, dependent: :destroy
+  has_many :access_tokens,       dependent: :destroy
 
   delegate :name, to: :conference, prefix: true
   delegate :name, to: :district,   prefix: true

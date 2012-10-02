@@ -18,6 +18,7 @@ class UserTest < ActiveSupport::TestCase
   should have_one  :division
   should have_many :apps
   should have_many :authorization_codes
+  should have_many :access_tokens
 
   def test_full_name
     assert_equal 'Kyle Wiest', @kyle.full_name
