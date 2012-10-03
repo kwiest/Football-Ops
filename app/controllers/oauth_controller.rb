@@ -3,6 +3,8 @@ class OauthController < ApplicationController
   before_filter :find_app_by_client_id, only: %w(authorize create_authorization_code)
   before_filter :extract_params,        only: %w(authorize create_authorization_code)
 
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_request_response
+
   def authorize
   end
 
@@ -19,6 +21,17 @@ class OauthController < ApplicationController
     redirect_to @redirect_uri
   end
 
+  def create_access_token
+    if params[:grant_type] == 'authorization_code'
+      authenticate_app
+      code = @app.authorization_codes.find_by_code! params[:code]
+      access_token = @app.create_access_token_from_authorization_code code
+      render json: access_token, root: false
+    else
+      invalid_request_response
+    end
+  end
+
 
   private
 
@@ -29,8 +42,13 @@ class OauthController < ApplicationController
 
   def find_app_by_client_id
     @app = App.find_by_client_id! params[:client_id]
-  rescue ActiveRecord::RecordNotFound
-    invalid_request_response
+  end
+
+  def authenticate_app
+    authenticate_with_http_basic do |username, password|
+      @app = App.find_by_client_id! username
+      invalid_request_response unless @app.client_secret == password
+    end
   end
 
   def invalid_request_response

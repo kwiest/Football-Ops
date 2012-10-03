@@ -13,6 +13,8 @@ FootballOps::Application.routes.draw do
   # Authorization of app
   get  '/oauth/authorize' => 'oauth#authorize'
   post '/oauth/authorize' => 'oauth#create_authorization_code'
+  # Request access_token
+  post '/oauth/token'     => 'oauth#create_access_token'
 
   # Developer Docs
   namespace :developer do
