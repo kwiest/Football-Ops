@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003190838) do
+ActiveRecord::Schema.define(:version => 20121003222906) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "app_id"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(:version => 20121003190838) do
   create_table "authorization_codes", :force => true do |t|
     t.integer  "app_id"
     t.string   "code"
-    t.string   "expires_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.datetime "expires_at"
   end
 
   create_table "conferences", :force => true do |t|

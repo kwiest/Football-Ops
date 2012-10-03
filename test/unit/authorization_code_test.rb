@@ -23,6 +23,7 @@ class AuthorizationCodeTest < ActiveSupport::TestCase
     refute_nil @auth_code.expires_at
     assert_equal (Time.now + 1.hour).to_s, @auth_code.expires_at.to_s,
       'Auth code should expire in an hour'
+    refute @auth_code.expired?
   end
 
   def test_time_to_expiration
