@@ -3,5 +3,5 @@ ios:
   description: Official iOS App
   website: 'http://localhost:4567'
   redirect_uri: 'http://localhost:4567/oauth/callback'
-  api_key: 123
-  api_key_secret: secret
+  client_id: 123
+  client_secret: secret

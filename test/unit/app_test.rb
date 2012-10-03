@@ -17,10 +17,10 @@ class AppTest < ActiveSupport::TestCase
   should have_many :authorization_codes
   should have_many :access_tokens
 
-  def test_creating_api_key_and_secret_on_create
+  def test_creating_client_id_and_client_secret_on_create
     app = App.create! name: 'test', description: 'test', website: 'test', redirect_uri: 'test'
-    refute_nil app.api_key, 'API Key should be generated'
-    refute_nil app.api_key_secret, 'API Key Secret should be generated'
+    refute_nil app.client_id, 'Client ID should be generated'
+    refute_nil app.client_secret, 'Client Secret should be generated'
   end
 
   def test_create_authorization_code_for_user

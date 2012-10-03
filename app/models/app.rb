@@ -7,7 +7,7 @@ class App < ActiveRecord::Base
 
   validates :name, :description, :website, :redirect_uri, presence: true
 
-  before_create :generate_api_key, :generate_api_secret_key
+  before_create :generate_client_id, :generate_client_secret
 
 
   # Authorization code to be used to generate an AccessToken
@@ -24,15 +24,15 @@ class App < ActiveRecord::Base
 
   private
 
-  def generate_api_key
+  def generate_client_id
     begin
-      self.api_key = SecureRandom.hex
-    end while self.class.exists? api_key: api_key
+      self.client_id = SecureRandom.hex
+    end while self.class.exists? client_id: client_id
   end
 
-  def generate_api_secret_key
+  def generate_client_secret
     begin
-      self.api_key_secret = SecureRandom.hex
-    end while self.class.exists? api_key_secret: api_key_secret
+      self.client_secret = SecureRandom.hex
+    end while self.class.exists? client_secret: client_secret
   end
 end

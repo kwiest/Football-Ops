@@ -24,11 +24,11 @@
   <dt>Redirect URI:</dt>
   <dd><%= link_to @app.redirect_uri %></dd>
 
-  <dt>API Key:</dt>
-  <dd><%= @app.api_key %></dd>
+  <dt>Client ID:</dt>
+  <dd><%= @app.client_id %></dd>
 
-  <dt>API Key Secret</dt>
-  <dd><%= @app.api_key_secret %></dd>
+  <dt>Client Secret:</dt>
+  <dd><%= @app.client_secret %></dd>
 </dl>
 
 <%= link_to 'Edit App', edit_developer_app_path(@app), class: 'btn' %>
