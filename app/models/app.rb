@@ -9,10 +9,18 @@ class App < ActiveRecord::Base
 
   before_create :generate_api_key, :generate_api_secret_key
 
+
+  # Authorization code to be used to generate an AccessToken
   def create_authorization_code_for_user(user)
     new_code = authorization_codes.create! user_id: user.id
     new_code
   end
+
+  # Access token to be used to make authenticated requests
+  def create_access_token_from_authorization_code(authorization_code)
+    AccessToken.create_from_authorization_code authorization_code
+  end
+
 
   private
 

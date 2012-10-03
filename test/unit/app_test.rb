@@ -2,7 +2,8 @@ require 'test_helper'
 
 class AppTest < ActiveSupport::TestCase
   def setup
-    @app = apps :ios
+    @app  = apps :ios
+    @user = users :kyle
   end
 
   # Test validations
@@ -32,5 +33,13 @@ class AppTest < ActiveSupport::TestCase
       assert_equal @app, auth_code.app
       assert_equal kyle, auth_code.user
     end
+  end
+
+  def test_create_access_token_from_authorization_code
+    auth_code = @app.create_authorization_code_for_user @user
+    access_token = @app.create_access_token_from_authorization_code auth_code
+
+    assert_equal @app, access_token.app
+    assert_equal @user, access_token.user
   end
 end
