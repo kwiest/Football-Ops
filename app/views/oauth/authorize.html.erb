@@ -14,7 +14,7 @@
 <p>Don't recognize this app? Simply click 'Deny' below.</p>
 
 <%= form_tag '/oauth/authorize', style: 'display: inline-block' do %>
-  <%= hidden_field_tag :api_key, @app.api_key %>
+  <%= hidden_field_tag :client_id, @app.client_id %>
   <%= hidden_field_tag :authorize, false %>
   <%= hidden_field_tag :redirect_uri, @redirect_uri %>
   <%= hidden_field_tag :state, @state %>
@@ -22,7 +22,7 @@
 <% end %>
 
 <%= form_tag '/oauth/authorize', style: 'display: inline-block;' do %>
-  <%= hidden_field_tag :api_key, @app.api_key %>
+  <%= hidden_field_tag :client_id, @app.client_id %>
   <%= hidden_field_tag :authorize, true %>
   <%= hidden_field_tag :redirect_uri, @redirect_uri %>
   <%= hidden_field_tag :state, @state %>

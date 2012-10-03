@@ -19,14 +19,19 @@ class OauthFlowTest < ActionDispatch::IntegrationTest
   # simply echo params back. Server is running at same URI
   # as defined in fixtures/apps.yml
   def test_authorizing_an_app
-    visit "/oauth/authorize?api_key=#{@app.api_key}"
+    visit "/oauth/authorize?client_id=#{@app.client_id}"
     click_button 'Allow'
-    refute has_content?('DENIED'), 'Echo server should not display "DENIED"'
+    assert has_content?('code'), 'Client should receive an authorization code'
   end
 
   def test_denying_authorization
-    visit "/oauth/authorize?api_key=#{@app.api_key}"
+    visit "/oauth/authorize?client_id=#{@app.client_id}"
     click_button 'Deny'
-    assert has_content?('DENIED'), 'Echo server should display "DENIED"'
+    assert has_content?('access_denied'), 'Client should receive access_denied error'
+  end
+
+  def test_invalid_request_response
+    visit '/oauth/authorize?client_id=bad'
+    assert has_content?('invalid_request'), 'Server should display invalid_request error'
   end
 end
