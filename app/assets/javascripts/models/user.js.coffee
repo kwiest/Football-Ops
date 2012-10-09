@@ -4,6 +4,16 @@ class FootballOps.User extends Batman.Model
     @storageKey: 'api/v1/users'
     @persist Batman.RailsStorage
 
+    constructor: ->
+        super
+        adapter = @_batman.get 'storage'
+        adapter.defaultRequestOptions = {
+            type: 'json',
+            headers: {
+                'Authorization': "Bearer #{FootballOps.accessToken}"
+            }
+        }
+
     @encode 'id', 'first_name', 'last_name', 'email', 'phone', 'fax',
         'password', 'password_confirmation', 'url',
         'conference_rep', 'national_committee', 'admin',
