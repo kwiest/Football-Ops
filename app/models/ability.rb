@@ -7,7 +7,7 @@ class Ability
       can :read, :all
       
       # Users can only update their own profile
-      can :edit, User do |u|
+      can [:edit, :update], User do |u|
         u == user
       end
       

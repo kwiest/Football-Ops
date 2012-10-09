@@ -1,47 +1,43 @@
 require 'test_helper'
 
-class AbilityTest < Test::Unit::TestCase
-  def test_nil_user
+class CancanTest < ActiveSupport::TestCase
+  def setup
+    @user = users :kyle
+  end
+
+  def test_anyone_can_create_a_user
     ability = Ability.new nil
     assert ability.can?(:create, User)
-    refute ability.can?(:read, :all)
-    refute ability.can?(:manage, :all)
+    assert ability.cannot?(:manage, User)
   end
 
-  def test_any_user_can_read
-    user = User.new
-    ability = Ability.new user
-    assert ability.can?(:read, :all)
-    refute ability.can?(:manage, User)
-    refute ability.can?(:manage, School)
-    refute ability.can?(:manage, Conference)
-    refute ability.can?(:manage, District)
-    refute ability.can?(:manage, Division)
+  def test_users_can_only_edit_their_own_profile
+    other_user = users :hawk
+    ability = Ability.new @user
+
+    assert ability.can?(:edit, @user), 'User can edit their own profile'
+    assert ability.can?(:update, @user), 'User can update their own profile'
+    assert ability.cannot?(:edit, other_user), 'User cannot edit another profile'
+    assert ability.cannot?(:update, other_user), 'User cannot update another profile'
   end
 
-  def test_admin_users
-    user = User.new(admin: true)
-    ability = Ability.new user
+  def test_admins_can_manage_all
+    @user.stubs(:admin?).returns true
+    ability = Ability.new @user
     assert ability.can?(:manage, :all)
   end
 
-  def test_conference_reps
-    user = User.new(conference_rep: true)
-    ability = Ability.new user
+  def test_conference_reps_can_manage_users_only
+    @user.stubs(:conference_rep?).returns true
+    ability = Ability.new @user
     assert ability.can?(:manage, User)
-    refute ability.can?(:manage, School)
-    refute ability.can?(:manage, Conference)
-    refute ability.can?(:manage, District)
-    refute ability.can?(:manage, Division)
+    assert ability.cannot?(:manage, :all)
   end
 
-  def test_national_committee
-    user = User.new(national_committee: true)
-    ability = Ability.new user
+  def test_national_committee_members_can_manage_users_only
+    @user.stubs(:national_committee?).returns true
+    ability = Ability.new @user
     assert ability.can?(:manage, User)
-    refute ability.can?(:manage, School)
-    refute ability.can?(:manage, Conference)
-    refute ability.can?(:manage, District)
-    refute ability.can?(:manage, Division)
+    assert ability.cannot?(:manage, :all)
   end
 end
