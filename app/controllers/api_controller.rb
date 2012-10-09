@@ -16,7 +16,7 @@ class ApiController < ApplicationController
   end
 
   def authenticate_with_token
-    unauthorized_response unless request.headers.has_key? 'HTTP_AUTHORIZATION'
+    unauthorized_response and return unless request.headers.has_key? 'HTTP_AUTHORIZATION'
     token = request.headers['Authorization'].split(' ')[1]
     access_token = AccessToken.find_by_token! token
     @current_user = access_token.user
