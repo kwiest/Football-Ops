@@ -18,7 +18,7 @@ class App < ActiveRecord::Base
 
   # Access token to be used to make authenticated requests
   def create_access_token_from_authorization_code(authorization_code)
-    AccessToken.create_from_authorization_code authorization_code
+    AccessToken.create_from_authorization_code! authorization_code
   rescue AuthorizationCodeExpiredError
     { 'error' => { 'authorization_code_expired' => true } }
   end
