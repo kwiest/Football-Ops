@@ -44,4 +44,11 @@ class AccessTokenTest < ActiveSupport::TestCase
       AccessToken.create_from_authorization_code auth_code
     end
   end
+
+  def test_create_for_user!
+    AccessToken.expects(:destroy_old_tokens).with @app, @user
+    access_token = AccessToken.create_for_user! @app, @user
+    assert access_token.errors.empty?
+    refute_nil access_token.token
+  end
 end

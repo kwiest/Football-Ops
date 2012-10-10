@@ -16,6 +16,11 @@ class AccessToken < ActiveRecord::Base
     create! app: app, user: user
   end
 
+  def self.create_for_user!(app, user)
+    destroy_old_tokens app, user
+    create! app: app, user: user
+  end
+
 
   private
 
