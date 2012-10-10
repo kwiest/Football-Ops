@@ -8,7 +8,7 @@ class AccessToken < ActiveRecord::Base
 
   validates :app, :user, presence: true
 
-  def self.create_from_authorization_code(authorization_code)
+  def self.create_from_authorization_code!(authorization_code)
     raise AuthorizationCodeExpiredError if authorization_code.expired?
     app, user  = authorization_code.app, authorization_code.user
 

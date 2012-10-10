@@ -28,11 +28,11 @@ class AccessTokenTest < ActiveSupport::TestCase
     assert_equal 0, AccessToken.where(app_id: @app, user_id: @user).size
   end
 
-  def test_create_from_authorization_code
+  def test_create_from_authorization_code!
     auth_code = @app.create_authorization_code_for_user @user
 
     AccessToken.expects :destroy_old_tokens
-    access_token = AccessToken.create_from_authorization_code auth_code
+    access_token = AccessToken.create_from_authorization_code! auth_code
 
     assert_equal @app, access_token.app
     assert_equal @user, access_token.user
@@ -41,7 +41,7 @@ class AccessTokenTest < ActiveSupport::TestCase
   def test_creating_with_an_expired_authorization_code
     auth_code = stub expired?: true
     assert_raise AuthorizationCodeExpiredError do
-      AccessToken.create_from_authorization_code auth_code
+      AccessToken.create_from_authorization_code! auth_code
     end
   end
 
