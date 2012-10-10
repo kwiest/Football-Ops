@@ -1,10 +1,12 @@
 FootballOps::Application.routes.draw do
-  match '/sign_up'               => 'users#new', as: :sign_up
-  match '/sign_in'               => 'user_sessions#new', as: :sign_in
-  match '/sign_out'              => 'user_sessions#destroy', as: :sign_out
-  match '/user_sessions/current' => 'user_sessions#current'
+  resources :users, only: %w(new create)
+  get '/sign_up' => 'users#new', as: :sign_up
 
-  resources :user_sessions, only: %w(create)
+  get    '/sign_in'               => 'user_sessions#new',     as: :sign_in
+  delete '/sign_out'              => 'user_sessions#destroy', as: :sign_out
+  get    '/user_sessions/current' => 'user_sessions#current', as: :current_user
+  post   '/user_sessions'         => 'user_sessions#create'
+
   resources :password_resets
 
   match '/directory' => 'directory#index'
