@@ -69,3 +69,27 @@ table.params {
   background-color: #fffe97;
   padding: 2px 0;
 }
+
+
+// Pizzazz Styles
+
+pre.pizzazz {
+  border-radius: 5px;
+  background: #fdf6e3;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: #657b83;
+  border: 1px solid #657b83;
+
+  span.string {
+    color: #2aa198;
+  }
+
+  span.null, span.number, span.constant {
+    color: #cb4b16;
+  }
+
+  span.comment {
+    font-style: italic;
+  }
+}
