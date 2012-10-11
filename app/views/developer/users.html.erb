@@ -141,7 +141,7 @@
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users"</span> \
   -d <span class="string">"page=1"</span> \
   -d <span class="string">"limit=25"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
@@ -169,7 +169,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/<%= @user[:id] %>"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
@@ -291,7 +291,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/"</span> \
   -X POST -d <span class="string">"user[first_name]=Kyle"</span> \
   -d <span class="string">"user[last_name]=Wiest"</span> \
   -d <span class="string">"user[school_id]=345"</span> \
@@ -419,7 +419,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/<%= @user[:id] %>"</span> \
   -X PUT -d <span class="string">"user[password]=new%20password"</span> \
   -d <span class="string">"user[password_confirmation]=new%password"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
@@ -450,7 +450,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/<%= @user[:id] %>"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/<%= @user[:id] %>"</span> \
   -X DELETE -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h3>Example Response</h3>
@@ -482,7 +482,7 @@ Content-Type: application/json; charset=utf-8</span></pre>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/search"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/search"</span> \
   -X GET -d <span class="string">"q=<%= @user[:last_name].downcase %>"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
@@ -507,7 +507,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/conference_reps"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/conference_reps"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h3>Example Response</h3>
@@ -531,7 +531,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/users/national_committee"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users/national_committee"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h3>Example Response</h3>

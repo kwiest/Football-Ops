@@ -56,7 +56,7 @@
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/districts"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/districts"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span></pre>
 
 <h3>Example Response</h3>
@@ -82,7 +82,7 @@ Content-Type: application/json; charset=utf-8</span>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"http://footballops.org/api/v1/districts/<%= @district[:id] %>"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/districts/<%= @district[:id] %>"</span> \
   -u <span class="string">"6999bc74b782f3ff118d2b205904d622"</span>
 </pre>
 
