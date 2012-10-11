@@ -25,7 +25,7 @@ class OauthController < ApplicationController
     if params[:grant_type] == 'authorization_code'
       authenticate_app
       code = @app.authorization_codes.find_by_code! params[:code]
-      access_token = @app.create_access_token_from_authorization_code! code
+      access_token = @app.create_access_token_from_authorization_code code
       render json: access_token, root: false
     else
       invalid_request_response
