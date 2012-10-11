@@ -7,7 +7,7 @@ module Api
         page  = params.fetch :page, 1
         limit = params.fetch :limit, 25
 
-        @users = User.page(page).per(limit)
+        @users = User.with_associations.page(page).per(limit)
         render json: @users.to_a, root: false
       end
 

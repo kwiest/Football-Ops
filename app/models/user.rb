@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
   
   validates :first_name, :last_name, :email, :school, presence: true
   
-  default_scope order(:last_name).includes(:school, :division, :conference, :district)
+  default_scope order(:last_name)
+
+  scope :with_associations, includes(:school, :division, :conference, :district)
 
   # Search method
   def self.search(query)
