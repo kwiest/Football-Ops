@@ -8,6 +8,15 @@ module Api
         render json: @schools, root: false
       end
 
+      def paginated
+        page  = params.fetch :page, 1
+        limit = params.fetch :limit, 25
+        @schools = School.page(page).per(limit).map do |school|
+          PaginatedSchoolSerializer.new(school)
+        end
+        render json: @schools, root: false
+      end
+
       def show
         @school = School.find params[:id]
         render json: @school, root: false

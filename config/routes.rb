@@ -38,7 +38,8 @@ FootballOps::Application.routes.draw do
       end
 
       resources :schools, only: %w(index show) do
-        get :search, on: :collection
+        get :paginated, on: :collection
+        get :search,    on: :collection
       end
 
       resources :conferences, :districts, :divisions
