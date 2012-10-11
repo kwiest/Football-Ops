@@ -1,8 +1,7 @@
-class FootballOps.School extends Batman.Model
+class FootballOps.School extends FootballOps.BaseModel
 
     @resourceName: 'school'
     @storageKey: 'api/v1/schools'
-    @persist Batman.RailsStorage
 
     @encode 'id', 'name', 'conference_id', 'district_id', 'division_id'
 
