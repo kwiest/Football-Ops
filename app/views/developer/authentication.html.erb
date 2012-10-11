@@ -100,9 +100,48 @@
 </table>
 
 
-<div id="token" class="api-method"></div>
-<h2>Converting an authorization code into an Access Token</h2>
+<div id="token" class="api-method">
+  <h2>Converting an authorization code into an Access Token</h2>
+</div>
+<p>
+  Once you've obtained an <code>authorization_code</code>, you can use that to request an
+  <code>access_token</code>. To do so, you only need to make a <code>POST</code> request to:
+  <code><%= @api_uri %>/oauth/token</code>
+</p>
+
+<p>
+  Please note that you need to use basic HTTP authentication for this request with your provided
+  Client ID and Client Secret. Also note that authorization codes expire one hour after
+  creation.
+</p>
+
+<h3>Example Request</h3>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri %>/oauth/token"</span> \
+  -u <span class="string">"YOUR_CLIENT_ID:YOUR_CLIENT_SECRET"</span> \
+  -X POST -d <span class="string">"grant_type=authorization_code"</span> \
+  -d <span class="string">"code=YOUR_AUTHORIZATION_CODE"</span>
+</pre>
+
+<h3>Example Response</h3>
+<pre class="pizzazz">
+<span class="headers">HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8</span>
+
+<%= Pizzazz.ify(@access_token).html_safe %></pre>
 
 
-<div id="request" class="api-method"></div>
-<h2>Make authenticated requests</h2>
+<div id="request" class="api-method">
+  <h2>Making authenticated requests</h2>
+</div>
+
+<p>
+  To make authenticated requests on behalf of your user, simply include your
+  <code>access_token</code> in an authorization header with any request.
+</p>
+
+<h3>Example Request</h3>
+<pre class="pizzazz">
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/users"</span> \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+</pre>

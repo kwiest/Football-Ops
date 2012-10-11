@@ -1,5 +1,16 @@
 class DeveloperController < ApplicationController
+  before_filter :set_api_uris
+
   def index
+  end
+
+  def authentication
+    @access_token = { 
+      "access_token" => "YOUR_TOKEN",
+      "token_type" => "bearer",
+      "created_at" => Time.now, 
+      "user" => UserSerializer.new(user).serializable_hash
+    }
   end
 
   def users
@@ -30,6 +41,11 @@ class DeveloperController < ApplicationController
 
 
   private
+
+  def set_api_uris
+    @api_base_uri = 'https://footballops.herokuapp.com'
+    @api_versioned_uri = '/api/v1'
+  end
 
   def assign_user
     if signed_in?
