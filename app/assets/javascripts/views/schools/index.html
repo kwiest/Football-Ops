@@ -1,0 +1,17 @@
+<div class="title">
+    <h1>School Listing</h1>
+    <h2>
+        Page: <span data-bind="paginatedSchools.page"></span> of
+        <span data-bind="paginatedSchools.pageCount"></span>
+    </h2>
+</div>
+
+<div data-partial="schools/_pagination"></div>
+
+<div id="schools">
+    <div data-foreach-school="paginatedSchools" data-mixin="animation">
+        <div data-partial="schools/_school"></div>
+    </div>
+</div>
+
+<div data-partial="schools/_pagination"></div>
