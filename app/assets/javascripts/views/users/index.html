@@ -1,5 +1,14 @@
 <div class="title">
-    <h1>Directory</h1>
+    <h1>All Members</h1>
+
+    <div data-view="UsersSearchView">
+      <form accept-charset="UTF-8" id="user-search" method="get" class="form-search"
+        data-event-submit="search">
+        <input id="user-query" data-bind="searchQuery"
+          name="q" placeholder="Search all DFOs by name" type="text" class="search-query">
+      </form>
+    </div>
+
     <h2>
         Page: <span data-bind="paginatedUsers.page"></span> of
         <span data-bind="paginatedUsers.pageCount"></span>
