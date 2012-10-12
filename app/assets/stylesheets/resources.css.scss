@@ -2,7 +2,7 @@
  * Index view styles
  **************************/
 
-a.school {
+a.resource {
   display: block;
   position: relative;
   color: #666;
@@ -28,10 +28,10 @@ a.school {
     color-stop(0.83, rgb(255,255,255))
   );
 
-  .school-detail {
+  .resource-detail {
     float: left;
 
-    .school-name {
+    .resource-name {
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 8px;
@@ -39,17 +39,17 @@ a.school {
     }
   }
 
-  .school-next {
+  .resource-next {
     float: right;
   }
 }
 
-#schools :first-child > div > div > a.school {
+.resource-list :first-child > div > div > a.resource {
   border-top: 1px solid #d4d4d4;
   border-top-right-radius: 2px;
   border-top-left-radius: 2px;
 }
 
-a.school:hover {
+a.resource:hover {
   text-decoration: none;
 }
