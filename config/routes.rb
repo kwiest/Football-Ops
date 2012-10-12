@@ -41,6 +41,7 @@ FootballOps::Application.routes.draw do
         get :paginated, on: :collection
         get :search,    on: :collection
       end
+      match 'schools/paginated/total_count' => 'schools#total_count', via: :get
 
       resources :conferences, :districts, :divisions
     end

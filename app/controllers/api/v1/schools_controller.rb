@@ -22,6 +22,11 @@ module Api
         render json: @school, root: false
       end
 
+      def total_count
+        @count = School.count
+        render json: { count: @count }
+      end
+
     end
   end
 end
