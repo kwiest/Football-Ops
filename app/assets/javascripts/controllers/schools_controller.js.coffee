@@ -10,3 +10,9 @@ class FootballOps.SchoolsController extends Batman.Controller
     navigateToPage: (link) ->
         page = $(link).html() or 1
         @redirect "/schools?page=#{page}"
+
+    show: (params) ->
+        school = FootballOps.School.find parseInt(params.id, 10), (err) ->
+            throw err if err
+        @set 'school', school
+

@@ -1,0 +1,46 @@
+<div id="show-school">
+    <div class="link-back">
+        <a data-route="routes.schools"><i class="icon-arrow-left"></i> Back to all schools</a>
+    </div>
+
+    <div class="clearfix">
+        <h2 data-bind="school.name"></h2>
+        <div class="well">
+            <dl>
+                <dt>Address:</dt>
+                <dd>
+                    <div id="street" data-bind="school.address_street"></div>
+                    <div id="city-state-zip" data-bind="school.address_city_state_zip"></div>
+                </dd>
+
+                <dt>Division:</dt>
+                <dd>
+                    <a data-route="routes.divisions[school.division_id]"
+                        data-bind="school.division_name"></a>
+                    &nbsp;
+                </dd>
+
+                <dt>Conference:</dt>
+                <dd>
+                    <a data-route="routes.conferences[school.conference_id]"
+                        data-bind="school.conference_name"></a>
+                    &nbsp;
+                </dd>
+
+                <dt>District:</dt>
+                <dd>
+                    <a data-route="routes.districts[school.district_id]"
+                        data-bind="school.district_name"></a>
+                    &nbsp;
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <h3>School DFOs</h3>
+    <div id="users" class="resource-list">
+        <div data-foreach-user="school.users" data-mixin="animation">
+            <div data-partial="users/_user"></div>
+        </div>
+    </div>
+</div>
