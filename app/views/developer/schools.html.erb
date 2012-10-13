@@ -56,7 +56,7 @@
   <h2>Show All Schools</h2>
   <p>
     Returns a paginated list of all schools listed on FootballOps.org. 
-    Also includes all associated DFOs.
+    Also includes ids of all associated DFOs.
   </p>
 </div>
 
@@ -84,7 +84,7 @@
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
-<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/schools"</span> \
+<strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/schools/paginated"</span> \
   -d <span class="string">"page=1"</span> \
   -d <span class="string">"limit=25"</span> \
   -H <span class="string">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span></pre>

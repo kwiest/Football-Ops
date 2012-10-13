@@ -21,7 +21,6 @@ class DeveloperController < ApplicationController
 
   def schools
     @school = PaginatedSchoolSerializer.new(user.school).serializable_hash
-    trim_users_for @school
   end
 
   def conferences
