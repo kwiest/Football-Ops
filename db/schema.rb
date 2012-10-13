@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121003222906) do
+ActiveRecord::Schema.define(:version => 20121013222832) do
 
   create_table "access_tokens", :force => true do |t|
     t.integer  "app_id"
@@ -83,7 +83,10 @@ ActiveRecord::Schema.define(:version => 20121003222906) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.tsvector "search"
   end
+
+  add_index "schools", ["search"], :name => "schools_search_index"
 
   create_table "uploads", :force => true do |t|
     t.string   "name"

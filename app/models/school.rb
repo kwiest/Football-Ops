@@ -9,4 +9,9 @@ class School < ActiveRecord::Base
   validates :conference, :district, :division, presence: true
 
   default_scope order(:name)
+
+  def self.search(query)
+    sql = sanitize_sql_array ["plainto_tsquery('english', ?)", query]
+    where("search @@ #{sql}").order("ts_rank_cd(search, #{sql}) DESC")
+  end
 end
