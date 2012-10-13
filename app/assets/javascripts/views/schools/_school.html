@@ -1,6 +1,10 @@
 <a data-route="routes.schools[school]" class="resource school clearfix">
     <div class="resource-detail">
         <div class="resource-name" data-bind="school.name"></div>
+        <div class="school-address">
+            <div class="street" data-bind="school.address_street"></div>
+            <div class="city-state-zip" data-bind="school.address_city_state_zip"></div>
+        </div>
     </div>
     <div class="resource-next"><i class="icon-chevron-right"></i></div>
 </a>
