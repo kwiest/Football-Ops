@@ -11,10 +11,9 @@ module Api
       def paginated
         page  = params.fetch :page, 1
         limit = params.fetch :limit, 25
-        @schools = School.page(page).per(limit).map do |school|
-          PaginatedSchoolSerializer.new(school)
-        end
-        render json: @schools, root: false
+        @schools = School.page(page).per(limit).to_a
+        render json: @schools,
+          each_serializer: SchoolSerializer, root: false
       end
 
       def show

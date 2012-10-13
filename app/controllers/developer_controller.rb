@@ -20,7 +20,7 @@ class DeveloperController < ApplicationController
   end
 
   def schools
-    @school = PaginatedSchoolSerializer.new(user.school).serializable_hash
+    @school = SchoolSerializer.new(user.school).serializable_hash
   end
 
   def conferences
