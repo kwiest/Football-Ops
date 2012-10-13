@@ -4,11 +4,15 @@ class FootballOps.School extends FootballOps.BaseModel
     @storageKey: 'api/v1/schools'
 
     @encode 'id', 'name', 'address_street', 'address_city_state_zip',
-        'conference_id', 'district_id', 'division_id'
+        'conference_id', 'conference_name',
+        'district_id', 'district_name',
+        'division_id', 'division_name'
 
     @encode 'users'
         encode: false
         decode: (json) ->
-            u = new FootballOps.User
-            u.fromJSON(json)
-            u
+            users_array = []
+            for user_id in json
+                u = FootballOps.User.find user_id, (err) -> throw err if err
+                users_array.push u
+            users_array
