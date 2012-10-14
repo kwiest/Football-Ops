@@ -44,38 +44,19 @@
   <a href="#api-navigation"><i class="icon-chevron-up"></i> Top</a>
   <h2>Show All Conferences</h2>
   <p>
-    Returns a paginated  list of all conferences listed on FootballOps.org.
-    Also includes all associated DFOs.
+    Returns list of all conferences listed on FootballOps.org.
+    Also includes ids of all associated DFOs.
   </p>
 </div>
 
 <pre class="pizzazz"><strong>GET</strong> conferences/</pre>
 
 <h3>Parameters</h3>
-<table class="table params">
-  <tbody>
-    <tr>
-      <td>
-        <div class="param">page</div>
-        <span>Optional</span>
-      </td>
-      <td>The page offset for list of schools. Default is 1.</td>
-    </tr>
-    <tr>
-      <td>
-        <div class="param">limit</div>
-        <span>Optional</span>
-      </td>
-      <td>The number of schools to return with your request. Default is 25.</td>
-    </tr>
-  </tbody>
-</table>
+<p>This method does not accept any parameters</p>
 
 <h3>Example Request</h3>
 <pre class="pizzazz">
 <strong>curl</strong> -i <span class="string">"<%= @api_base_uri + @api_versioned_uri %>/conferences"</span> \
-  -d <span class="string">"page=1"</span> \
-  -d <span class="string">"limit=25"</span> \
   -H <span class="string">"Authorization: Bearer YOUR_ACCESS_TOKEN"</span></pre>
 
 <h3>Example Response</h3>

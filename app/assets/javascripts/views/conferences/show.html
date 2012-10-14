@@ -1,0 +1,14 @@
+<div id="show-conference">
+    <div class="link-back">
+        <a data-route="routes.conferences"><i class="icon-arrow-left"></i> Back to all conferences</a>
+    </div>
+
+    <h2 data-bind="conference.name"></h2>
+
+    <h3>Conference DFOs</h3>
+    <div id="users" class="resource-list">
+        <div data-foreach-user="conference.users" data-mixin="animation">
+            <div data-partial="users/_user"></div>
+        </div>
+    </div>
+</div>

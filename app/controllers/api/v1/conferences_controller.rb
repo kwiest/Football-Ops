@@ -4,10 +4,7 @@ module Api
       load_and_authorize_resource
 
       def index
-        page  = params.fetch :page, 1
-        limit = params.fetch :limit, 25
-
-        @conferences = Conference.page(page).per(limit)
+        @conferences = Conference.all
         render json: @conferences, root: false
       end
 

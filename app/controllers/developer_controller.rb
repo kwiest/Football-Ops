@@ -25,7 +25,6 @@ class DeveloperController < ApplicationController
 
   def conferences
     @conference = ConferenceSerializer.new(user.conference).serializable_hash
-    trim_users_for @conference
   end
 
   def districts
