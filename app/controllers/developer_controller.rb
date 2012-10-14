@@ -29,7 +29,6 @@ class DeveloperController < ApplicationController
 
   def districts
     @district = DistrictSerializer.new(user.district).serializable_hash
-    trim_users_for @district
   end
 
   def divisions

@@ -1,5 +1,5 @@
 class DistrictSerializer < ActiveModel::Serializer
-  has_many :users
   attributes :id, :name
+  has_many :users, embed: :ids, key: :user_ids
 end
 

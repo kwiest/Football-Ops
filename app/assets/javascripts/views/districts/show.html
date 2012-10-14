@@ -1,0 +1,14 @@
+<div id="show-district">
+    <div class="link-back">
+        <a data-route="routes.districts"><i class="icon-arrow-left"></i> Back to all districts</a>
+    </div>
+
+    <h2 data-bind="district.name"></h2>
+
+    <h3>District DFOs</h3>
+    <div id="users" class="resource-list">
+        <div data-foreach-user="district.users" data-mixin="animation">
+            <div data-partial="users/_user"></div>
+        </div>
+    </div>
+</div>
