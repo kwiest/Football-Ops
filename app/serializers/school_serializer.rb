@@ -3,7 +3,7 @@ class SchoolSerializer < ActiveModel::Serializer
     :conference_id, :conference_name,
     :district_id, :district_name,
     :division_id, :division_name
-  has_many :users, embed: :ids
+  has_many :users, embed: :ids, key: :user_ids
 
   def address_street
     school.address1
