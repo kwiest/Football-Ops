@@ -8,6 +8,7 @@ class FootballOps.Conference extends FootballOps.BaseModel
     @accessor 'users', ->
         users_array = []
         user_ids = @get 'user_ids'
+        return [] unless user_ids?
         for id in user_ids
             user = FootballOps.User.find id, (err) -> throw err if err
             users_array.push user
