@@ -1,5 +1,14 @@
 <div class="title">
     <h1>School Listing</h1>
+
+    <div data-view="SchoolsSearchView">
+      <form accept-charset="UTF-8" id="school-search" method="get" class="form-search"
+        data-event-submit="search">
+        <input id="school-query" data-bind="searchQuery"
+          name="q" placeholder="Search all schools by name" type="text" class="search-query">
+      </form>
+    </div>
+
     <h2>
         Page: <span data-bind="paginatedSchools.page"></span> of
         <span data-bind="paginatedSchools.pageCount"></span>

@@ -16,3 +16,7 @@ class FootballOps.SchoolsController extends Batman.Controller
             throw err if err
         @set 'school', school
 
+    search: (params) ->
+        FootballOps.School.search params.q, (err, records) =>
+            throw err if err
+            @set 'searchSchools', records

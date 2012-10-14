@@ -26,6 +26,7 @@ window.FootballOps = class FootballOps extends Batman.App
     @route '/users/national-committee', 'users#nationalCommittee'
 
     @resources 'users', 'schools', 'conferences', 'districts', 'divisions'
+    @route '/school-search', 'schools#search'
 
     @on 'run', ->
         currentUser = new FootballOps.User

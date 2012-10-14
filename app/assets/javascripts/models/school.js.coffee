@@ -16,3 +16,12 @@ class FootballOps.School extends FootballOps.BaseModel
             user = FootballOps.User.find id, (err) -> throw err if err
             users_array.push user
         users_array
+
+    @search: (query, callback) ->
+        @request 'search', { data: { q: query } }, (err, responseJSON) =>
+            unless err
+                records = for blob in responseJSON
+                    school = new FootballOps.School
+                    school.fromJSON blob
+                    school
+                callback err, records

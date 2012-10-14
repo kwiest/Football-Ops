@@ -26,6 +26,11 @@ module Api
         render json: { count: @count }
       end
 
+      def search
+        @schools = School.search params[:q]
+        render json: @schools.to_a, root: false
+      end
+
     end
   end
 end
