@@ -7,7 +7,7 @@ FootballOps::Application.routes.draw do
   get    '/user_sessions/current' => 'user_sessions#current', as: :current_user
   post   '/user_sessions'         => 'user_sessions#create'
 
-  resources :password_resets
+  resources :password_resets, except: %w(index show delete)
 
   match '/directory' => 'directory#index'
 
