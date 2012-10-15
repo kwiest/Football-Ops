@@ -1,12 +1,12 @@
 <h1>Reset Your Password</h1>
 
-<% simple_form_for :user, url: password_resets_path do |f| %>
+<%= simple_form_for :user, url: password_resets_path, html: { class: 'form form-vertical' } do |f| %>
   <fieldset>
-    <%= f.input :email, label: "Email address", required: true %>
+    <%= f.input :email, label: 'Email address', required: true %>
   </fieldset>
   
   <div class="actions">
-    <%= f.button :submit, "Reset my password", class: "btn primary" %>
-    <%= link_to "Nevermind", new_user_session_path, class: "btn" %>
+    <%= f.button :submit, 'Reset my password', class: 'btn btn-primary' %>
+    <%= link_to 'Nevermind', sign_in_path, class: 'btn' %>
   </div>
 <% end %>

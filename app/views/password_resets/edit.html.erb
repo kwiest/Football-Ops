@@ -1,14 +1,15 @@
 <h1>Reset Your Password</h1>
 
-<% semantic_form_for :user, :url => password_reset_path, :html => { :method => :put } do |f| %>
-	<%= f.error_messages %>
+<%= simple_form_for @user, url: password_reset_path(id: @user.perishable_token),
+  html: { class: 'form form-vertical' } do |f| %>
 
-	<% f.inputs do %>
-		<%= f.input :password, :required => true %>
-		<%= f.input :password_confirmation, :required => true %>
-	<% end %>
-	
-	<% f.buttons do %>
-		<%= f.commit_button "Change password" %> or <%= link_to 'Cancel', root_path, :class => :cancel %>
-	<% end %>
+  <fieldset>
+    <%= f.input :password, required: true %>
+    <%= f.input :password_confirmation, required: true %>
+  </fieldset>
+
+  <div class="actions">
+    <%= f.button :submit, 'Change my password', class: 'btn btn-primary' %>
+    <%= link_to 'Nevermind', sign_in_path, class: 'btn' %>
+  </div>
 <% end %>
