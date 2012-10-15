@@ -31,9 +31,7 @@ class ApplicationController < ActionController::Base
   end
   
   def require_no_user
-    if current_user
-      redirect_to current_user, alert: "You have to sign-out before you can access this page."
-    end
+    redirect_to directory_path, alert: 'You have to sign-out before you can access this page.' if signed_in?
   end
 
   def signed_in?
