@@ -5,7 +5,7 @@ class FootballOps.UsersController extends Batman.Controller
     index: (params) ->
         page = params.page or 1
         paginator = new FootballOps.UserPaginator page: page
-        emailer = new FootballOps.UserEmailer model: FootballOps.User
+        emailer = new FootballOps.UserEmailer
         emailer.setAllEmailAddresses()
         @set 'paginatedUsers', paginator
         @set 'emailer', emailer

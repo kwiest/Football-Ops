@@ -1,4 +1,6 @@
 class FootballOps.UserEmailer extends Batman.Object
+    model: FootballOps.User
+
     setAllEmailAddresses: ->
         self = this
         @model.request 'email_addresses', (err, responseJSON) ->
