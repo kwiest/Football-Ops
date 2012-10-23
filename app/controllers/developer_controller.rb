@@ -21,14 +21,17 @@ class DeveloperController < ApplicationController
 
   def schools
     @school = SchoolSerializer.new(user.school).serializable_hash
+    @school[:user_ids] = [ user.id, 'next_user_id' ]
   end
 
   def conferences
     @conference = ConferenceSerializer.new(user.conference).serializable_hash
+    @conference[:user_ids] = [ user.id, 'next_user_id' ]
   end
 
   def districts
     @district = DistrictSerializer.new(user.district).serializable_hash
+    @district[:user_ids] = [ user.id, 'next_user_id' ]
   end
 
   def divisions
