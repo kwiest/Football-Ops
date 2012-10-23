@@ -7,6 +7,14 @@ class FootballOps.UsersAbstractView extends Batman.View
         $('#loading-spinner').spin false
 
 
+class FootballOps.UserEmailerView extends Batman.View
+    constructor: ->
+        super
+        emailer = @get('context').parent.parent.object.emailer
+        node = $(@get('node'))
+        $(node).attr 'href', "mailto:#{emailer.get('emailAddresses')}"
+
+
 class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
     @accessor 'isSubmitting', -> @get('context.user')?.get('lifecycle.isSaving')
     constructor: ->
