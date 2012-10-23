@@ -14,7 +14,10 @@ class FootballOps.SchoolsController extends Batman.Controller
     show: (params) ->
         school = FootballOps.School.find parseInt(params.id, 10), (err) ->
             throw err if err
+        emailer = new FootballOps.UserEmailer
+        emailer.setEmailAddressesForGroup 'school', params.id
         @set 'school', school
+        @set 'emailer', emailer
 
     search: (params) ->
         FootballOps.School.search params.q, (err, records) =>
