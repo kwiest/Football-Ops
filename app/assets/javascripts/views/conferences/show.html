@@ -5,6 +5,13 @@
 
     <h2 data-bind="conference.name"></h2>
 
+    <div class="controls">
+        <a data-view="UserEmailerView" class="btn btn-success">
+            <i class="icon-envelope"></i>
+            Email <span data-bind="conference.name"></span>DFOs
+        </a>
+    </div>
+
     <h3>Conference DFOs</h3>
     <div id="users" class="resource-list">
         <div data-foreach-user="conference.users" data-mixin="animation">
