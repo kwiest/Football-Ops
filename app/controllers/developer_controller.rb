@@ -21,22 +21,22 @@ class DeveloperController < ApplicationController
 
   def schools
     @school = SchoolSerializer.new(user.school).serializable_hash
-    @school[:user_ids] = [ user.id, 'next_user_id' ]
+    trim_user_ids_for @school
   end
 
   def conferences
     @conference = ConferenceSerializer.new(user.conference).serializable_hash
-    @conference[:user_ids] = [ user.id, 'next_user_id' ]
+    trim_user_ids_for @conference
   end
 
   def districts
     @district = DistrictSerializer.new(user.district).serializable_hash
-    @district[:user_ids] = [ user.id, 'next_user_id' ]
+    trim_user_ids_for @district
   end
 
   def divisions
     @division = DivisionSerializer.new(user.division).serializable_hash
-    @division[:user_ids] = [ user.id, 'next_user_id' ]
+    trim_user_ids_for @division
   end
 
 
@@ -61,5 +61,9 @@ class DeveloperController < ApplicationController
     else
       kyle
     end
+  end
+
+  def trim_user_ids_for(resource)
+    resource[:user_ids] = [ user.id, 'next_user_id' ]
   end
 end
