@@ -10,6 +10,6 @@ class FootballOps.ConferencesController extends Batman.Controller
         conference = FootballOps.Conference.find parseInt(params.id, 10), (err) ->
             throw err if err
         emailer = new FootballOps.UserEmailer
-        emailer.setEmailAddressesForConferenceUsers params.id
+        emailer.setEmailAddressesForGroup 'conference', params.id
         @set 'conference', conference
         @set 'emailer', emailer
