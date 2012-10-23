@@ -61,6 +61,34 @@ module Api
         render json: { count: @count }
       end
 
+      def email_addresses
+        email_addresses = User.pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
+      def email_addresses_by_conference
+        conference = Conference.find params[:conference_id]
+        email_addresses = conference.users.pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
+      def email_addresses_by_district
+        district = District.find params[:district_id]
+        email_addresses = district.users.pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
+      def email_addresses_by_division
+        division = Division.find params[:division_id]
+        email_addresses = division.users.pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
+      def email_addresses_by_school
+        school = School.find params[:school_id]
+        email_addresses = school.users.pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
 
       private
 

@@ -28,12 +28,19 @@ FootballOps::Application.routes.draw do
   # JSON API Routes
   namespace :api, defaults: { format: 'json' } do
     namespace :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+
       resources :users, except: %w(new edit) do
         collection do
           get :search
           get :conference_reps
           get :national_committee
           get :total_count
+
+          match 'email_addresses'                              => 'users#email_addresses',               via: :get
+          match 'email_addresses_by_conference/:conference_id' => 'users#email_addresses_by_conference', via: :get
+          match 'email_addresses_by_district/:district_id'     => 'users#email_addresses_by_district',   via: :get
+          match 'email_addresses_by_division/:division_id'     => 'users#email_addresses_by_division',   via: :get
+          match 'email_addresses_by_school/:school_id'         => 'users#email_addresses_by_school',     via: :get
         end
       end
 
