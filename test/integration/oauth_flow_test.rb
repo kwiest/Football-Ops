@@ -34,15 +34,4 @@ class OauthFlowTest < ActionDispatch::IntegrationTest
     visit '/oauth/authorize?client_id=bad'
     assert has_content?('invalid_request'), 'Server should display invalid_request error'
   end
-
-  def test_requesting_access_token_with_proper_credentials
-    #code = @app.create_authorization_code_for_user @kyle
-    #user = @app.client_id
-    #pass = @app.client_secret
-    #auth = ActionController::HttpAuthentication::Basic.encode_credentials user, pass
-
-    #post '/oauth/token', { 'grant_type' => 'authorization_code', 'code' => code }.to_json,
-      #{ 'HTTP_AUTHORIZATION' => auth, 'HTTP_CONTENT_TYPE' => 'application/json' }
-    #assert_response :success
-  end
 end
