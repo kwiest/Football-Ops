@@ -33,7 +33,7 @@ class DeveloperController < ApplicationController
 
   def divisions
     @division = DivisionSerializer.new(user.division).serializable_hash
-    trim_users_for @division
+    @division[:user_ids] = [ user.id, 'next_user_id' ]
   end
 
 
@@ -44,29 +44,12 @@ class DeveloperController < ApplicationController
     @api_versioned_uri = '/api/v1'
   end
 
-  def assign_user
-    if signed_in?
-      @user = current_user
-    else
-      @user = kyle
-    end
-  end
-
   def kyle
     User.find 105
   end
 
   def hawk
     User.find 104
-  end
-
-  def trim_users_for(resource)
-    if signed_in?
-      resource[:users] = resource[:users].select { |user| user[:id] == current_user.id }
-    else
-      resource[:users] = resource[:users].slice! 0, 1
-    end
-    resource[:users] << { next_user: '...' }
   end
 
   def user
