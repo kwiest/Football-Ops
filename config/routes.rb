@@ -36,11 +36,13 @@ FootballOps::Application.routes.draw do
           get :national_committee
           get :total_count
 
-          match 'email_addresses'                              => 'users#email_addresses',               via: :get
-          match 'email_addresses_by_conference/:conference_id' => 'users#email_addresses_by_conference', via: :get
-          match 'email_addresses_by_district/:district_id'     => 'users#email_addresses_by_district',   via: :get
-          match 'email_addresses_by_division/:division_id'     => 'users#email_addresses_by_division',   via: :get
-          match 'email_addresses_by_school/:school_id'         => 'users#email_addresses_by_school',     via: :get
+          match 'email_addresses'                              => 'users#email_addresses',                        via: :get
+          match 'email_addresses_for_conference_reps'          => 'users#email_addresses_for_conference_reps',    via: :get
+          match 'email_addresses_for_national_committee'       => 'users#email_addresses_for_national_committee', via: :get
+          match 'email_addresses_by_conference/:conference_id' => 'users#email_addresses_by_conference',          via: :get
+          match 'email_addresses_by_district/:district_id'     => 'users#email_addresses_by_district',            via: :get
+          match 'email_addresses_by_division/:division_id'     => 'users#email_addresses_by_division',            via: :get
+          match 'email_addresses_by_school/:school_id'         => 'users#email_addresses_by_school',              via: :get
         end
       end
 

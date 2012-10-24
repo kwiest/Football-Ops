@@ -66,6 +66,16 @@ module Api
         render json: { email_addresses: email_addresses }
       end
 
+      def email_addresses_for_conference_reps
+        email_addresses = User.where(conference_rep: true).pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
+      def email_addresses_for_national_committee
+        email_addresses = User.where(national_committee: true).pluck(:email).join '; '
+        render json: { email_addresses: email_addresses }
+      end
+
       def email_addresses_by_conference
         conference = Conference.find params[:conference_id]
         email_addresses = conference.users.pluck(:email).join '; '
