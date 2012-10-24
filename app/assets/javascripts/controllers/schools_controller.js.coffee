@@ -17,7 +17,7 @@ class FootballOps.SchoolsController extends Batman.Controller
         emailer = new FootballOps.UserEmailer
         emailer.setEmailAddressesForGroup 'school', params.id
         @set 'school', school
-        @set 'emailer', emailer
+        @set 'userEmailView', new FootballOps.UserEmailerView emailer: emailer
 
     search: (params) ->
         FootballOps.School.search params.q, (err, records) =>

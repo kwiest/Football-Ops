@@ -8,7 +8,7 @@ class FootballOps.UsersController extends Batman.Controller
         emailer = new FootballOps.UserEmailer
         emailer.setAllEmailAddresses()
         @set 'paginatedUsers', paginator
-        @set 'emailer', emailer
+        @set 'userEmailView', new FootballOps.UserEmailerView emailer: emailer
 
     navigateToPage: (link) ->
         page = $(link).html() or 1

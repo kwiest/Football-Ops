@@ -12,4 +12,4 @@ class FootballOps.ConferencesController extends Batman.Controller
         emailer = new FootballOps.UserEmailer
         emailer.setEmailAddressesForGroup 'conference', params.id
         @set 'conference', conference
-        @set 'emailer', emailer
+        @set 'userEmailView', new FootballOps.UserEmailerView emailer: emailer
