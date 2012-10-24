@@ -15,14 +15,20 @@ class FootballOps.UsersController extends Batman.Controller
         @redirect "/users?page=#{page}"
 
     conferenceReps: (params) ->
+        emailer = new FootballOps.UserEmailer
+        emailer.setEmailAddressesForConferenceReps()
         FootballOps.User.conferenceReps (err, records) =>
             throw err if err
             @set 'users', records
+            @set 'userEmailView', new FootballOps.UserEmailerView emailer: emailer
 
     nationalCommittee: (params) ->
+        emailer = new FootballOps.UserEmailer
+        emailer.setEmailAddressesForNationalCommittee()
         FootballOps.User.nationalCommittee (err, records) =>
             throw err if err
             @set 'users', records
+            @set 'userEmailView', new FootballOps.UserEmailerView emailer: emailer
     
     show: (params) ->
         @set 'user', FootballOps.User.find parseInt(params.id, 10), (err) -> throw err if err

@@ -2,6 +2,12 @@
     <h1>National Committee</h1>
 </div>
 
+<div class="controls">
+    <a data-view="userEmailView" data-bind-href="userEmailView.emailAddresses" class="btn btn-success">
+        <i class="icon-envelope"></i> Email all National Committee Members
+    </a>
+</div>
+
 <div id="users" class="resource-list">
     <div data-foreach-user="users" data-mixin="animation">
         <div data-partial="users/_user"></div>
