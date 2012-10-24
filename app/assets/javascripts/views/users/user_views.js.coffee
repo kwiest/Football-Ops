@@ -8,11 +8,8 @@ class FootballOps.UsersAbstractView extends Batman.View
 
 
 class FootballOps.UserEmailerView extends Batman.View
-    constructor: ->
-        super
-        emailer = @get('context').parent.parent.object.emailer
-        node = $(@get('node'))
-        $(node).attr 'href', "mailto:#{emailer.get('emailAddresses')}"
+    @accessor 'emailAddresses', ->
+        'mailto:' + @get('emailer').get('emailAddresses')
 
 
 class FootballOps.UsersFormView extends FootballOps.UsersAbstractView
