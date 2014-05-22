@@ -1,9 +1,0 @@
-development:
-	bucket: football-ops-devel
-	access_key: AKIAJJS76LHBMMUAS25A
-	secret_access_key: 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
-
-production:
-	bucket_name: football-ops
-	access_key: AKIAJJS76LHBMMUAS25A
-	secret_access_key: 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
